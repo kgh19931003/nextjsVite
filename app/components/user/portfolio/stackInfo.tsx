@@ -7,45 +7,35 @@ interface ListPara {
     size: string[];
 }
 
-
 interface ListProps {
     ListInfo: ListPara[];
 }
 
 const StackInfoList: React.FC<ListProps> = ({ ListInfo }) => {
     return (
-        <div>
+        <div className="space-y-10">
             {ListInfo.map((listPara) => (
-                <div className="skill_line" key={listPara.id}>
-                    {/* 이름을 동적으로 표시 */}
-                    <div className="font-bold"
-                         style={{
-                             margin: "0px 0px 30px 0px",
-                         }}
-                    >{listPara.name}</div>
+                <div key={listPara.id} className="space-y-4">
+                    {/* 항목 제목 */}
+                    <div className="font-bold text-lg">{listPara.name}</div>
 
-                    {/* 이미지 배열을 순회하여 각 이미지를 표시 */}
-                    <div className="inline-block">
+                    {/* 이미지 목록 */}
+                    <div className="flex flex-wrap items-center gap-4">
                         {listPara.value.map((image, index) => (
                             <img
                                 key={index}
-                                src={`img/${image}`}
+                                src={`/img/${image}`}
                                 alt={image}
+                                className="align-super"
                                 style={{
                                     width: `${listPara.size[index]}px`,
-                                    verticalAlign: "super",
                                 }}
                             />
                         ))}
 
-                        {/* name이 "자격증"일 경우 특정 span을 렌더링 */}
+                        {/* 자격증 텍스트 */}
                         {listPara.name === "자격증" && (
-                            <span
-                                className="font-bold"
-
-                            >
-                            정보처리기사
-                        </span>
+                            <span className="font-bold text-base">정보처리기사</span>
                         )}
                     </div>
                 </div>

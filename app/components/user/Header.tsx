@@ -55,7 +55,15 @@ export default function Header() {
                         onMouseEnter={() => setOpenMenu('about')}
                         onMouseLeave={() => setOpenMenu(null)}
                     >
-                        <li className="cursor-pointer hover:text-blue-500">CRUD 게시판</li>
+                        <li className="cursor-pointer hover:text-blue-500" onClick={()=>{router.push("http://kim-portfolio.p-e.kr/php")}}>PHP 포트폴리오</li>
+                    </div>
+
+                    <div
+                        className="relative py-5"
+                        onMouseEnter={() => setOpenMenu('about')}
+                        onMouseLeave={() => setOpenMenu(null)}
+                    >
+                        <li className="cursor-pointer hover:text-blue-500"  onClick={()=>{router.push("http://kim-portfolio.p-e.kr/react-table")}}>CRUD 게시판</li>
                         {openMenu === 'about' && (
                             <ul className="absolute hidden top-full left-0 w-50 mt-0
                                             bg-white dark:bg-neutral-800
@@ -63,8 +71,8 @@ export default function Header() {
                                             rounded-md shadow-md z-50">
                                 <li><Link href={`/${currentLocale}/introduction`}
                                           className="block px-4 py-2 hover:bg-gray-100 hover:rounded dark:hover:bg-neutral-600">
-                                  </Link></li>
-                              
+                                </Link></li>
+
                             </ul>
                         )}
                     </div>
@@ -74,17 +82,7 @@ export default function Header() {
                         onMouseEnter={() => setOpenMenu('product/solution')}
                         onMouseLeave={() => setOpenMenu(null)}
                     >
-                        <li className="cursor-pointer hover:text-blue-500">전자정부 프레임워크</li>
-                        {openMenu === 'product/solution' && (
-                            <ul className="absolute hidden top-full left-0 w-50 mt-0
-                                           bg-white dark:bg-neutral-800
-                                           border border-gray-200 dark:border-neutral-700
-                                           rounded-md shadow-md z-50">
-                                <li><Link href="/product/elmp"
-                                          className="block px-4 py-2 hover:bg-gray-100 hover:rounded dark:hover:bg-neutral-600">
-                                    금속분말</Link></li>
-                            </ul>
-                        )}
+                        <li className="cursor-pointer hover:text-blue-500" onClick={()=>{router.push("http://kim-portfolio.p-e.kr:8080")}}>전자정부 프레임워크</li>
                     </div>
 
                     <li className="py-5">
@@ -110,7 +108,7 @@ export default function Header() {
 
                 {/* 햄버거 메뉴 (모바일) */}
                 <button className="md:hidden" onClick={() => setIsMobileMenuOpen(true)}>
-                    <Menu className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    <Menu className="w-6 h-6 text-blue-600 dark:text-blue-400"/>
                 </button>
             </nav>
 
