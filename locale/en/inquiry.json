@@ -1,0 +1,30 @@
+{
+  "inquiry" : {
+    "온라인 문의": "Inquiry",
+    "문의 유형": "Category",
+    "문의 유형을 선택하세요_": "Please choose your industry",
+    "적층 제조 - 제작": "Additive manufacturing - Menufacture",
+    "적층 제조 - 보수": "Additive manufacturing - Repair",
+    "금속 분말 - Ni Alloy": "Metal Powder - Ni Alloy",
+    "금속 분말 - Stainless": "Metal Powder - StainLess",
+    "기타": "Etc",
+    "회사명": "Company",
+    "회사명을 입력해주세요_": "Please enter your company name",
+    "담당자명": "Manager",
+    "담당자명을 입력해주세요_": "Please enter the manager name",
+    "연락처": "Tel",
+    "숫자만 입력해주세요 (예: 01012345678)": "Please enter phone number (ex: 01012345678)",
+    "이메일": "E-mail",
+    "이메일을 입력해주세요_": "Please enter your email",
+    "문의 내용": "Details",
+    "문의 내용을 입력해주세요_": "Please enter your inquiry",
+    "첨부파일": "Attachment",
+    "파일선택": "Select File",
+    "개인정보 처리방침에 동의합니다_ (필수)": "I agree to the Privacy Policy. (Required)",
+    "문의 접수 중 오류가 발생했습니다_": "An error occurred while submitting your inquiry.",
+    "문의가 성공적으로 접수되었습니다_": "Your inquiry has been successfully received",
+    "개인정보 처리방침에 동의해주세요_": "Please agree to our privacy policy.",
+    "1MB를 초과하는 이미지는 업로드할 수 없습니다_\n제외된 파일: ": "Images exceeding 1MB cannot be uploaded.\nExcluded files: ",
+    "이미지 파일만 업로드할 수 있습니다_\n제외된 파일: ": "Only image files can be uploaded.\nExcluded files: "
+  }
+}

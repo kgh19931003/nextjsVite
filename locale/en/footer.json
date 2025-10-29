@@ -1,0 +1,17 @@
+{
+  "footer" : {
+    "본사": "Head Office",
+    "공장": "Factory",
+    "지사": "Branch Office",
+    "전화": "Tel",
+    "팩스": "Fax",
+    "이메일": "Email",
+    "이용약관": "Terms",
+    "개인정보처리방침": "Privacy",
+    "이메일 무단 수집 거부": "E-mail Policy",
+    "㈜갓테크_ All rights reserved_": "GOD TECH Co.,Ltd. All rights reserved.",
+    "경남 창원시 의창구 창원대로397번길 11 제205동 제지1층 105호": "Building 205, 1,Apartment 105 , 11, Changwon-daero 397beon-gil, Uichang-gu, Changwon-si",
+    "경남 김해시 대동면 대동산단2로 263-17": "263-17, Daedongsandan 2-ro, Daedong-myeon, Gimhae-si",
+    "부산광역시 중구 대청로 136 한국산업은행 9층 KDB NextONE": "136, Daecheong-ro, Jung-gu, Busan"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "menuTitle" : {
+    "홈": "Home",
+    "회사소개": "About Us",
+    "비전 & 목표": "Vision",
+    "연혁": "History",
+    "인증": "Certification",
+    "사업장": "Location",
+    "제품 소개": "Product",
+    "서비스": "Service",
+    "3D 프린팅": "3D Printing",
+    "3D 스캔": "3D Scan",
+    "금속 분말": "Metal Powder",
+
+    "설계": "",
+
+    "블로그": "Blog",
+    "블로그 상세": "Blog View",
+    "소식지": "Blog",
+    "소식지 상세": "Blog View",
+    "사업분야": "",
+
+    "이용약관": "Term",
+    "개인정보처리방침": "Privacy",
+    "이메일 무단수집 거부": "Email Policy",
+
+    "온라인 문의": "Inquiry",
+
+    "금속분말": "Powder",
+    "Ni Alloy": "Ni Alloy",
+    "스테인레스 분말": "Stainless"
+
+  }
+}

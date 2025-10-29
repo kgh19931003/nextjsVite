@@ -1,0 +1,12 @@
+{
+  "locations" : {
+      "본사": "Head office",
+      "공장": "Factory",
+      "지사": "Branch office",
+      "경상남도 창원시 의창구 창원대로397번길 11 제205동 제지1층 105호": "Building 205, 1,Apartment 105 , 11, Changwon-daero 397beon-gil, Uichang-gu, Changwon-si, Gyeongsangnam-do, Republic of Korea",
+      "경상남도 김해시 대동면 대동산단2로 263-17": "263-17, Daedongsandan 2-ro, Daedong-myeon, Gimhae-si, Gyeongsangnam-do, Republic of Korea",
+      "부산광역시 중구 대청로 136 한국산업은행 9층 KDB NextONE": "136, Daecheong-ro, Jung-gu, Busan, Republic of Korea",
+      "전화": "Tel",
+      "팩스": "Fax"
+  }
+}
