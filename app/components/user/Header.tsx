@@ -153,7 +153,9 @@ export default function Header() {
 
                     <Link href={`/${currentLocale}`} className="flex items-center w-[156px] gap-2 text-lg font-bold relative">
                         {/* 로고 아이콘 */}
+
                         <div className="relative h-8 w-[66px]">
+                            {/*
                             <img
                                 src="/logo/portfolio_logo_white.png"
                                 alt="로고 흰"
@@ -168,218 +170,59 @@ export default function Header() {
                             ${scrolled ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
                           `}
                             />
+                            */}
+
+                            <div className={`h-8 w-auto object-contain absolute  top-0 left-0.5 transition-opacity duration-300
+                            ${scrolled ? 'opacity-0' : 'opacity-0 group-hover:opacity-100 text-black'}`}>
+                                Logo
+                            </div>
+
+                            <div className={`h-8 w-auto object-contain absolute  top-0 left-0.5 transition-opacity duration-300
+                            ${!scrolled ? 'opacity-100' : 'opacity-0 group-hover:opacity-0'}`}>
+                                Logo
+                            </div>
                         </div>
 
-                        {/* 텍스트 로고 */}
-                        <div className="relative h-8 w-[256px] mt-1 pl-1">
-                            <img
-                                src="/logo/portfolio_logo_text_white.png"
-                                alt="텍스트 흰"
-                                className={`h-8 w-auto object-contain absolute top-0 left-0.5 transition-opacity duration-300
-                            ${scrolled ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}
-                          `}
-                            />
-                            <img
-                                src="/logo/portfolio_logo_text.png"
-                                alt="텍스트 검"
-                                className={`h-8 w-auto object-contain absolute top-0 left-0.5 transition-opacity duration-300
-                            ${scrolled ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
-                          `}
-                            />
-                        </div>
+
                     </Link>
 
                     {/* 데스크탑 메뉴 */}
                     <ul className="hidden md:flex gap-20 relative">
-                        {/* 회사소개 */}
+                        {/* 관리자이동 */}
                         <div
                             className="relative py-10"
                             onMouseEnter={() => setOpenMenu('about')}
                             onMouseLeave={() => setOpenMenu(null)}
                         >
                             <Link
-                                href={`/${currentLocale}/company/Vision`}
+                                href={`/${currentLocale}/admin`}
                                 className="cursor-pointer hover:text-[#56BC6F] font-bold"
                             >
-                                {t('회사소개')}
+                                {t('관리자')}
                             </Link>
                             <AnimatePresence>
-                                {openMenu === 'about' && (
-                                    <motion.ul
-                                        key="about-dropdown"
-                                        initial="hidden"
-                                        animate="visible"
-                                        exit="exit"
-                                        variants={dropdownVariants}
-                                        className="absolute top-full left-1/2 -translate-x-1/2 w-35 mt-0
-                                    bg-white dark:bg-neutral-800
-                                    border border-gray-200 dark:border-neutral-700
-                                    rounded-md shadow-md z-50 text-center"
-                                    >
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/company/Vision`}
-                                                className="block px-4 py-2 hover:bg-gray-100 hover:rounded dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('비전&목표')}
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/company/Timeline`}
-                                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('연혁')}
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/company/Certification`}
-                                                className="block px-4 py-2 hover:bg-gray-100 hover:rounded dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('인증')}
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/company/Locations`}
-                                                className="block px-4 py-2 hover:bg-gray-100 hover:rounded dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('사업장')}
-                                            </Link>
-                                        </li>
-                                    </motion.ul>
-                                )}
+
                             </AnimatePresence>
                         </div>
+                    </ul>
 
-                        {/* 적층 제조 */}
-                        <div
-                            className="relative py-10 "
-                            onMouseEnter={() => setOpenMenu('ProductAndService')}
-                            onMouseLeave={() => setOpenMenu(null)}
-                        >
-                            <Link
-                                href={`/${currentLocale}/business/Manufacturing`}
-                                className="cursor-pointer hover:text-[#56BC6F] font-bold" // hover:text만 남기세요
-                            >
-                                {t('적층 제조')}
-                            </Link>
-                            <AnimatePresence>
-                                {openMenu === 'ProductAndService' && (
-                                    <motion.ul
-                                        key="product-dropdown"
-                                        initial="hidden"
-                                        animate="visible"
-                                        exit="exit"
-                                        variants={dropdownVariants}
-                                        custom={scrolled}
-                                        className="absolute top-full left-1/2 -translate-x-1/2 w-40 mt-0
-                                       bg-white dark:bg-neutral-800
-                                       border border-gray-200 dark:border-neutral-700
-                                       rounded-md shadow-md z-50 text-center"
-                                    >
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/business/Manufacturing`}
-                                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('제작')}
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/business/Repair`}
-                                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('보수')}
-                                            </Link>
-                                        </li>
-                                    </motion.ul>
-                                )}
-                            </AnimatePresence>
-                        </div>
-
-
-                        {/* 금속 분말 */}
-                        <div
-                            className="relative py-10 "
-                            onMouseEnter={() => setOpenMenu('Powder')}
-                            onMouseLeave={() => setOpenMenu(null)}
-                        >
-                            <Link
-                                href={`/${currentLocale}/powder/NiAlloy`}
-                                className="cursor-pointer hover:text-[#56BC6F] font-bold" // hover:text만 남기세요
-                            >
-                                {t('금속 분말')}
-                            </Link>
-                            <AnimatePresence>
-                                {openMenu === 'Powder' && (
-                                    <motion.ul
-                                        key="Powder-dropdown"
-                                        initial="hidden"
-                                        animate="visible"
-                                        exit="exit"
-                                        variants={dropdownVariants}
-                                        custom={scrolled}
-                                        className="absolute top-full left-1/2 -translate-x-1/2 w-40 mt-0
-                                       bg-white dark:bg-neutral-800
-                                       border border-gray-200 dark:border-neutral-700
-                                       rounded-md shadow-md z-50 text-center"
-                                    >
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/powder/NiAlloy`}
-                                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('Ni Alloy')}
-                                            </Link>
-                                        </li>
-                                        {/*
-                                        <li>
-                                            <Link
-                                                href={`/${currentLocale}/powder/Stainless`}
-                                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600 hover:text-[#56BC6F]"
-                                            >
-                                                {t('Stainless')}
-                                            </Link>
-                                        </li>
-                                        */}
-                                    </motion.ul>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                        
-
-                        {/* 게시판 */}
+                    {/* 데스크탑 메뉴 */}
+                    <ul className="hidden md:flex gap-20 relative">
+                        {/* 관리자이동 */}
                         <div
                             className="relative py-10"
-                            onMouseEnter={() => setOpenMenu('IrAndPr')}
+                            onMouseEnter={() => setOpenMenu('about')}
                             onMouseLeave={() => setOpenMenu(null)}
                         >
                             <Link
-                                href={`/${currentLocale}/Blog/Lists`}
+                                href={`/${currentLocale}/admin`}
                                 className="cursor-pointer hover:text-[#56BC6F] font-bold"
                             >
-                                {t('소식지')}
+                                {t('관리자')}
                             </Link>
+                            <AnimatePresence>
 
-                        </div>
-
-                        {/* 온라인 문의 */}
-
-                        <div
-                            className="relative py-10"
-                            onMouseEnter={() => setOpenMenu('IrAndPr')}
-                            onMouseLeave={() => setOpenMenu(null)}
-                        >
-                            <Link
-                                href={`/${currentLocale}/Inquiry`}
-                                className="cursor-pointer hover:text-[#56BC6F] font-bold"
-                            >
-                                {t('온라인 문의')}
-                            </Link>
-
+                            </AnimatePresence>
                         </div>
                     </ul>
 
@@ -572,110 +415,9 @@ export default function Header() {
                                         </AnimatePresence>
                                     </div>
 
-                                    {/* 적층 제조 */}
-                                    <div className="group">
-                                        <button
-                                            onClick={() => toggleMobileSubmenu('ProductAndService')}
-                                            className="flex items-center justify-between w-full text-3xl lg:text-4xl font-light text-gray-800 dark:text-gray-200 hover:text-[#56BC6F] transition-colors py-3 border-b border-gray-200 dark:border-neutral-700"
-                                        >
-                                            <span>{t('적층 제조')}</span>
-                                            <ChevronDown
-                                                className={clsx("w-8 h-8 transition-transform duration-300", mobileSubmenuOpen['ProductAndService'] && "rotate-180")}/>
-                                        </button>
-                                        <AnimatePresence>
-                                            {mobileSubmenuOpen['ProductAndService'] && (
-                                                <motion.div
-                                                    initial={{height: 0, opacity: 0}}
-                                                    animate={{height: 'auto', opacity: 1}}
-                                                    exit={{height: 0, opacity: 0}}
-                                                    transition={{duration: 0.3}}
-                                                    className="overflow-hidden ml-8 mt-4"
-                                                >
-                                                    <div className="space-y-3">
-                                                        <Link
-                                                            href={`/${currentLocale}/business/Manufacturing`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('제작')}
-                                                        </Link>
-                                                        <Link
-                                                            href={`/${currentLocale}/business/Repair`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('보수')}
-                                                        </Link>
 
-                                                    </div>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
 
-                                    {/* 금속 분말 */}
-                                    <div className="group">
-                                        <button
-                                            onClick={() => toggleMobileSubmenu('Powder')}
-                                            className="flex items-center justify-between w-full text-3xl lg:text-4xl font-light text-gray-800 dark:text-gray-200 hover:text-[#56BC6F] transition-colors py-3 border-b border-gray-200 dark:border-neutral-700"
-                                        >
-                                            <span>{t('금속 분말')}</span>
-                                            <ChevronDown
-                                                className={clsx("w-8 h-8 transition-transform duration-300", mobileSubmenuOpen['Powder'] && "rotate-180")}/>
-                                        </button>
-                                        <AnimatePresence>
-                                            {mobileSubmenuOpen['Powder'] && (
-                                                <motion.div
-                                                    initial={{height: 0, opacity: 0}}
-                                                    animate={{height: 'auto', opacity: 1}}
-                                                    exit={{height: 0, opacity: 0}}
-                                                    transition={{duration: 0.3}}
-                                                    className="overflow-hidden ml-8 mt-4"
-                                                >
-                                                    <div className="space-y-3">
-                                                        <Link
-                                                            href={`/${currentLocale}/powder/NiAlloy`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('Ni Alloy')}
-                                                        </Link>
-                                                        {/*
-                                                        <Link
-                                                            href={`/${currentLocale}/powder/Stainless`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('Stainless')}
-                                                        </Link>
-                                                        */}
-                                                    </div>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
 
-                                    {/* 소식지 */}
-                                    <div>
-                                        <Link
-                                            href={`/${currentLocale}/Blog/Lists`}
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                            className="block text-3xl lg:text-4xl font-light text-gray-800 dark:text-gray-200 hover:text-[#56BC6F] transition-colors py-3 border-b border-gray-200 dark:border-neutral-700"
-                                        >
-                                            {t('소식지')}
-                                        </Link>
-                                    </div>
-
-                                    {/* 온라인 문의 */}
-                                    <div>
-                                        <Link
-                                            href={`/${currentLocale}/Inquiry`}
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                            className="block text-3xl lg:text-4xl font-light text-gray-800 dark:text-gray-200 hover:text-[#56BC6F] transition-colors py-3 border-b border-gray-200 dark:border-neutral-700"
-                                        >
-                                            {t('온라인 문의')}
-                                        </Link>
-                                    </div>
                                 </nav>
                             </div>
 
@@ -708,73 +450,10 @@ export default function Header() {
                                     </div>
                                 </div>
 
-                                {/* 적층 제조 */}
-                                <div className="flex flex-col items-center group">
-                                <span
-                                    className="text-3xl font-semibold text-gray-300 group-hover:text-[#53BA6E] transition-colors duration-200 dark:text-gray-400 dark:group-hover:text-[#53BA6E]">
-                                  <Link href={`/${currentLocale}/business/Manufacturing`}
-                                        onClick={() => setIsMobileMenuOpen(false)}>{t('적층 제조')}</Link>
-                                </span>
-                                    <div className="mt-10 flex flex-col items-center gap-1">
-                                        {["Manufacturing", "Repair", "Metalpowder"].map((path, i) => (
-                                            <Link
-                                                key={i}
-                                                href={`/${currentLocale}/business/${path}`}
-                                                onClick={() => setIsMobileMenuOpen(false)}
-                                                className="text-xl text-gray-300 group-hover:text-black dark:text-gray-400 dark:group-hover:text-black py-2 transition-colors duration-300 hover:animate-blink hover:scale-105"
-                                            >
-                                                {{
-                                                    "Manufacturing": t("제작"),
-                                                    "Repair": t("보수"),
-
-                                                }[path]}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* 금속 분말 */}
-                                <div className="flex flex-col items-center group">
-                                <span
-                                    className="text-3xl font-semibold text-gray-300 group-hover:text-[#53BA6E] transition-colors duration-200 dark:text-gray-400 dark:group-hover:text-[#53BA6E]">
-                                  <Link href={`/${currentLocale}/powder/NiAlloy`}
-                                        onClick={() => setIsMobileMenuOpen(false)}>{t('금속 분말')}</Link>
-                                </span>
-                                    <div className="mt-10 flex flex-col items-center gap-1">
-                                        {["NiAlloy"].map((path, i) => (
-                                            <Link
-                                                key={i}
-                                                href={`/${currentLocale}/powder/${path}`}
-                                                onClick={() => setIsMobileMenuOpen(false)}
-                                                className="text-xl text-gray-300 group-hover:text-black dark:text-gray-400 dark:group-hover:text-black py-2 transition-colors duration-300 hover:animate-blink hover:scale-105"
-                                            >
-                                                {{
-                                                    "NiAlloy": t("NiAlloy"),
 
 
-                                                }[path]}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
 
-                                {/* 소식지 */}
-                                <div className="flex flex-col items-center group">
-                                <span
-                                    className="text-3xl font-semibold text-gray-300 group-hover:text-[#53BA6E] transition-colors duration-200 dark:text-gray-400 dark:group-hover:text-[#53BA6E]">
-                                  <Link href={`/${currentLocale}/Blog/Lists`}
-                                        onClick={() => setIsMobileMenuOpen(false)}>{t('소식지')}</Link>
-                                </span>
-                                </div>
 
-                                {/* 온라인 문의 */}
-                                <div className="flex flex-col items-center group">
-                                <span
-                                    className="text-3xl font-semibold text-gray-300 group-hover:text-[#53BA6E] transition-colors duration-200 dark:text-gray-400 dark:group-hover:text-[#53BA6E]">
-                                    <Link href={`/${currentLocale}/Inquiry`}
-                                          onClick={() => setIsMobileMenuOpen(false)}>{t('온라인 문의')}</Link>
-                                </span>
-                                </div>
                             </div>
 
                             <style jsx global>{`

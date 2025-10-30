@@ -28,22 +28,11 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-[#B4E5A2] dark:bg-neutral-900 text-sm text-gray-700 dark:text-gray-300 pt-10 pb-10 border-t border-gray-200 dark:border-neutral-800">
+        <footer className="bg-[#f3f3f3] dark:bg-neutral-900 text-sm text-gray-700 dark:text-gray-300 pt-3 pb-10 border-t border-gray-200 dark:border-neutral-800">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[3fr_2fr_1fr] gap-y-8 gap-x-8">
                 {/* 1행: 로고 */}
                 <Link href="/">
-                    <div className="flex items-center justify-center sm:justify-start space-x-3 cursor-pointer">
-                        <img
-                            src="/logo/portfolio_logo.png"
-                            alt="로고"
-                            className="h-8 w-auto object-contain"
-                        />
-                        <img
-                            src="/logo/portfolio_logo_text.png"
-                            alt="로고 텍스트"
-                            className="h-8 w-auto object-contain"
-                        />
-                    </div>
+
                 </Link>
 
 
@@ -84,35 +73,26 @@ export default function Footer() {
                 {/* 3행: 본사, 공장, 지사 정보 */}
                 <div className="text-sm text-center sm:text-left grid grid-cols-[1fr_10fr] gap-x-2 gap-y-3">
 
-                    <div className="font-semibold">{t("본사")}</div>
-                    <div>{t("경남 창원시 의창구 창원대로397번길 11 제205동 제지1층 105호")}</div>
+                    <div className="font-semibold">{t("주소")}</div>
+                    <div>{t("부산 북구 화명 양달로 80-11 코오롱 아파트 102동 1401호")}</div>
 
-
-                    <div className="font-semibold">{t("공장")}</div>
-                    <div>{t("경남 김해시 대동면 대동산단2로 263-17")}</div>
-
-
-                    <div className="font-semibold">{t("지사")}</div>
-                    <div>{t("부산광역시 중구 대청로 136 한국산업은행 9층 KDB NextONE")}</div>
                 </div>
 
 
                 {/* 4행: 연락처 */}
                 <div className="text-sm grid grid-cols-[50px_1fr] gap-x-2 gap-y-1">
                     <div className="font-semibold">{t("전화")}</div>
-                    <div className="lg:whitespace-nowrap">055-724-0426</div>
+                    <div className="lg:whitespace-nowrap">010-7615-3865</div>
 
-                    <div className="font-semibold">{t("팩스")}</div>
-                    <div className="lg:whitespace-nowrap">055-724-0146</div>
 
                     <div className="font-semibold">{t("이메일")}</div>
-                    <div className="lg:whitespace-nowrap">contact@Portfolionology.co.kr</div>
+                    <div className="lg:whitespace-nowrap">sasaa3865@naver.com</div>
                 </div>
 
                 {/* 4행: 인스타그램 아이콘 */}
                 <div className="flex  sm:justify-end items-center lg:items-start">
                     <a
-                        href="https://www.instagram.com/Portfolioco.ltd"
+                        href=""
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
