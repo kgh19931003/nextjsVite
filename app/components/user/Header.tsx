@@ -208,17 +208,38 @@ export default function Header() {
 
                     {/* 데스크탑 메뉴 */}
                     <ul className="hidden md:flex gap-20 relative">
-                        {/* 관리자이동 */}
+                        {/* Front GIT 이동 */}
                         <div
                             className="relative py-10"
                             onMouseEnter={() => setOpenMenu('about')}
                             onMouseLeave={() => setOpenMenu(null)}
                         >
                             <Link
-                                href={`/${currentLocale}/admin`}
+                                href={``}
                                 className="cursor-pointer hover:text-[#56BC6F] font-bold"
                             >
-                                {t('관리자')}
+                                {t('Front Git')}
+                            </Link>
+                            <AnimatePresence>
+
+                            </AnimatePresence>
+                        </div>
+                    </ul>
+
+
+                    {/* 데스크탑 메뉴 */}
+                    <ul className="hidden md:flex gap-20 relative">
+                        {/* Backend GIT 이동 */}
+                        <div
+                            className="relative py-10"
+                            onMouseEnter={() => setOpenMenu('about')}
+                            onMouseLeave={() => setOpenMenu(null)}
+                        >
+                            <Link
+                                href={``}
+                                className="cursor-pointer hover:text-[#56BC6F] font-bold"
+                            >
+                                {t('Backend Git')}
                             </Link>
                             <AnimatePresence>
 
