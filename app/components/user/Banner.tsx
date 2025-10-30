@@ -7,7 +7,7 @@ export default function Banner() {
                     폐금속 자원, 더 이상 버리지 마세요!
                 </h2>
                 <p className="text-lg text-blue-700 mb-6">
-                    갓테크와 함께 자원 재활용을 통한 비용 절감과 친환경 경영을 실현하세요.
+                    Portfolio와 함께 자원 재활용을 통한 비용 절감과 친환경 경영을 실현하세요.
                 </p>
                 <a
                     href="/contact"

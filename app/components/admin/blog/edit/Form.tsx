@@ -18,12 +18,12 @@ interface BlogData {
 
 const categoryList: Record<string, string[]> = {
     "ko": [
-        "갓테크소식",
+        "Portfolio소식",
         "뉴스기사"
     ],
 
     "en": [
-        "Godtech Announce",
+        "Portfolio Announce",
         "News"
     ]
 }

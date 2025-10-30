@@ -9,24 +9,24 @@ const BlogMasonryList = () => {
     // 더미 블로그 데이터
     const rawPosts  = [
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "아시아 최대 스타트업 축제 '넥스트라이즈 2025', 6월 26일 코엑스에서 개최",
             image: "/blog/20250626.jpg",
             content: "한국무역협회는 6월 26일부터 27일까지 이틀간 한국산업은행과 함께 서울 강남구 코엑스에서 아시아 최대 스타트업 행사인 ‘넥스트라이즈 2025’(NextRise 2025)를 개최한다고 밝혔다.",
             date: "2025.06.26"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 하반기 IBK창공 혁신 창업기업 선정",
             image: "/blog/20250624.png",
-            content: "IBK기업은행은 2025년 하반기 IBK창공(창업기업 부문)에 갓테크가 선정 되었음을 밝혔다.",
+            content: "IBK기업은행은 2025년 하반기 IBK창공(창업기업 부문)에 Portfolio가 선정 되었음을 밝혔다.",
             date: "2025.06.24"
         },
         {
             type: "뉴스 기사",
             title: "첨단산업 분야 경남형 스타트업 10곳 글로벌 날개 단다\n",
             image: "/blog/20250608.png",
-            content: "갓테크, 그린백스, 트윈위즈 등 경남에서 떠오르는 미래 유망 첨단산업 스타트업들이 본격적인 글로벌 진출을 위한 날개를 단다.",
+            content: "Portfolio, 그린백스, 트윈위즈 등 경남에서 떠오르는 미래 유망 첨단산업 스타트업들이 본격적인 글로벌 진출을 위한 날개를 단다.",
             date: "2025.06.08"
         },
         {
@@ -37,35 +37,35 @@ const BlogMasonryList = () => {
             date: "2025.06.04"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 가스터빈 소재·부품 품질평가 및 성능검증 플랫폼 개발사업 선정",
             image: "/blog/20250507.png",
-            content: "재단법인 경남테크노파크 우주항공본부는 2025년 경남 우주산업 혁신생태계 조성 지원사업에 갓테크가 선정 되었음을 밝혔다. ",
+            content: "재단법인 경남테크노파크 우주항공본부는 2025년 경남 우주산업 혁신생태계 조성 지원사업에 Portfolio가 선정 되었음을 밝혔다. ",
             date: "2025.05.07"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 경남 원전기업 수요 맞춤형 패키지 지원사업 선정",
             image: "/blog/20250430.png",
-            content: "재단법인 경남테크노파크 에너지바이오본부 원전산업팀은 2025년 경남 원전기업 수요 맞춤형 패키지 지원사업에 갓테크가 선정 되었음을 밝혔다.",
+            content: "재단법인 경남테크노파크 에너지바이오본부 원전산업팀은 2025년 경남 원전기업 수요 맞춤형 패키지 지원사업에 Portfolio가 선정 되었음을 밝혔다.",
             date: "2025.04.30"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 경남 우주산업 혁신생태계 조성 지원사업 선정",
             image: "/blog/20250415.png",
-            content: "재단법인 경남테크노파크 우주항공본부는 2025년 경남 우주산업 혁신생태계 조성 지원사업에 갓테크가 선정 되었음을 밝혔다. ",
+            content: "재단법인 경남테크노파크 우주항공본부는 2025년 경남 우주산업 혁신생태계 조성 지원사업에 Portfolio가 선정 되었음을 밝혔다. ",
             date: "2025.04.15"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 에코스타트업 지원사업(창업기업 부문) 선정",
             image: "/blog/20250324.png",
-            content: "한국환경산업기술원은 2025년 에코스사트업 지원사업(창업기업 부문)에 갓테크가 선정되었음을 24일 밝혔다.",
+            content: "한국환경산업기술원은 2025년 에코스사트업 지원사업(창업기업 부문)에 Portfolio가 선정되었음을 24일 밝혔다.",
             date: "2025.03.24"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 창업성공패키지 글로벌창업사관학교 6기 선정",
             image: "/blog/20250321.png",
             content: "글로벌창업사관학교에서는 2025년 창업성공패키지 글로벌창업사관학교 6기 최종 합격 대상자로 선정되었음을 21일 밝혔다.",
@@ -86,7 +86,7 @@ const BlogMasonryList = () => {
             date: "2025.02.03"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "KDB NextONE 부산 2기 선정",
             image: "/blog/20250124.png",
             content: "한국산업은행 지역기업종합지원센터 혁신플랫폼팀은 2025년 상반기 KDB NextONE 부산 2기 최종합격 대상자로 선정되었음을 24일 밝혔다.",
@@ -100,7 +100,7 @@ const BlogMasonryList = () => {
             date: "2025.01.15"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 신년회 및 새로운 비전 소개",
             image: "https://framerusercontent.com/images/wtrnkiWseZJykxvXCzihXthb3o.jpg",
             content: "1월 11일 부산 호메르스호텔에서  '2025년 가족 신년회 및 시무식'를 개최했다. 이날 신년회에는 임직원 가족 및 지인분들이 참석했다.",
@@ -108,9 +108,9 @@ const BlogMasonryList = () => {
         },
         {
             type: "뉴스 기사",
-            title: "[3D프린팅연구조합 연재기고③]박기덕 ㈜갓테크 대표",
+            title: "[3D프린팅연구조합 연재기고③]박기덕 Portfolio 대표",
             image: "https://framerusercontent.com/images/YGQIN5rlHLfYGIuvj4bCCnEs.jpg",
-            content: "필자는 2004년부터 학위 과정을 포함해 국내 조선해양 분야의 용접기술연구소와 산업용 가스터빈 개발센터를 거쳐 현재 적층제조 분야의 소재 및 공정을 연구하고 개발하는 ㈜갓테크의 대표를 맡고 있다.",
+            content: "필자는 2004년부터 학위 과정을 포함해 국내 조선해양 분야의 용접기술연구소와 산업용 가스터빈 개발센터를 거쳐 현재 적층제조 분야의 소재 및 공정을 연구하고 개발하는 Portfolio의 대표를 맡고 있다.",
             date: "2024.12.12"
         },
         {
@@ -121,7 +121,7 @@ const BlogMasonryList = () => {
             date: "2024.12.03"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "중소벤처기업부 팁스(TIPS) 창업기업 지원계획 선정",
             image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=350&fit=crop",
             content: "(사)한국엔젤투자협회 팁스평가팀은 2024년 팁스(TIPS) 창업기업 지원계획 통합 공고(중소벤처기업부 공고 제2024-187호)의 팁스(TIPS) 추천 창업기업 선정평가 최종 선정되었음을 21일 밝혔다.",
@@ -142,24 +142,24 @@ const BlogMasonryList = () => {
             date: "2024.09.27"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "한국남동발전 KOEN 상생형 창업‧벤처기업 지원사업 선정",
             image: "/blog/20240917.png",
-            content: "한국생산성본부는 2024년 한국남동발전 KOEN 상생형 창업·벤처기업 지원사업 에 갓테크가 선정되었음을 6일 밝혔다.",
+            content: "한국생산성본부는 2024년 한국남동발전 KOEN 상생형 창업·벤처기업 지원사업 에 Portfolio가 선정되었음을 6일 밝혔다.",
             date: "2024.09.17"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "수요중심형기술사업화지원사업(2차) 선정",
             image: "/blog/20240916.png",
-            content: "(재)경남테크노파크에서는 2024년 수요중심형 기술사업화지원사업(2차)에 갓테크가 선정되었음을 2일 밝혔다.",
+            content: "(재)경남테크노파크에서는 2024년 수요중심형 기술사업화지원사업(2차)에 Portfolio가 선정되었음을 2일 밝혔다.",
             date: "2024.09.16"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "가스터빈 소재·부품 품질평가 및 성능검증 플랫폼 개발사업 기업지원 수혜기업 선정",
             image: "/blog/20240913.png",
-            content: "재단법인 경남테크노파크 지능기계본부 소재부품팀은 2024년 가스터빈 소재·부품 품질평가 및 성능검증 플랫폼 개발사업 기업지원 수혜기업에 갓테크가 선정되었음을 28일 밝혔다.",
+            content: "재단법인 경남테크노파크 지능기계본부 소재부품팀은 2024년 가스터빈 소재·부품 품질평가 및 성능검증 플랫폼 개발사업 기업지원 수혜기업에 Portfolio가 선정되었음을 28일 밝혔다.",
             date: "2024.09.13"
         },
         {
@@ -201,21 +201,21 @@ const BlogMasonryList = () => {
             type: "뉴스 기사",
             title: "국립창원대 두산에너빌리티 등 7개 기업과 원전 R&D 협약 체결",
             image: "https://framerusercontent.com/images/0FKVwen021jYIR6JerwCTBYu24.jpg",
-            content: "국립창원대 울산경남지역혁신플랫폼 스마트제조엔지니어링사업단은 '차세대 원전에너지 특화 인재 양성 산학연협의회 및 기업혁신클리닉'을 통해 발굴된 주제를 중심으로 두산에너빌리티, 주식회사 갓테크, 삼홍기계, 브라이트 주식회사, 피케이밸브앤엔지니어링, 대호아이앤티, 비에이치아이주식회사 등 원전 분야 관련 7개 기업과 R&D협약을 체결하고 본격적인 연구개발 협력에 나섰다고 10일 밝혔다.",
+            content: "국립창원대 울산경남지역혁신플랫폼 스마트제조엔지니어링사업단은 '차세대 원전에너지 특화 인재 양성 산학연협의회 및 기업혁신클리닉'을 통해 발굴된 주제를 중심으로 두산에너빌리티, Portfolio, 삼홍기계, 브라이트 주식회사, 피케이밸브앤엔지니어링, 대호아이앤티, 비에이치아이주식회사 등 원전 분야 관련 7개 기업과 R&D협약을 체결하고 본격적인 연구개발 협력에 나섰다고 10일 밝혔다.",
             date: "2024.05.10"
         },
         {
             type: "뉴스 기사",
             title: "자원 순환 통한 폐금속 재활용, 도시광산화사업 활성화",
             image: "https://framerusercontent.com/images/ywgmHogGsZqWIa93WCs3xrCz784.jpg",
-            content: "자연환경 보호, 한정된 자원 낭비 및 쓰레기 발생 최소화, 온실 가스 감축을 목적으로 폐금속 자원을 재활용하는 도시광산화사업이 활성화되고 있다. 이런 때 자원 순환을 통해 지속 가능한 미래를 만들어가는 폐금속 재활용 전문기업 ㈜갓테크(GODTECH)(박기덕 대표)가 이목을 끈다.",
+            content: "자연환경 보호, 한정된 자원 낭비 및 쓰레기 발생 최소화, 온실 가스 감축을 목적으로 폐금속 자원을 재활용하는 도시광산화사업이 활성화되고 있다. 이런 때 자원 순환을 통해 지속 가능한 미래를 만들어가는 폐금속 재활용 전문기업 Portfolio(Portfolio)(박기덕 대표)가 이목을 끈다.",
             date: "2024.03.06"
         },
         {
             type: "뉴스 기사",
-            title: "경남대 LINC3.0사업단-갓테크, 금속적층제조기술 업무협약 체결",
+            title: "경남대 LINC3.0사업단-Portfolio, 금속적층제조기술 업무협약 체결",
             image: "https://framerusercontent.com/images/R6byC3XZfOBP5VcbS9OEuwMC4Vo.jpg",
-            content: "경남대학교 LINC3.0사업단은 최근 산학협력관 5층 산학협력세미나실에서 갓테크와 업무협약을 체결했다.",
+            content: "경남대학교 LINC3.0사업단은 최근 산학협력관 5층 산학협력세미나실에서 Portfolio와 업무협약을 체결했다.",
             date: "2024.01.30"
         },
         {
@@ -240,7 +240,7 @@ const BlogMasonryList = () => {
         ...post
     }));
 
-    const [selectedTab, setSelectedTab] = useState<'전체' | '갓테크 소식' | '뉴스 기사'>('전체');
+    const [selectedTab, setSelectedTab] = useState<'전체' | 'Portfolio 소식' | '뉴스 기사'>('전체');
     const router = useRouter();
     const pathname = usePathname();
 
@@ -263,7 +263,7 @@ const BlogMasonryList = () => {
 
                     {/* ✅ 탭 버튼 */}
                     <div className="flex gap-4 justify-center mb-8">
-                        {['전체', '갓테크 소식', '뉴스 기사'].map(tab => {
+                        {['전체', 'Portfolio 소식', '뉴스 기사'].map(tab => {
                             const isActive = selectedTab === tab;
 
                             // 조건별 색상 클래스 설정
@@ -271,7 +271,7 @@ const BlogMasonryList = () => {
                             if (isActive) {
                                 if (tab === '전체') {
                                     activeClass = 'bg-gray-700 text-white shadow';
-                                } else if (tab === '갓테크 소식') {
+                                } else if (tab === 'Portfolio 소식') {
                                     activeClass = 'bg-[#56BC6F] text-white shadow';
                                 } else if (tab === '뉴스 기사') {
                                     activeClass = 'bg-blue-600 text-white shadow';
@@ -283,7 +283,7 @@ const BlogMasonryList = () => {
                             return (
                                 <button
                                     key={tab}
-                                    onClick={() => setSelectedTab(tab as '전체' | '갓테크 소식' | '뉴스 기사')}
+                                    onClick={() => setSelectedTab(tab as '전체' | 'Portfolio 소식' | '뉴스 기사')}
                                     className={`px-4 py-2 rounded-full font-medium transition-all duration-200 cursor-pointer ${activeClass}`}
                                 >
                                     {tab}
@@ -315,7 +315,7 @@ const BlogMasonryList = () => {
                                         <div className="flex items-center justify-between mb-3">
                         <span
                           className={`text-sm font-medium px-3 py-1 rounded-full ${
-                            post.type === '갓테크 소식'
+                            post.type === 'Portfolio 소식'
                               ? 'text-[#56BC6F] bg-green-50'
                               : post.type === '뉴스 기사'
                               ? 'text-blue-800 bg-blue-100'

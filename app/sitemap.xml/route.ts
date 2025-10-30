@@ -1,7 +1,7 @@
 // app/sitemap.xml/route.ts
 import { NextResponse } from "next/server";
 
-const baseUrl = "https://godtechnology.co.kr";
+const baseUrl = "https://Portfolionology.co.kr";
 const locales = ["ko", "en"];
 const pages = [
     "",

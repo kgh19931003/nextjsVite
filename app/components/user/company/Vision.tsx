@@ -11,10 +11,6 @@ export default function Vision() {
 
     return (
         <>
-            <Head>
-                <title>갓테크 | 인사말</title>
-                <meta name="description" content="기술로 자원을 다시 쓸모있게 만드는 갓테크의 인사말 페이지입니다."/>
-            </Head>
             <PageHeroAuto backgroundImage="/pageHero/companyhero.jpg"/>
 
             <section className="dark:bg-neutral-900 py-10 px-4 sm:px-6 mb-15 lg:px-8">
@@ -45,8 +41,8 @@ export default function Vision() {
                     {/* 이미지 영역 */}
                     <div className="lg:w-2/5 max-w-[400px] mt-10 ml-13 lg:mt-0">
                         <Image
-                            loader={() => "https://godtech-web.s3.ap-northeast-2.amazonaws.com/uploads/vision/esg.jpg"}
-                            src="https://godtech-web.s3.ap-northeast-2.amazonaws.com/uploads/vision/esg.jpg"
+                            loader={() => "https://Portfolio-web.s3.ap-northeast-2.amazonaws.com/uploads/vision/esg.jpg"}
+                            src="https://Portfolio-web.s3.ap-northeast-2.amazonaws.com/uploads/vision/esg.jpg"
                             alt="ESG Vision"
                             width={400}
                             height={500}

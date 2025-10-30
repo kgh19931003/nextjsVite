@@ -60,7 +60,7 @@ const BlogViewPage = ({ locale, idx }: { locale: string; idx?: string }) => {
 
     const getCategoryColor = (type: string) => {
         switch (type) {
-            case '갓테크소식':
+            case 'Portfolio소식':
                 return 'bg-green-100 text-[#56BC6F]';
             case '뉴스기사':
                 return 'bg-blue-100 text-blue-800';

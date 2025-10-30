@@ -16,7 +16,7 @@ pipeline {
 
                     sh """
                         ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
-                            cd ${env.GODTECH_REMOTE_PATH} && \
+                            cd ${env.Portfolio_REMOTE_PATH} && \
                             git reset --hard && \
                             git pull origin main && \
                             echo "✅ git pull 완료"
@@ -33,7 +33,7 @@ pipeline {
                     sh """
                         ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
                             set -e
-                            cd ${env.GODTECH_REMOTE_PATH}
+                            cd ${env.Portfolio_REMOTE_PATH}
 
                             if git diff --name-only HEAD@{1} HEAD | grep -qE "package(-lock)?\\.json"; then
                                 echo "📦 package.json 변경 감지됨 → npm install 실행"
@@ -66,7 +66,7 @@ pipeline {
                             docker system prune -a --volumes --force
 
                             # 기존 컨테이너가 3000 포트인지 확인
-                            if docker ps --format "{{.Names}}:{{.Ports}}" | grep -q "godtech.*0.0.0.0:3000"; then
+                            if docker ps --format "{{.Names}}:{{.Ports}}" | grep -q "Portfolio.*0.0.0.0:3000"; then
                                 NEW_PORT=3001
                             else
                                 NEW_PORT=3000
@@ -74,29 +74,29 @@ pipeline {
 
                             echo "▶ 새 컨테이너 임시 포트: \$NEW_PORT"
 
-                            export CONTAINER_NAME=godtech_new
+                            export CONTAINER_NAME=Portfolio_new
                             echo "▶ 새 컨테이너: \$CONTAINER_NAME, 임시 포트: \$NEW_PORT"
 
                             # docker-compose로 새 컨테이너 빌드 및 실행
-                            NEW_PORT=\$NEW_PORT CONTAINER_NAME=\$CONTAINER_NAME docker compose up -d --build godtech_new
+                            NEW_PORT=\$NEW_PORT CONTAINER_NAME=\$CONTAINER_NAME docker compose up -d --build Portfolio_new
 
                             # 2️⃣ Health check
                             sleep 20
                             if ! curl -f http://localhost:\$NEW_PORT; then
                                 echo "❌ 새 컨테이너 정상 아님"
-                                docker logs godtech_new
+                                docker logs Portfolio_new
                                 docker stop \$CONTAINER_NAME && docker rm \$CONTAINER_NAME
                                 exit 1
                             fi
 
 
                             # 3️⃣ 기존 컨테이너 중지/삭제
-                            if docker ps -a --format "{{.Names}}" | grep -q "^godtech\$"; then
-                                docker stop godtech
-                                docker rm godtech
+                            if docker ps -a --format "{{.Names}}" | grep -q "^Portfolio\$"; then
+                                docker stop Portfolio
+                                docker rm Portfolio
                             fi
 
-                            docker rename \$CONTAINER_NAME godtech
+                            docker rename \$CONTAINER_NAME Portfolio
 
                             # 5️⃣ 도커 시스템 정리
                             docker system prune -a --volumes --force
@@ -108,9 +108,9 @@ pipeline {
                         sh """
                             ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
                                 set -e
-                                cd ${env.GODTECH_REMOTE_PATH}
+                                cd ${env.Portfolio_REMOTE_PATH}
 
-                                pm2 restart godtech
+                                pm2 restart Portfolio
                             '
                         """
                     }

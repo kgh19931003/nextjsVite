@@ -34,12 +34,12 @@ export default function Footer() {
                 <Link href="/">
                     <div className="flex items-center justify-center sm:justify-start space-x-3 cursor-pointer">
                         <img
-                            src="/logo/god_tech_logo.png"
+                            src="/logo/portfolio_logo.png"
                             alt="로고"
                             className="h-8 w-auto object-contain"
                         />
                         <img
-                            src="/logo/god_tech_logo_text.png"
+                            src="/logo/portfolio_logo_text.png"
                             alt="로고 텍스트"
                             className="h-8 w-auto object-contain"
                         />
@@ -106,13 +106,13 @@ export default function Footer() {
                     <div className="lg:whitespace-nowrap">055-724-0146</div>
 
                     <div className="font-semibold">{t("이메일")}</div>
-                    <div className="lg:whitespace-nowrap">contact@godtechnology.co.kr</div>
+                    <div className="lg:whitespace-nowrap">contact@Portfolionology.co.kr</div>
                 </div>
 
                 {/* 4행: 인스타그램 아이콘 */}
                 <div className="flex  sm:justify-end items-center lg:items-start">
                     <a
-                        href="https://www.instagram.com/godtechco.ltd"
+                        href="https://www.instagram.com/Portfolioco.ltd"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
@@ -154,7 +154,7 @@ export default function Footer() {
                     </ul>
 
                     <div>
-                        © {new Date().getFullYear()} {t('㈜갓테크. All rights reserved.')}
+                        © {new Date().getFullYear()} {t('Portfolio. All rights reserved.')}
                     </div>
                 </div>
             </div>

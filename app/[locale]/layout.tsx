@@ -12,8 +12,8 @@ import Header from "@/components/user/Header";
 import Footer from "@/components/user/Footer";
 
 export const metadata = {
-    title: "(주)갓테크",
-    description: "고부가가치 금속을 재활용하여 산업의 재활성화를 도모하는 갓테크(GODTECH)입니다."
+    title: "Portfolio",
+    description: "고부가가치 금속을 재활용하여 산업의 재활성화를 도모하는 Portfolio(Portfolio)입니다."
 };
 
 export const viewport = {

@@ -11,7 +11,7 @@ import React from "react";
 
 export const metadata: Metadata = {
     title: '사업소개',
-    description: '(주) 갓테크의 주요 사업 영역을 소개합니다.',
+    description: '(주) Portfolio의 주요 사업 영역을 소개합니다.',
 };
 
 export default function BusinessPage() {
@@ -55,7 +55,7 @@ export default function BusinessPage() {
                             고온 환경에서 기계적 강도와 내식성을 유지하기 때문에 화학공정, 열처리로 부품, 연소기 내부 부품 등에 활용됩니다.
                         </p>
                         <p className="mt-3">
-                            (주)갓테크는 고온 특수합금인 Alloy 230의 재활용 및 귀금속 회수를 위한 전처리 공정 및 열분해 기술을 보유하고 있으며,
+                            Portfolio는 고온 특수합금인 Alloy 230의 재활용 및 귀금속 회수를 위한 전처리 공정 및 열분해 기술을 보유하고 있으며,
                             구성 성분의 손실 없이 고순도 회수를 실현합니다.
                         </p>
                     </div>
@@ -67,7 +67,7 @@ export default function BusinessPage() {
                             내산화성 및 고온 안정성이 매우 우수합니다.
                         </p>
                         <p className="mt-3">
-                            갓테크는 Alloy 939와 같은 고내열 합금의 표면 오염물 제거 및 정밀 성분 분석을 통해,
+                            Portfolio는 Alloy 939와 같은 고내열 합금의 표면 오염물 제거 및 정밀 성분 분석을 통해,
                             회수 가능한 희소금속 (예: 니켈, 코발트 등)의 효율적인 추출을 지원하고 있습니다.
                         </p>
                     </div>
@@ -75,7 +75,7 @@ export default function BusinessPage() {
                 </div>
             </Section>
 
-            <Section title="왜 갓테크인가?" subtitle="다음의 이유로 고객들은 갓테크를 선택합니다.">
+            <Section title="왜 Portfolio인가?" subtitle="다음의 이유로 고객들은 Portfolio를 선택합니다.">
                 <ul className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-8">
                     {reasons.map((reason, index) => (
                         <motion.li
@@ -108,7 +108,7 @@ export default function BusinessPage() {
                             자세한 사업 정보나 협업 문의는 아래 연락처 또는 문의 페이지를 통해 연락 부탁드립니다.
                         </p>
                         <p className="text-sm text-gray-600 space-y-1">
-                            <span>📧 contact@godtechnology.co.kr</span><br />
+                            <span>📧 contact@Portfolionology.co.kr</span><br />
                             <span>☎️ 055-724-0426</span>
                         </p>
                         <div className="mt-8 inline-block text-brand-600 font-semibold underline tracking-wide text-lg">

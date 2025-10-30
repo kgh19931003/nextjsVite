@@ -18,8 +18,8 @@ interface BlogPost {
 }
 
 const categoryList: Record<string, string[]> = {
-    ko: ["전체", "갓테크소식", "뉴스기사"],
-    en: ["All", "Godtech Announce", "News"]
+    ko: ["전체", "Portfolio소식", "뉴스기사"],
+    en: ["All", "Portfolio Announce", "News"]
 };
 
 const BlogMasonryList = () => {
@@ -84,7 +84,7 @@ const BlogMasonryList = () => {
                                 const isActive = selectedTabIndex === index;
 
                                 let activeClass = isActive
-                                    ? label.includes("갓테크소식") || label.includes("Godtech")
+                                    ? label.includes("Portfolio소식") || label.includes("Portfolio")
                                         ? 'bg-[#56BC6F] text-white shadow'
                                         : label.includes("뉴스") || label.includes("News")
                                             ? 'bg-blue-600 text-white shadow'
@@ -124,7 +124,7 @@ const BlogMasonryList = () => {
                                         <div>
                                             <div className="flex items-center justify-between mb-3">
                         <span className={`text-sm font-medium px-3 py-1 rounded-full ${
-                            post.category.includes("갓테크") || post.category.includes("Godtech")
+                            post.category.includes("Portfolio") || post.category.includes("Portfolio")
                                 ? 'text-[#56BC6F] bg-green-50'
                                 : post.category.includes("뉴스") || post.category.includes("News")
                                     ? 'text-blue-800 bg-blue-100'

@@ -102,7 +102,7 @@ export default function Introduction() {
             <section className="relative w-full h-[800px] text-white overflow-hidden">
                 <video
                     className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="/main/godtech_pr.mp4"
+                    src="/main/Portfolio_pr.mp4"
                     autoPlay
                     loop
                     muted
@@ -118,7 +118,7 @@ export default function Introduction() {
                         animate={{opacity: 1, y: 0}}
                         transition={{duration: 1.5}}
                     >
-                        {t('주식회사 갓테크')}
+                        {t('Portfolio')}
                     </motion.h1>
                     <p className="text-lg md:text-xl font-light whitespace-pre-wrap leading-relaxed max-w-3xl">
                         {typedText}
@@ -142,7 +142,7 @@ export default function Introduction() {
                         animate={{opacity: 1, y: 0}}
                         transition={{duration: 1.5}}
                     >
-                        {t('주식회사 갓테크')}
+                        {t('Portfolio')}
                     </motion.h1>
                     <p className="text-lg md:text-xl font-light whitespace-pre-wrap leading-relaxed max-w-3xl">
                         {typedText}
@@ -155,11 +155,11 @@ export default function Introduction() {
                 <div className="flex flex-wrap w-full justify-center text-sm font-bold text-green-500">Main Product
                 </div>
                 <div
-                    className="flex flex-wrap w-full justify-center text-3xl font-bold text-black my-2">{t('오직 갓테크에서 제공하는')} Special
+                    className="flex flex-wrap w-full justify-center text-3xl font-bold text-black my-2">{t('오직 Portfolio에서 제공하는')} Special
                     Metal Powder
                 </div>
                 <div
-                    className="flex flex-wrap w-full justify-center text-sm text-gray-500">{t('세계적 고성능 합금 소재 분말을 갓테크를 통해서 만나보세요')}</div>
+                    className="flex flex-wrap w-full justify-center text-sm text-gray-500">{t('세계적 고성능 합금 소재 분말을 Portfolio를 통해서 만나보세요')}</div>
                 <div className="flex flex-wrap w-full gap-8 justify-center items-center py-10">
                     <Bgimg title={t('GT 939')} description="VIGA, PREP | 40% Revert, 100% Virgin" url="/"
                            backgroundUrl="/main/alloy939.png" delay={0.1}/>
@@ -217,7 +217,7 @@ export default function Introduction() {
                                     <div className="flex items-center justify-between mb-3">
                                         <span
                                             className={`text-sm font-medium px-3 py-1 rounded-full ${
-                                                post.category === '갓테크소식' || post.category === 'Godtech Announce'
+                                                post.category === 'Portfolio소식' || post.category === 'Portfolio Announce'
                                                     ? 'text-[#56BC6F] bg-green-50'
                                                     : post.category === '뉴스기사' || post.category === 'News'
                                                         ? 'text-blue-800 bg-blue-100'

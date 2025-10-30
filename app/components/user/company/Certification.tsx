@@ -9,14 +9,14 @@ import {useSafeTranslations} from "@/lib/intl/useSafeTranslations";
 
 export const metadata = {
     title: '특허 현황',
-    description: '(주)갓테크의 보유 특허 및 인증 현황을 소개합니다.',
+    description: 'Portfolio의 보유 특허 및 인증 현황을 소개합니다.',
 };
 
 const otherCerts = [
-    { src: 'https://godtech-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/com_certification.png', alt: '기업부설연구소 인증', idx: 1 },
-    { src: 'https://godtech-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/ven_certifi.png', alt: '벤처기업 인증', idx: 2 },
-    { src: 'https://godtech-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/iso_9001_2.png', alt: 'ISO 9001 인증서', idx: 3 },
-    { src: 'https://godtech-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/iso_14001_2.png', alt: 'ISO 14001 인증서', idx: 4 },
+    { src: 'https://Portfolio-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/com_certification.png', alt: '기업부설연구소 인증', idx: 1 },
+    { src: 'https://Portfolio-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/ven_certifi.png', alt: '벤처기업 인증', idx: 2 },
+    { src: 'https://Portfolio-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/iso_9001_2.png', alt: 'ISO 9001 인증서', idx: 3 },
+    { src: 'https://Portfolio-web.s3.ap-northeast-2.amazonaws.com/uploads/certification/iso_14001_2.png', alt: 'ISO 14001 인증서', idx: 4 },
 ];
 
 

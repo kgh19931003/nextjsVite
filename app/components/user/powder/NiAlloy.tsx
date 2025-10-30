@@ -79,7 +79,7 @@ export default function AlloyIntroduction() {
                         {t('고부하 조건에서의 신뢰성을 보장합니다. 이러한 특성에 따라 다양한 첨단 산업에서의 핵심 소재로 폭 넓게 사용되고 있습니다.')}
                     </div>
                     <div className="flex flex-wrap w-full justify-center text-base text-gray-500">
-                        {t("갓테크에서 제공하는 'GT Metal Powder'는 합금 설게를 통해서 최적의 공정을 거쳐 제작된 AM에 적합한 수요 맞춤형 소재입니다.")}
+                        {t("Portfolio에서 제공하는 'GT Metal Powder'는 합금 설게를 통해서 최적의 공정을 거쳐 제작된 AM에 적합한 수요 맞춤형 소재입니다.")}
                     </div>
                 </section>
 

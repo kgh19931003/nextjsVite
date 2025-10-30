@@ -8,7 +8,7 @@ import Zoom from "react-medium-image-zoom";
 
 export const metadata: Metadata = {
     title: '사업소개',
-    description: '(주) 갓테크의 주요 사업 영역을 소개합니다.',
+    description: '(주) Portfolio의 주요 사업 영역을 소개합니다.',
 };
 
 const alloys = [

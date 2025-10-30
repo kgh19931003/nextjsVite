@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "godtech-web.s3.ap-northeast-2.amazonaws.com",
+                hostname: "Portfolio-web.s3.ap-northeast-2.amazonaws.com",
                 pathname: "/**", // 모든 경로 허용
             },
         ],

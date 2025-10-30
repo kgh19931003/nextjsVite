@@ -25,7 +25,7 @@ const BlogViewPage = () => {
             date: "2025.06.26"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 하반기 IBK창공 혁신 창업기업 선정",
             image: "/blog/20250624.png",
             date: "2025.06.24"
@@ -43,31 +43,31 @@ const BlogViewPage = () => {
             date: "2025.06.04"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 가스터빈 소재·부품 품질평가 및 성능검증 플랫폼 개발사업 선정",
             image: "/blog/20250507.png",
             date: "2025.05.07"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 경남 원전기업 수요 맞춤형 패키지 지원사업 선정",
             image: "/blog/20250430.png",
             date: "2025.04.30"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 경남 우주산업 혁신생태계 조성 지원사업 선정",
             image: "/blog/20250415.png",
             date: "2025.04.15"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 에코스타트업 지원사업(창업기업 부문) 선정",
             image: "/blog/20250324.png",
             date: "2025.03.24"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 창업성공패키지 글로벌창업사관학교 6기 선정",
             image: "/blog/20250321.png",
             date: "2025.03.21"
@@ -85,7 +85,7 @@ const BlogViewPage = () => {
             date: "2025.02.03"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "KDB NextONE 부산 2기 선정",
             image: "/blog/20250124.png",
             date: "2025.01.24"
@@ -97,14 +97,14 @@ const BlogViewPage = () => {
             date: "2025.01.15"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "2025년 신년회 및 새로운 비전 소개",
             image: "https://framerusercontent.com/images/wtrnkiWseZJykxvXCzihXthb3o.jpg",
             date: "2025.01.11"
         },
         {
             type: "뉴스 기사",
-            title: "[3D프린팅연구조합 연재기고③]박기덕 ㈜갓테크 대표",
+            title: "[3D프린팅연구조합 연재기고③]박기덕 Portfolio 대표",
             image: "https://framerusercontent.com/images/YGQIN5rlHLfYGIuvj4bCCnEs.jpg",
             date: "2024.12.12"
         },
@@ -115,7 +115,7 @@ const BlogViewPage = () => {
             date: "2024.12.03"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "중소벤처기업부 팁스(TIPS) 창업기업 지원계획 선정",
             image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=350&fit=crop",
             date: "2024.11.21"
@@ -133,19 +133,19 @@ const BlogViewPage = () => {
             date: "2024.09.27"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "한국남동발전 KOEN 상생형 창업‧벤처기업 지원사업 선정",
             image: "/blog/20240917.png",
             date: "2024.09.17"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "수요중심형기술사업화지원사업(2차) 선정",
             image: "/blog/20240916.png",
             date: "2024.09.16"
         },
         {
-            type: "갓테크 소식",
+            type: "Portfolio 소식",
             title: "가스터빈 소재·부품 품질평가 및 성능검증 플랫폼 개발사업 기업지원 수혜기업 선정",
             image: "/blog/20240913.png",
             date: "2024.09.13"
@@ -194,7 +194,7 @@ const BlogViewPage = () => {
         },
         {
             type: "뉴스 기사",
-            title: "경남대 LINC3.0사업단-갓테크, 금속적층제조기술 업무협약 체결",
+            title: "경남대 LINC3.0사업단-Portfolio, 금속적층제조기술 업무협약 체결",
             image: "https://framerusercontent.com/images/R6byC3XZfOBP5VcbS9OEuwMC4Vo.jpg",
             date: "2024.01.30"
         },
@@ -256,7 +256,7 @@ const BlogViewPage = () => {
     // 카테고리별 색상 설정
     const getCategoryColor = (type: string) => {
         switch (type) {
-            case '갓테크 소식':
+            case 'Portfolio 소식':
                 return 'bg-green-100 text-[#56BC6F]';
             case '뉴스 기사':
                 return 'bg-blue-100 text-blue-800';

@@ -103,7 +103,7 @@ const historyData: YearItem[] = [
                 {
                     month: {
                         "04": [{ events: [
-                            "주식회사 갓테크 설립"
+                            "Portfolio 설립"
                             ] }],
                     },
                 },
@@ -173,7 +173,7 @@ export default function Timeline() {
             <section className="bg-white dark:bg-neutral-900 max-w-screen-xl sm:px-2 px-4 pb-20 mx-auto md:px-0 flex flex-col md:flex-row relative">
                 <div className="hidden md:block md:w-3/6 mt-15 md:ml-12">
                     <div className=" top-30 ml-15 ">
-                        <h2 className="text-2xl font-bold mb-2" style={{ color: "#56BC6F" }}>{t("갓테크가 걸어온 길")}</h2>
+                        <h2 className="text-2xl font-bold mb-2" style={{ color: "#56BC6F" }}>{t("Portfolio가 걸어온 길")}</h2>
                         <div className="text-xl font-semibold">{t("작은 시작에서 끊임없는 도전과 성장을 통해")} </div>
                         <div className="text-xl font-semibold mb-6">{t("큰 미래를 만들어갑니다")}</div>
 

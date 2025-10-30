@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export const metadata = {
     title: '개인정보처리방침',
-    description: '갓테크 개인정보처리방침 안내 페이지입니다.',
+    description: 'Portfolio 개인정보처리방침 안내 페이지입니다.',
 };
 
 const privacyContent = {
@@ -75,7 +75,7 @@ const privacyContent = {
                     <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2">
                         <li>성명: <span className="font-semibold">담당자</span></li>
                         <li>전화번호: <a href="tel:0557240426" className="text-brand-600 hover:underline">055-724-0426</a></li>
-                        <li>이메일: <a href="mailto:contact@godtechnology.co.kr" className="text-brand-600 hover:underline">contact@godtechnology.co.kr</a></li>
+                        <li>이메일: <a href="mailto:contact@Portfolionology.co.kr" className="text-brand-600 hover:underline">contact@Portfolionology.co.kr</a></li>
                     </ul>
                 </>
             ),
@@ -146,7 +146,7 @@ const privacyContent = {
                     <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2">
                         <li>Name: <span className="font-semibold">Person in charge</span></li>
                         <li>Phone: <a href="tel:0557240426" className="text-brand-600 hover:underline">055-724-0426</a></li>
-                        <li>Email: <a href="mailto:contact@godtechnology.co.kr" className="text-brand-600 hover:underline">contact@godtechnology.co.kr</a></li>
+                        <li>Email: <a href="mailto:contact@Portfolionology.co.kr" className="text-brand-600 hover:underline">contact@Portfolionology.co.kr</a></li>
                     </ul>
                 </>
             ),

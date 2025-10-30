@@ -155,14 +155,14 @@ export default function Header() {
                         {/* 로고 아이콘 */}
                         <div className="relative h-8 w-[66px]">
                             <img
-                                src="/logo/god_tech_logo_white.png"
+                                src="/logo/portfolio_logo_white.png"
                                 alt="로고 흰"
                                 className={`h-8 w-auto object-contain absolute top-0 left-0 transition-opacity duration-300
                             ${scrolled ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}
                           `}
                             />
                             <img
-                                src="/logo/god_tech_logo.png"
+                                src="/logo/portfolio_logo.png"
                                 alt="로고 검"
                                 className={`h-8 w-auto object-contain absolute top-0 left-0 transition-opacity duration-300
                             ${scrolled ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
@@ -173,14 +173,14 @@ export default function Header() {
                         {/* 텍스트 로고 */}
                         <div className="relative h-8 w-[256px] mt-1 pl-1">
                             <img
-                                src="/logo/god_tech_logo_text_white.png"
+                                src="/logo/portfolio_logo_text_white.png"
                                 alt="텍스트 흰"
                                 className={`h-8 w-auto object-contain absolute top-0 left-0.5 transition-opacity duration-300
                             ${scrolled ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}
                           `}
                             />
                             <img
-                                src="/logo/god_tech_logo_text.png"
+                                src="/logo/portfolio_logo_text.png"
                                 alt="텍스트 검"
                                 className={`h-8 w-auto object-contain absolute top-0 left-0.5 transition-opacity duration-300
                             ${scrolled ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
@@ -454,8 +454,8 @@ export default function Header() {
                         <div
                             className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-neutral-700">
                             <Link href="/" className="flex items-center gap-3">
-                                <img src="/logo/god_tech_logo.png" alt="로고" className="h-8 w-auto object-contain pl-20"/>
-                                <img src="/logo/god_tech_logo_text.png" alt="로고"
+                                <img src="/logo/portfolio_logo.png" alt="로고" className="h-8 w-auto object-contain pl-20"/>
+                                <img src="/logo/portfolio_logo_text.png" alt="로고"
                                      className="mt-1 h-8 w-auto object-contain"/>
                             </Link>
 
