@@ -146,105 +146,30 @@ export default function Header() {
                           `}
             >
                 <nav className={`
-                                  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between
+                                  max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 flex items-center justify-between
                                   transition-[height] duration-500 ease-in-out
                                   ${scrolled ? 'h-16' : 'h-24'}
                                 `}>
 
-                    <Link href={`/${currentLocale}`} className="flex items-center w-[156px] gap-2 text-lg font-bold relative">
-                        {/* 로고 아이콘 */}
-
-                        <div className="relative h-8 w-[66px]">
-                            {/*
-                            <img
-                                src="/logo/portfolio_logo_white.png"
-                                alt="로고 흰"
-                                className={`h-8 w-auto object-contain absolute top-0 left-0 transition-opacity duration-300
-                            ${scrolled ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}
-                          `}
-                            />
-                            <img
-                                src="/logo/portfolio_logo.png"
-                                alt="로고 검"
-                                className={`h-8 w-auto object-contain absolute top-0 left-0 transition-opacity duration-300
-                            ${scrolled ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
-                          `}
-                            />
-                            */}
-
-                            <div className={`h-8 w-auto object-contain absolute  top-0 left-0.5 transition-opacity duration-300
-                            ${scrolled ? 'opacity-0' : 'opacity-0 group-hover:opacity-100 text-black'}`}>
-                                Logo
-                            </div>
-
-                            <div className={`h-8 w-auto object-contain absolute  top-0 left-0.5 transition-opacity duration-300
-                            ${!scrolled ? 'opacity-100' : 'opacity-0 group-hover:opacity-0'}`}>
-                                Logo
-                            </div>
-                        </div>
-
-
-                    </Link>
 
                     {/* 데스크탑 메뉴 */}
-                    <ul className="hidden md:flex gap-20 relative">
-                        {/* 관리자이동 */}
-                        <div
-                            className="relative py-10"
-                            onMouseEnter={() => setOpenMenu('about')}
-                            onMouseLeave={() => setOpenMenu(null)}
-                        >
-                            <Link
-                                href={`/${currentLocale}/admin`}
-                                className="cursor-pointer hover:text-[#56BC6F] font-bold"
-                            >
+                    <ul className="hidden md:flex gap-30 relative">
+                        <li className="relative py-10">
+                            <Link href={`/${currentLocale}/admin`}
+                                  className="cursor-pointer hover:text-[#56BC6F] font-bold">
                                 {t('관리자')}
                             </Link>
-                            <AnimatePresence>
-
-                            </AnimatePresence>
-                        </div>
-                    </ul>
-
-                    {/* 데스크탑 메뉴 */}
-                    <ul className="hidden md:flex gap-20 relative">
-                        {/* Front GIT 이동 */}
-                        <div
-                            className="relative py-10"
-                            onMouseEnter={() => setOpenMenu('about')}
-                            onMouseLeave={() => setOpenMenu(null)}
-                        >
-                            <Link
-                                href={``}
-                                className="cursor-pointer hover:text-[#56BC6F] font-bold"
-                            >
-                                {t('Front Git')}
+                        </li>
+                        <li className="relative py-10">
+                            <Link href={`https://github.com/kgh19931003/nextjsVite`} className="cursor-pointer hover:text-[#56BC6F] font-bold">
+                                {t('Frontend Git')}
                             </Link>
-                            <AnimatePresence>
-
-                            </AnimatePresence>
-                        </div>
-                    </ul>
-
-
-                    {/* 데스크탑 메뉴 */}
-                    <ul className="hidden md:flex gap-20 relative">
-                        {/* Backend GIT 이동 */}
-                        <div
-                            className="relative py-10"
-                            onMouseEnter={() => setOpenMenu('about')}
-                            onMouseLeave={() => setOpenMenu(null)}
-                        >
-                            <Link
-                                href={``}
-                                className="cursor-pointer hover:text-[#56BC6F] font-bold"
-                            >
+                        </li>
+                        <li className="relative py-10">
+                            <Link href={`https://github.com/kgh19931003/ktBootSpring`} className="cursor-pointer hover:text-[#56BC6F] font-bold">
                                 {t('Backend Git')}
                             </Link>
-                            <AnimatePresence>
-
-                            </AnimatePresence>
-                        </div>
+                        </li>
                     </ul>
 
                     {/* 우측 영역: 언어 선택 + 햄버거 버튼 */}
@@ -261,12 +186,12 @@ export default function Header() {
                                 <ChevronDown className="w-4 h-4"/>
                             </button>
                             <div
-                              className={clsx(
-                                'absolute text-black left-1/2 -translate-x-1/2 mt-5 w-20 bg-white dark:bg-neutral-700 rounded shadow transition-all duration-300 overflow-hidden z-50',
-                                showLanguageDropdown
-                                  ? 'max-h-40 opacity-100 scale-100'
-                                  : 'max-h-0 opacity-0 scale-95 pointer-events-none'
-                              )}
+                                className={clsx(
+                                    'absolute text-black left-1/2 -translate-x-1/2 mt-5 w-20 bg-white dark:bg-neutral-700 rounded shadow transition-all duration-300 overflow-hidden z-50',
+                                    showLanguageDropdown
+                                        ? 'max-h-40 opacity-100 scale-100'
+                                        : 'max-h-0 opacity-0 scale-95 pointer-events-none'
+                                )}
                             >
                                 <button
                                     onClick={() => {
