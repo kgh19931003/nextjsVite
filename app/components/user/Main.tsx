@@ -69,12 +69,12 @@ export default function Introduction() {
     ];
 
     const stackData = [
-        { id: 1, name: 'Backend', value: ['php.png'], size: ['100'] },
-        { id: 2, name: '자격증', value: ['certifi.png'], size: ['80'] },
-        { id: 3, name: 'Version Control', value: ['github.png', 'jenkins.png'], size: ['100', '120'] },
-        { id: 4, name: 'IDE Tool', value: ['phpstorm.png'], size: ['80'] },
-        { id: 5, name: 'Platform', value: ['docker.png'], size: ['100'] },
-        { id: 6, name: 'Framework', value: ['ci4.png'], size: ['80'] },
+        { id: 1, name: 'Backend', value: ['php.png', 'kotlin.png'], size: ['100', '85'], text: ['', ''] },
+        { id: 2, name: '자격증', value: ['certifi.png'], size: ['100'], text: ['정보처리기사'] },
+        { id: 3, name: 'Version Control', value: ['github.png', 'jenkins.png'], size: ['120', '140'], text: ['', ''] },
+        { id: 4, name: 'IDE Tool', value: ['phpstorm.png', 'intellij.png'], size: ['80', '100'], text: ['', ''] },
+        { id: 5, name: 'Platform', value: ['docker.png'], size: ['100'], text: [''] },
+        { id: 6, name: 'Framework', value: ['ci4.png', 'boot_spring.png'], size: ['80', '150'], text: ['', ''] },
     ];
 
     const settings = {
@@ -221,6 +221,9 @@ export default function Introduction() {
                                                     style={{ width: `${item.size[i]}px`, height: 'auto' }}
                                                     className="object-contain"
                                                 />
+                                                <div className='text-center pt-2'>
+                                                    {item.text[i]}
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
