@@ -250,14 +250,14 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/matchup/1.png" alt="매치업 1" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/matchup/2.png" alt="매치업 2" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/matchup/3.png" alt="매치업 3" className="w-full h-[400px] object-cover" /></div>
+                                        <div><img src="/content/matchup/1.png" alt="매치업 1" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/matchup/2.png" alt="매치업 2" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/matchup/3.png" alt="매치업 3" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
-                            <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                <div className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-4">Web Platform</div>
+                            <div className="p-8 lg:p-8 flex flex-col justify-start">
+                                <div className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-8">Web Platform</div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">매치업 랜딩페이지</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
@@ -292,8 +292,8 @@ export default function Introduction() {
                 >
                     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
                         <div className="grid lg:grid-cols-2 gap-0">
-                            <div className="w-full p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                                <div className="inline-block px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-semibold mb-4 w-fit">Mobile App</div>
+                            <div className="w-full p-8 lg:p-8 flex flex-col justify-start order-2 lg:order-1">
+                                <div className="inline-block px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-semibold mb-8 w-fit">Mobile App</div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">가자</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
@@ -317,9 +317,9 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/go/1.png" alt="가자 1" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/go/2.png" alt="가자 2" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/go/3.png" alt="가자 3" className="w-full h-[400px] object-cover" /></div>
+                                        <div><img src="/content/go/1.png" alt="가자 1" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/go/2.png" alt="가자 2" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/go/3.png" alt="가자 3" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
@@ -336,20 +336,20 @@ export default function Introduction() {
                     className="max-w-7xl mx-auto mb-20"
                 >
                     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-2 gap-0">
+                        <div className="grid lg:grid-cols-1 gap-0">
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/kanta/1.png" alt="칸타수학 1" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/kanta/2.png" alt="칸타수학 2" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/kanta/3.png" alt="칸타수학 3" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/kanta/4.png" alt="칸타수학 4" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/kanta/5.png" alt="칸타수학 5" className="w-full h-[400px] object-cover" /></div>
+                                        <div><img src="/content/kanta/1.png" alt="칸타수학 1" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/2.png" alt="칸타수학 2" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/3.png" alt="칸타수학 3" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/4.png" alt="칸타수학 4" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/5.png" alt="칸타수학 5" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
-                            <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                <div className="inline-block px-4 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-semibold mb-4">Education Platform</div>
+                            <div className="p-8 lg:p-8 flex flex-col justify-center">
+                                <div className="inline-block px-4 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-semibold mb-8">Education Platform</div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">칸타수학</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
@@ -384,8 +384,8 @@ export default function Introduction() {
                 >
                     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
                         <div className="grid lg:grid-cols-2 gap-0">
-                            <div className="w-full p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                                <div className="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-4 w-fit">Survey App</div>
+                            <div className="w-full p-8 lg:p-12 flex flex-col justify-start order-2 lg:order-1">
+                                <div className="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-8 w-fit">Survey App</div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">주차실태조사</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
@@ -412,11 +412,11 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/park/1.png" alt="주차실태조사 1" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/park/2.png" alt="주차실태조사 2" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/park/3.png" alt="주차실태조사 3" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/park/4.png" alt="주차실태조사 4" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/park/5.png" alt="주차실태조사 5" className="w-full h-[400px] object-cover" /></div>
+                                        <div><img src="/content/park/1.png" alt="주차실태조사 1" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/2.png" alt="주차실태조사 2" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/3.png" alt="주차실태조사 3" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/4.png" alt="주차실태조사 4" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/5.png" alt="주차실태조사 5" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
@@ -433,18 +433,18 @@ export default function Introduction() {
                     className="max-w-7xl mx-auto mb-20"
                 >
                     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-2 gap-0">
+                        <div className="grid lg:grid-cols-1 gap-0">
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/lotte/1.png" alt="롯데케미칼 1" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/lotte/2.png" alt="롯데케미칼 2" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/lotte/3.png" alt="롯데케미칼 3" className="w-full h-[400px] object-cover" /></div>
+                                        <div><img src="/content/lotte/1.png" alt="롯데케미칼 1" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/lotte/2.png" alt="롯데케미칼 2" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/lotte/3.png" alt="롯데케미칼 3" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
-                            <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                <div className="inline-block px-4 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full text-sm font-semibold mb-4">E-Commerce</div>
+                            <div className="p-8 lg:p-8 flex flex-col justify-center">
+                                <div className="inline-block px-4 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full text-sm font-semibold mb-8">E-Commerce</div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">롯데케미칼 Staron</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
@@ -478,14 +478,32 @@ export default function Introduction() {
                     className="max-w-7xl mx-auto mb-20"
                 >
                     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-2 gap-0">
-                            <div className="w-full p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                                <div className="inline-block px-4 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full text-sm font-semibold mb-4 w-fit">Culture Foundation</div>
+                        <div className="grid lg:grid-cols-1 gap-0">
+                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
+                                <div className="rounded-2xl overflow-hidden shadow-lg">
+                                    <Slider {...settings}>
+                                        <div><img src="/content/ydct/1.png" alt="영덕문화재단 1"
+                                                  className="w-full h-full object-cover"/></div>
+                                        <div><img src="/content/ydct/2.png" alt="영덕문화재단 2"
+                                                  className="w-full h-full object-cover"/></div>
+                                        <div><img src="/content/ydct/3.png" alt="영덕문화재단 3"
+                                                  className="w-full h-full object-cover"/></div>
+                                        <div><img src="/content/ydct/4.png" alt="영덕문화재단 4"
+                                                  className="w-full h-full object-cover"/></div>
+                                    </Slider>
+                                </div>
+                            </div>
+                            <div className="w-full p-8 lg:p-8 flex flex-col justify-center order-2 lg:order-1">
+                                <div
+                                    className="inline-block px-4 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full text-sm font-semibold mb-8 w-fit">Culture
+                                    Foundation
+                                </div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">영덕문화재단</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
                                         <span className="text-teal-500 font-bold min-w-[100px]">URL</span>
-                                        <a href="https://ydct.org" target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-700 hover:underline transition-colors">ydct.org</a>
+                                        <a href="https://ydct.org" target="_blank" rel="noopener noreferrer"
+                                           className="text-teal-500 hover:text-teal-700 hover:underline transition-colors">ydct.org</a>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-teal-500 font-bold min-w-[100px]">기술스택</span>
@@ -501,44 +519,40 @@ export default function Introduction() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/ydct/1.png" alt="영덕문화재단 1" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/ydct/2.png" alt="영덕문화재단 2" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/ydct/3.png" alt="영덕문화재단 3" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/ydct/4.png" alt="영덕문화재단 4" className="w-full h-[400px] object-cover" /></div>
-                                    </Slider>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </motion.div>
 
                 {/* 선인 */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    initial={{opacity: 0, y: 30}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.6}}
+                    viewport={{once: true}}
                     className="max-w-7xl mx-auto mb-20"
                 >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-2 gap-0">
+                    <div
+                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
+                        <div className="grid lg:grid-cols-1 gap-0">
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/sunin/1.png" alt="선인 1" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/sunin/2.png" alt="선인 2" className="w-full h-[400px] object-cover" /></div>
-                                        <div><img src="/content/sunin/3.png" alt="선인 3" className="w-full h-[400px] object-cover" /></div>
+                                        <div><img src="/content/sunin/1.png" alt="선인 1"
+                                                  className="w-full h-full object-cover"/></div>
+                                        <div><img src="/content/sunin/2.png" alt="선인 2"
+                                                  className="w-full h-full object-cover"/></div>
+                                        <div><img src="/content/sunin/3.png" alt="선인 3"
+                                                  className="w-full h-full object-cover"/></div>
                                     </Slider>
                                 </div>
                             </div>
-                            <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                <div className="inline-block px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-semibold mb-4">Foundation</div>
+                            <div className="p-8 lg:p-8 flex flex-col justify-center">
+                                <div
+                                    className="inline-block px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-semibold mb-8">Foundation
+                                </div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">선인재단</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
+                                <div className="flex items-start gap-3">
                                         <span className="text-indigo-500 font-bold min-w-[100px]">URL</span>
                                         <a href="https://sib.kr" target="_blank" rel="noopener noreferrer" className="text-indigo-500 hover:text-indigo-700 hover:underline transition-colors">sib.kr</a>
                                     </div>
