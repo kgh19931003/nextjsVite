@@ -16,7 +16,7 @@ pipeline {
 
                     sh """
                         ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
-                            cd ${env.Portfolio_REMOTE_PATH} && \
+                            cd ${env.PORTFOLIO_REMOTE_PATH} && \
                             git reset --hard && \
                             git pull origin main && \
                             echo "✅ git pull 완료"
@@ -33,7 +33,7 @@ pipeline {
                     sh """
                         ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
                             set -e
-                            cd ${env.Portfolio_REMOTE_PATH}
+                            cd ${env.PORTFOLIO_REMOTE_PATH}
 
                             if git diff --name-only HEAD@{1} HEAD | grep -qE "package(-lock)?\\.json"; then
                                 echo "📦 package.json 변경 감지됨 → npm install 실행"
@@ -108,7 +108,7 @@ pipeline {
                         sh """
                             ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
                                 set -e
-                                cd ${env.Portfolio_REMOTE_PATH}
+                                cd ${env.PORTFOLIO_REMOTE_PATH}
 
                                 pm2 restart Portfolio
                             '
