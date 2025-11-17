@@ -1,22 +1,19 @@
 FROM node:20-alpine
 
-# 작업 디렉토리 설정
 WORKDIR /app
 
-# package.json과 lock 파일만 복사
+# package.json과 lock 파일 복사
 COPY package*.json ./
 
-# 프로덕션용 node_modules 설치
-RUN npm ci --only=production
+# 전체 의존성 설치 (빌드 포함)
+RUN npm ci
 
-# 호스트에서 빌드한 .next, public, package.json, node_modules 복사
-COPY .next ./.next
-COPY public ./public
-COPY package.json ./
-COPY locale ./locale
+# 소스 전체 복사
+COPY . .
 
-# 3000 포트 노출
+# Next.js 빌드
+RUN npm run build
+
 EXPOSE 3000
 
-# 컨테이너 시작 시 Next.js 실행
 CMD ["npm", "run", "start"]
