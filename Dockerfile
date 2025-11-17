@@ -13,7 +13,6 @@ ENV TZ=Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
 
-
 # 호스트에서 빌드한 .next, public, package.json, node_modules 복사
 COPY .next ./.next
 COPY public ./public
