@@ -33,7 +33,7 @@ export default function SafeImage({
     }, [src, fallbackSrc]);
 
     return (
-        <div className="relative w-full" style={{height: height}}>
+        <div className="relative w-full flex items-center justify-center" style={{height: height}}>
             {/* height를 px로 지정하거나 min-h 설정 가능 */}
             {imgSrc && (
                 <Image
@@ -50,9 +50,8 @@ export default function SafeImage({
                     }}
                 />
             )}
-            {loading && (
-                <div
-                    className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm bg-gray-100/50 rounded-lg">
+            {loading && !imgSrc && (
+                <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm bg-gray-100/50 rounded-lg">
                     이미지 준비 중
                 </div>
             )}

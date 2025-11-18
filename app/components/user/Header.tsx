@@ -154,11 +154,10 @@ export default function Header() {
 
                     {/* 데스크탑 메뉴 */}
                     <ul className="hidden md:flex gap-30 relative">
-                        <li className="relative py-10">
-                            <Link href={`/${currentLocale}/admin`}
-                                  className="cursor-pointer hover:text-[#56BC6F] font-bold">
+                        <li
+                            className="relative py-10"
+                            onClick={() => location.href = `/${currentLocale}/admin`}>
                                 {t('관리자')}
-                            </Link>
                         </li>
                         <li className="relative py-10">
                             <Link href={`https://github.com/kgh19931003/nextjsVite`} className="cursor-pointer hover:text-[#56BC6F] font-bold">
