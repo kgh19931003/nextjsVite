@@ -394,28 +394,65 @@ export default function Introduction() {
                                     <div className="flex items-start gap-3">
                                         <span className="text-orange-500 font-bold min-w-[100px]">스토어</span>
                                         <div className="flex flex-col gap-2">
-                                            <a href="https://play.google.com/store/apps/details?id=com.wizmade.parkingsys" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">Google Play</a>
+                                            <a href="https://play.google.com/store/apps/details?id=com.wizmade.parkingsys" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">Google Play ( 게시취소 )</a>
                                             <a href="https://apps.apple.com/us/app/%EC%A3%BC%EC%B0%A8%EC%8B%A4%ED%83%9C%EC%A1%B0%EC%82%AC/id1582133805" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">App Store</a>
                                         </div>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-orange-500 font-bold min-w-[100px]">작업범위</span>
-                                        <span>PHP 백엔드, 프론트엔드(jQuery), 하이브리드앱 개발 및 배포(iOS, AOS)</span>
+                                    <div className="flex items-start gap-3 mt-10">
+                                        <div className="text-orange-500 font-bold min-w-[100px]">작업범위</div>
+                                        <div>
+                                            <div>Webview 컴포넌트 사용을 위한 모바일 웹 제작</div>
+                                            <div>Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작 </div>
+                                            <div>Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작</div>
+                                            <div>하이브리드앱 패키징 및 배포(iOS, AOS)</div>
+                                        </div>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-orange-500 font-bold min-w-[100px]">개발환경</span>
-                                        <span>AWS S3, AWS RDS, cafe24 Server, PHP 7.4</span>
+                                    <div className="flex items-start gap-3 mt-10">
+                                        <span className="text-orange-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <table
+                                            className="table-auto border-collapse w-full max-w-md">
+                                            <tbody>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
+                                                <td className="py-2">AWS S3, RDS</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Server</td>
+                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
+                                                <td className="py-2">PHP 7.4</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">AOS</td>
+                                                <td className="py-2">Kotlin</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="py-2 font-semibold text-slate-700">iOS</td>
+                                                <td className="py-2">Swift</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-orange-500 font-bold min-w-[100px]">설명</span>
-                                        <span>서울시 주차현황을 조사하는 플랫폼입니다.</span>
+                                    <div className="flex items-start gap-3 mt-10">
+                                        <div className="text-orange-500 font-bold min-w-[100px]">설명</div>
+
+                                        <div>
+                                            <div>서울시의 주차현황을 조사하는 플랫폼으로</div>
+                                            <div>조사원들은 해당 플랫폼 앱을 설치하여</div>
+                                            <div>불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여</div>
+                                            <div>해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의</div>
+                                            <div>위치를 통계 낼 수 있도록 하는 어플리케이션 입니다.</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/park/1.png" alt="주차실태조사 1" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/1.png" alt="주차실태조사 1"
+                                                  className="w-full h-full object-cover" /></div>
                                         <div><img src="/content/park/2.png" alt="주차실태조사 2" className="w-full h-full object-cover" /></div>
                                         <div><img src="/content/park/3.png" alt="주차실태조사 3" className="w-full h-full object-cover" /></div>
                                         <div><img src="/content/park/4.png" alt="주차실태조사 4" className="w-full h-full object-cover" /></div>
@@ -452,7 +489,8 @@ export default function Introduction() {
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
                                         <span className="text-red-500 font-bold min-w-[100px]">URL</span>
-                                        <a href="https://www.staron.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700 hover:underline transition-colors">staron.com</a>
+                                        <a href="https://www.staron.com" target="_blank" rel="noopener noreferrer"
+                                           className="text-red-500 hover:text-red-700 hover:underline transition-colors">staron.com</a>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-red-500 font-bold min-w-[100px]">기술스택</span>
@@ -461,6 +499,34 @@ export default function Introduction() {
                                     <div className="flex items-start gap-3">
                                         <span className="text-red-500 font-bold min-w-[100px]">작업범위</span>
                                         <span>유지보수 및 추가개발</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 mt-0">
+                                        <span className="text-orange-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <table
+                                            className="table-auto border-collapse w-full max-w-md">
+                                            <tbody>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
+                                                <td className="py-2">AWS S3, RDS</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Server</td>
+                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
+                                                <td className="py-2">PHP 7.4</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">AOS</td>
+                                                <td className="py-2">Kotlin</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="py-2 font-semibold text-slate-700">iOS</td>
+                                                <td className="py-2">Swift</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-red-500 font-bold min-w-[100px]">설명</span>
@@ -474,13 +540,14 @@ export default function Introduction() {
 
                 {/* 영덕문화재단 */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    initial={{opacity: 0, y: 30}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.6}}
+                    viewport={{once: true}}
                     className="max-w-7xl mx-auto mb-20"
                 >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
+                    <div
+                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
                         <div className="grid lg:grid-cols-1 gap-0">
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
