@@ -264,20 +264,44 @@ export default function Introduction() {
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">매치업 랜딩페이지</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[80px]">URL</span>
-                                        <a href="https://www.match-up.co.kr/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 hover:underline transition-colors">match-up.co.kr</a>
+                                        <span className="text-blue-500 font-bold min-w-[100px]">URL</span>
+                                        <a href="https://www.match-up.co.kr/" target="_blank" rel="noopener noreferrer"
+                                           className="text-purple-500 hover:text-green-700 hover:underline transition-colors">match-up.co.kr</a>
+                                    </div>
+
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-blue-500 font-bold min-w-[100px]">작업범위</span>
+                                        <div>
+                                        <div>PHP 백엔드, 프론트엔드(jQuery)</div>
+                                            <div>하이브리드앱 개발 및 배포(AOS, iOS)</div>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3 mt-0">
+                                        <span className="text-blue-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <table
+                                            className="table-auto border-collapse w-full max-w-md">
+                                            <tbody>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
+                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
+                                                <td className="py-2">PHP 7.x</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
+                                                <td className="py-2">Codeigniter 4.x</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[80px]">작업범위</span>
-                                        <span>PHP 백엔드, 프론트엔드(jQuery), 관리자 이미지 업로드</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[80px]">개발환경</span>
-                                        <span>cafe24 Server, PHP 7.4</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[80px]">설명</span>
-                                        <span>매치업 플랫폼을 홍보하는 랜딩 페이지를 작업했습니다.</span>
+                                        <span className="text-blue-500 font-bold min-w-[100px]">설명</span>
+                                        <div>
+                                            <div>강의영상과 시험문제를 온라인으로 학생들에게 제공하여</div>
+                                            <div>매치업 플랫폼을 홍보하는 랜딩 페이지를 작업했습니다.</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -287,42 +311,74 @@ export default function Introduction() {
 
                 {/* 가자 */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    initial={{opacity: 0, y: 30}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.6}}
+                    viewport={{once: true}}
                     className="max-w-7xl mx-auto mb-20"
                 >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
+                    <div
+                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
                         <div className="grid lg:grid-cols-2 gap-0">
                             <div className="w-full p-8 lg:p-8 flex flex-col justify-start order-2 lg:order-1">
-                                <div className="inline-block px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-semibold mb-8 w-fit">Mobile App</div>
+                                <div
+                                    className="inline-block px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-semibold mb-8 w-fit">Mobile
+                                    App
+                                </div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">가자</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
                                         <span className="text-purple-500 font-bold min-w-[100px]">스토어</span>
-                                        <span className="text-gray-500">현재 게시 취소됨</span>
+                                        <a target="_blank" rel="noopener noreferrer"
+                                           className="text-purple-500 hover:text-green-700 hover:underline transition-colors">게시
+                                            취소됨</a>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-purple-500 font-bold min-w-[100px]">작업범위</span>
-                                        <span>PHP 백엔드, 프론트엔드(jQuery), 하이브리드앱 개발 및 배포(AOS, iOS)</span>
+                                        <div>
+                                            <div>PHP 백엔드, 프론트엔드(jQuery)</div>
+                                            <div>하이브리드앱 개발 및 배포(AOS, iOS)</div>
+                                        </div>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-purple-500 font-bold min-w-[100px]">개발환경</span>
-                                        <span>cafe24 Server, PHP 7.4</span>
+
+                                    <div className="flex items-start gap-3 mt-0">
+                                        <span className="text-purple-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <table
+                                            className="table-auto border-collapse w-full max-w-md">
+                                            <tbody>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
+                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
+                                                <td className="py-2">PHP 7.x</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
+                                                <td className="py-2">Codeigniter 4.x</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-purple-500 font-bold min-w-[100px]">설명</span>
-                                        <span>플랫폼에 등록된 상점 방문 시 쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다.</span>
+                                        <div>
+                                            <div>플랫폼에 등록된 상점 방문 시</div>
+                                            <div>쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다.</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/go/1.png" alt="가자 1" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/go/2.png" alt="가자 2" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/go/3.png" alt="가자 3" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/go/1.png" alt="가자 1"
+                                                  className="w-full h-full object-cover"/></div>
+                                        <div><img src="/content/go/2.png" alt="가자 2"
+                                                  className="w-full h-full object-cover"/></div>
+                                        <div><img src="/content/go/3.png" alt="가자 3"
+                                                  className="w-full h-full object-cover"/></div>
                                     </Slider>
                                 </div>
                             </div>
@@ -332,18 +388,20 @@ export default function Introduction() {
 
                 {/* 칸타수학 */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    initial={{opacity: 0, y: 30}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.6}}
+                    viewport={{once: true}}
                     className="max-w-7xl mx-auto mb-20"
                 >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
+                    <div
+                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
                         <div className="grid lg:grid-cols-1 gap-0">
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/kanta/1.png" alt="칸타수학 1" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/1.png" alt="칸타수학 1"
+                                                  className="w-full h-full object-cover"/></div>
                                         <div><img src="/content/kanta/2.png" alt="칸타수학 2" className="w-full h-full object-cover" /></div>
                                         <div><img src="/content/kanta/3.png" alt="칸타수학 3" className="w-full h-full object-cover" /></div>
                                         <div><img src="/content/kanta/4.png" alt="칸타수학 4" className="w-full h-full object-cover" /></div>
@@ -357,19 +415,42 @@ export default function Introduction() {
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
                                         <span className="text-green-500 font-bold min-w-[100px]">URL</span>
-                                        <a href="https://softer084.cafe24.com" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-700 hover:underline transition-colors">softer084.cafe24.com</a>
+                                        <a  target="_blank" rel="noopener noreferrer"
+                                           className="text-green-500 hover:text-green-700 hover:underline transition-colors">게시 취소됨</a>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-green-500 font-bold min-w-[100px]">작업범위</span>
-                                        <span>PHP 백엔드, 프론트엔드(jQuery), 하이브리드앱 개발 및 배포(AOS)</span>
+                                        <div>
+                                            <div>PHP 백엔드, 프론트엔드(jQuery)</div>
+                                            <div>하이브리드앱 개발 및 배포(AOS, iOS)</div>
+                                        </div>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-green-500 font-bold min-w-[100px]">개발환경</span>
-                                        <span>AWS S3, cafe24 Server, PHP 7.4</span>
+                                    <div className="flex items-start gap-3 mt-0">
+                                        <span className="text-green-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <table
+                                            className="table-auto border-collapse w-full max-w-md">
+                                            <tbody>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
+                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
+                                                <td className="py-2">PHP 7.x</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
+                                                <td className="py-2">Codeigniter 4.x</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-green-500 font-bold min-w-[100px]">설명</span>
-                                        <span>강의영상과 시험문제를 온라인으로 학생들에게 제공하여 학습 효율을 높이는 교육 플랫폼입니다.</span>
+                                        <div>
+                                            <div>강의영상과 시험문제를 온라인으로 학생들에게 제공하여</div>
+                                            <div>학습 효율을 높이는 교육 플랫폼입니다.</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -379,27 +460,37 @@ export default function Introduction() {
 
                 {/* 주차실태조사 */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    initial={{opacity: 0, y: 30}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.6}}
+                    viewport={{once: true}}
                     className="max-w-7xl mx-auto mb-20"
                 >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
+                    <div
+                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
                         <div className="grid lg:grid-cols-2 gap-0">
                             <div className="w-full p-8 lg:p-12 flex flex-col justify-start order-2 lg:order-1">
-                                <div className="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-8 w-fit">Survey App</div>
+                                <div
+                                    className="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-8 w-fit">Survey
+                                    App
+                                </div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">주차실태조사</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
                                         <span className="text-orange-500 font-bold min-w-[100px]">스토어</span>
                                         <div className="flex flex-col gap-2">
-                                            <a href="https://play.google.com/store/apps/details?id=com.wizmade.parkingsys" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">Google Play ( 게시취소 )</a>
-                                            <a href="https://apps.apple.com/us/app/%EC%A3%BC%EC%B0%A8%EC%8B%A4%ED%83%9C%EC%A1%B0%EC%82%AC/id1582133805" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">App Store</a>
+                                            <a href="https://play.google.com/store/apps/details?id=com.wizmade.parkingsys"
+                                               target="_blank" rel="noopener noreferrer"
+                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">Google
+                                                Play ( 게시취소 )</a>
+                                            <a href="https://apps.apple.com/us/app/%EC%A3%BC%EC%B0%A8%EC%8B%A4%ED%83%9C%EC%A1%B0%EC%82%AC/id1582133805"
+                                               target="_blank" rel="noopener noreferrer"
+                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">App
+                                                Store</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3 mt-10">
-                                        <div className="text-orange-500 font-bold min-w-[100px]">작업범위</div>
+                                    <div className="text-orange-500 font-bold min-w-[100px]">작업범위</div>
                                         <div>
                                             <div>Webview 컴포넌트 사용을 위한 모바일 웹 제작</div>
                                             <div>Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작 </div>
@@ -414,7 +505,7 @@ export default function Introduction() {
                                             <tbody>
                                             <tr className="">
                                                 <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">AWS S3, RDS</td>
+                                                <td className="py-2">Aws S3, RDS</td>
                                             </tr>
                                             <tr className="">
                                                 <td className="py-2 font-semibold text-slate-700">Server</td>
@@ -492,45 +583,41 @@ export default function Introduction() {
                                         <a href="https://www.staron.com" target="_blank" rel="noopener noreferrer"
                                            className="text-red-500 hover:text-red-700 hover:underline transition-colors">staron.com</a>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-red-500 font-bold min-w-[100px]">기술스택</span>
-                                        <span>PHP 7.x, CodeIgniter 4.x, Linux, Nginx</span>
-                                    </div>
+
                                     <div className="flex items-start gap-3">
                                         <span className="text-red-500 font-bold min-w-[100px]">작업범위</span>
                                         <span>유지보수 및 추가개발</span>
                                     </div>
                                     <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-orange-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-red-500 font-bold min-w-[100px] py-2">개발환경</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
                                                 <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">AWS S3, RDS</td>
+                                                <td className="py-2">Aws EC2, S3, RDS</td>
                                             </tr>
                                             <tr className="">
                                                 <td className="py-2 font-semibold text-slate-700">Server</td>
-                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                                <td className="py-2">Amazon Linux 3</td>
                                             </tr>
                                             <tr className="">
                                                 <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.4</td>
+                                                <td className="py-2">PHP 7.x</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">AOS</td>
-                                                <td className="py-2">Kotlin</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="py-2 font-semibold text-slate-700">iOS</td>
-                                                <td className="py-2">Swift</td>
+                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
+                                                <td className="py-2">Codeigniter 4.x</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-red-500 font-bold min-w-[100px]">설명</span>
-                                        <span>인테리어 소재를 판매하는 사이트입니다.</span>
+                                        <div>
+                                            <div>인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은</div>
+                                            <div>인테리어 소재를 판매하는 사이트입니다.</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -576,16 +663,37 @@ export default function Introduction() {
                                            className="text-teal-500 hover:text-teal-700 hover:underline transition-colors">ydct.org</a>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-teal-500 font-bold min-w-[100px]">기술스택</span>
-                                        <span>PHP 7.x, CodeIgniter 4.x, Linux, Nginx</span>
-                                    </div>
-                                    <div className="flex items-start gap-3">
                                         <span className="text-teal-500 font-bold min-w-[100px]">작업범위</span>
                                         <span>유지보수 및 추가개발, 서버관리</span>
                                     </div>
+                                    <div className="flex items-start gap-3 mt-0">
+                                        <span className="text-teal-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <table
+                                            className="table-auto border-collapse w-full max-w-md">
+                                            <tbody>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
+                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
+                                                <td className="py-2">PHP 7.x</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
+                                                <td className="py-2">Codeigniter 4.x</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-teal-500 font-bold min-w-[100px]">설명</span>
-                                        <span>영덕문화 관광재단에서 제공하는 사이트입니다.</span>
+                                        <div>
+                                            <div>영덕문화 관광재단에서 제공하는</div>
+                                            <div>영화, 문화, 강좌, 재단에 대해서 정보를 제공하고</div>
+                                            <div>필요한 컨텐츠를 예약 할 수 있는 사이트 입니다.</div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -617,26 +725,47 @@ export default function Introduction() {
                                 </div>
                             </div>
                             <div className="p-8 lg:p-8 flex flex-col justify-center">
-                                <div
+                            <div
                                     className="inline-block px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-semibold mb-8">Foundation
                                 </div>
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">선인재단</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">URL</span>
-                                        <a href="https://sib.kr" target="_blank" rel="noopener noreferrer" className="text-indigo-500 hover:text-indigo-700 hover:underline transition-colors">sib.kr</a>
-                                    </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">기술스택</span>
-                                        <span>PHP 7.x, CodeIgniter 4.x, Linux, Nginx</span>
+                                        <span className="text-indigo-500 font-bold min-w-[100px]">URL</span>
+                                        <a href="https://sib.kr" target="_blank" rel="noopener noreferrer"
+                                           className="text-indigo-500 hover:text-indigo-700 hover:underline transition-colors">sib.kr</a>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-indigo-500 font-bold min-w-[100px]">작업범위</span>
                                         <span>유지보수 및 추가개발, 서버관리</span>
                                     </div>
+                                    <div className="flex items-start gap-3 mt-0">
+                                        <span className="text-indigo-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <table
+                                            className="table-auto border-collapse w-full max-w-md">
+                                            <tbody>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
+                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
+                                                <td className="py-2">PHP 7.x</td>
+                                            </tr>
+                                            <tr className="">
+                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
+                                                <td className="py-2">Codeigniter 4.x</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-indigo-500 font-bold min-w-[100px]">설명</span>
-                                        <span>선인재단에서 관리하는 사이트입니다.</span>
+                                        <div>
+                                            <div>선인 재단에서 관리하는</div>
+                                            <div>식료품을 구매 할 수 잇는 사이트 입니다.</div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

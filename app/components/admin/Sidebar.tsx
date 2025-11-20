@@ -29,12 +29,6 @@ const sidebarItems: ({ path: string; subItems: any[]; icon: string; title: strin
         icon: '배너관리',
         subItems: [],
     },
-    {
-        title: '',
-        path: '/admin/product',
-        icon: '상품관리',
-        subItems: [],
-    },
      */
     {
         title: '',
@@ -46,26 +40,8 @@ const sidebarItems: ({ path: string; subItems: any[]; icon: string; title: strin
     },
     {
         title: '',
-        path: '/admin/blog/list',
-        icon: '블로그 관리',
-        subItems: [],
-    },
-    {
-        title: '',
-        path: '/admin/performance/list',
-        icon: '수행내역 관리',
-        subItems: [],
-    },
-    {
-        title: '',
-        path: '/admin/alloy/list',
-        icon: '강종 관리',
-        subItems: [],
-    },
-    {
-        title: '',
-        path: '/admin/inquiry/list',
-        icon: '문의 관리',
+        path: '/admin/product/list',
+        icon: '상품관리',
         subItems: [],
     },
     {
@@ -73,7 +49,7 @@ const sidebarItems: ({ path: string; subItems: any[]; icon: string; title: strin
         path: '/admin/policy/list',
         icon: '정책 관리',
         subItems: [],
-    },
+    }
     /*
     {
         title: '',

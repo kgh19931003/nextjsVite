@@ -1,0 +1,279 @@
+'use client';
+
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import { useDropzone } from 'react-dropzone';
+import { DndContext, closestCenter } from '@dnd-kit/core';
+import {
+    SortableContext,
+    useSortable,
+    arrayMove,
+    rectSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import { v4 as uuidv4 } from 'uuid';
+import {isFile, makeArray} from "@/lib/function";
+
+type UploadVideoItem = {
+    id: string;
+    file?: File | string;
+    preview: string;
+    thumbnail?: string; // 비디오 썸네일
+};
+
+type UploadVideoProps = {
+    fileVideo: (File | string)[];
+    fileIndex: number[];
+    fileDeleteIndex: number[];
+    fileMultipartFileOrder: number[];
+    fileOrder: number[];
+    fileUuid: string[];
+    fileDeleteUuid: string[];
+    fileUrl?: string[];
+    setFileVideo: (files: (File | string)[]) => void;
+    setFileIndex: (videoIndex: number[]) => void;
+    setFileDeleteIndex: (videoDeleteIndex: number[]) => void;
+    setFileMultipartFileOrder: (videoMultipartFileOrder: number[]) => void;
+    setFileOrder: (videoOrder: number[]) => void;
+    setFileUuid: (videoUuid: string[]) => void;
+    setFileDeleteUuid: (videoDeleteUuid: string[]) => void;
+    setFileUrl?: (urls: string[]) => void;
+};
+
+// 개별 비디오 박스
+function SortableVideo({
+                           video,
+                           onDelete,
+                       }: {
+    video: UploadVideoItem;
+    onDelete: (id: string) => void;
+}) {
+    const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+        id: video.id,
+    });
+
+    const style: React.CSSProperties = {
+        transform: transform ? CSS.Transform.toString(transform) : undefined,
+        transition,
+        width: '150px',
+        height: '150px',
+        position: 'relative',
+        flex: '0 0 auto',
+        cursor: 'default',
+    };
+
+    return (
+        <div
+            ref={setNodeRef}
+            style={style}
+            {...attributes}
+            className="rounded border shadow-sm overflow-hidden bg-white"
+        >
+            <video
+                {...listeners}
+                src={video.preview}
+                className="w-full h-full object-cover cursor-pointer"
+                muted
+                playsInline
+                controls
+            />
+            <button
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete(video.id);
+                }}
+                className="absolute top-1 right-1 bg-black bg-opacity-50 text-white text-xs px-1 rounded z-10"
+            >
+                ✕
+            </button>
+        </div>
+    );
+}
+
+export default function UploadVideo({
+                                        fileVideo, setFileVideo,
+                                        fileIndex, setFileIndex,
+                                        fileUrl, setFileUrl,
+                                        fileOrder, setFileOrder,
+                                        fileUuid, setFileUuid,
+                                        fileDeleteUuid, setFileDeleteUuid,
+                                        fileMultipartFileOrder, setFileMultipartFileOrder,
+                                        fileDeleteIndex, setFileDeleteIndex
+                                    }: UploadVideoProps) {
+
+    const [videos, setVideos] = useState<UploadVideoItem[]>([]);
+    const objectUrlMap = useRef<Map<string, string>>(new Map());
+
+    // 최초 fileVideo로 초기화
+    useEffect(() => {
+        const initial = fileVideo.map((item, index) => {
+            if (typeof item === 'string') {
+                return {
+                    id: item,
+                    file: item,
+                    preview: "http://localhost:9090/"+item
+                };
+            } else {
+                let url = objectUrlMap.current.get(item.name);
+                if (!url) {
+                    url = URL.createObjectURL(item);
+                    objectUrlMap.current.set(item.name, url);
+                }
+
+                return {
+                    id: item.name + index,
+                    file: item,
+                    preview: url
+                };
+            }
+        });
+
+        setVideos(initial);
+    }, [fileVideo]);
+
+    // 파일 업로드 시 처리
+    const onDrop = useCallback((acceptedFiles: File[]) => {
+        const newVideos = acceptedFiles.map((file) => ({
+            id: uuidv4(),
+            file,
+            preview: URL.createObjectURL(file),
+        }));
+
+        const initFiles = [...videos]
+            .filter((vid): vid is UploadVideoItem & { file: (File | string) } => !!vid.file)
+            .map(vid => vid.file);
+
+        const allFiles = [...videos, ...newVideos]
+            .filter((vid): vid is UploadVideoItem & { file: (File | string) } => !!vid.file)
+            .map(vid => vid.file);
+
+        setFileOrder(makeArray(initFiles.length));
+        setFileVideo(allFiles);
+
+        fileMultipartFileOrder
+            ? setFileMultipartFileOrder([...fileMultipartFileOrder, ...Array.from({ length: newVideos.length }, (_, i) => allFiles.length + i - 1)])
+            : setFileMultipartFileOrder(Array.from({ length: newVideos.length }, (_, i) => initFiles.length + i));
+
+    }, [videos, setFileVideo, fileMultipartFileOrder, setFileMultipartFileOrder, setFileOrder]);
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+        accept: { 'video/*': [] },
+        multiple: true,
+        maxSize: 10 * 1024 * 1024, // 10MB
+        onDropRejected: (fileRejections) => {
+            fileRejections.forEach(rejection => {
+                rejection.errors.forEach(err => {
+                    if (err.code === "file-too-large") {
+                        alert(`파일 "${rejection.file.name}" 은(는) 10MB를 초과하여 업로드할 수 없습니다.`);
+                    }
+                });
+            });
+        }
+    });
+
+    // 삭제
+    const onDelete = (id: string) => {
+        let updated: UploadVideoItem[] = [];
+        const indexToRemove = videos.findIndex((vid) => vid.id === id);
+
+        const toRevoke = videos.find((vid) => vid.id === id);
+        if (toRevoke?.file) {
+            URL.revokeObjectURL(toRevoke.preview);
+        }
+
+        updated = videos.filter((vid) => vid.id !== id);
+
+        const updatedToMap = updated
+            .filter((vid): vid is UploadVideoItem & { file: File | string } => !!vid.file)
+            .map((vid) => vid.file);
+
+        setVideos(updated);
+        setFileVideo(updatedToMap);
+
+        setFileOrder(updated
+            .map((vid, index) => (typeof vid.file === 'string' ? index : -1))
+            .filter(index => index !== -1));
+
+        setFileMultipartFileOrder(updated
+            .map((vid, index) => (vid.file instanceof File ? index : -1))
+            .filter(index => index !== -1));
+
+        if (!isFile(toRevoke?.file)) {
+            let videoIndex = videos.filter(vid => typeof vid.file === 'string').findIndex((vid) => vid.id === id);
+            setFileIndex(fileIndex.filter((_, idx) => idx !== videoIndex));
+            fileDeleteIndex
+                ? setFileDeleteIndex([...fileDeleteIndex, fileIndex[videoIndex]])
+                : setFileDeleteIndex([fileIndex[videoIndex]]);
+        }
+    };
+
+    // 정렬 변경
+    const onDragEnd = (event: any) => {
+        const { active, over } = event;
+        if (active.id !== over?.id) {
+            const oldIndex = videos.findIndex((vid) => vid.id === active.id);
+            const newIndex = videos.findIndex((vid) => vid.id === over?.id);
+            const oldVideo = videos.find((vid) => vid.id === active.id);
+            const newVideo = videos.find((vid) => vid.id === over?.id);
+            const newVideos = arrayMove(videos, oldIndex, newIndex);
+            setVideos(newVideos);
+
+            const orderedFiles = newVideos
+                .filter((vid): vid is UploadVideoItem & { file: (File | string | object) } => !!vid.file)
+                .map((vid) => vid.file);
+
+            let oldVideoIsFile = isFile(oldVideo?.file);
+            let newVideoIsFile = isFile(newVideo?.file);
+
+            setFileVideo(orderedFiles);
+
+            const newMultipartStringOrder = newVideos
+                .map((vid, index) => (typeof vid.file === 'string' ? index : -1))
+                .filter(index => index !== -1);
+
+            setFileOrder(newMultipartStringOrder);
+
+            if(!oldVideoIsFile && !newVideoIsFile){
+                let oldStringIndex = videos.filter(vid => typeof vid.file === 'string').findIndex((vid) => vid.id === active.id);
+                let newStringIndex = videos.filter(vid => typeof vid.file === 'string').findIndex((vid) => vid.id === over?.id);
+
+                let newVideosIndex = arrayMove(fileIndex, oldStringIndex, newStringIndex);
+                setFileIndex(newVideosIndex);
+            }
+
+            if(fileMultipartFileOrder){
+                const newMultipartFileOrder = newVideos
+                    .map((vid, index) => (vid.file instanceof File ? index : -1))
+                    .filter(index => index !== -1);
+
+                setFileMultipartFileOrder(newMultipartFileOrder);
+            }
+        }
+    };
+
+    return (
+        <div className="w-full mx-auto py-4">
+            <div
+                {...getRootProps()}
+                className="border-2 border-dashed border-gray-400 p-6 text-center rounded-lg cursor-pointer hover:border-blue-500 transition"
+            >
+                <input {...getInputProps()} />
+                <p className="text-gray-600">영상을 클릭 또는 드래그하여 업로드하세요</p>
+
+                {videos.length > 0 && (
+                    <div className="mt-6">
+                        <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
+                            <SortableContext items={videos.map((vid) => vid.id)} strategy={rectSortingStrategy}>
+                                <div className="flex flex-wrap gap-4">
+                                    {videos.map((video) => (
+                                        <SortableVideo key={video.id} video={video} onDelete={onDelete} />
+                                    ))}
+                                </div>
+                            </SortableContext>
+                        </DndContext>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}

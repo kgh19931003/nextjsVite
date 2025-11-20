@@ -146,7 +146,7 @@ export default function Header() {
                           `}
             >
                 <nav className={`
-                                  max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 flex items-center justify-between
+                                  max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 flex items-center justify-center
                                   transition-[height] duration-500 ease-in-out
                                   ${scrolled ? 'h-16' : 'h-24'}
                                 `}>
@@ -155,272 +155,24 @@ export default function Header() {
                     {/* 데스크탑 메뉴 */}
                     <ul className="hidden md:flex gap-30 relative">
                         <li
-                            className="relative py-10"
+                            className="relative py-10 font-bold"
                             onClick={() => location.href = `/${currentLocale}/admin`}>
                                 {t('관리자')}
                         </li>
                         <li className="relative py-10">
-                            <Link href={`https://github.com/kgh19931003/nextjsVite`} className="cursor-pointer hover:text-[#56BC6F] font-bold">
+                            <a href={`https://github.com/kgh19931003/nextjsVite`} target="_blank" className="cursor-pointer hover:text-[#56BC6F] font-bold">
                                 {t('Frontend Git')}
-                            </Link>
+                            </a>
                         </li>
                         <li className="relative py-10">
-                            <Link href={`https://github.com/kgh19931003/ktBootSpring`} className="cursor-pointer hover:text-[#56BC6F] font-bold">
+                            <a href={`https://github.com/kgh19931003/ktBootSpring`} target="_blank" className="cursor-pointer hover:text-[#56BC6F] font-bold">
                                 {t('Backend Git')}
-                            </Link>
+                            </a>
                         </li>
                     </ul>
 
-                    {/* 우측 영역: 언어 선택 + 햄버거 버튼 */}
-                    <div className="flex items-center gap-4 ml-6">
-                        {/* 언어 드롭다운 */}
-                        <div className="relative" ref={dropdownRef}>
-                            <button
-                                onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
-                                className="flex items-center gap-1  dark:text-white hover:text-[#56BC6F] cursor-pointer"
-                            >
-
-                                <Globe2 className="w-6 h-6"/>
-                                <span className="text-sm absolute left-5 top-3 ">{currentLocale}</span>
-                                <ChevronDown className="w-4 h-4"/>
-                            </button>
-                            <div
-                                className={clsx(
-                                    'absolute text-black left-1/2 -translate-x-1/2 mt-5 w-20 bg-white dark:bg-neutral-700 rounded shadow transition-all duration-300 overflow-hidden z-50',
-                                    showLanguageDropdown
-                                        ? 'max-h-40 opacity-100 scale-100'
-                                        : 'max-h-0 opacity-0 scale-95 pointer-events-none'
-                                )}
-                            >
-                                <button
-                                    onClick={() => {
-                                        changeLanguage('ko');
-                                        setShowLanguageDropdown(false);
-                                    }}
-                                    className="w-full text-base text-left flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600"
-                                >
-                                    <img src="/flags/kr.png" alt="한국어" className="w-5 h-5 rounded-sm"/>
-                                    <span className="ml-2">ko</span>
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        changeLanguage('en');
-                                        setShowLanguageDropdown(false);
-                                    }}
-                                    className="w-full text-base text-left flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600"
-                                >
-                                    <img src="/flags/us.png" alt="English" className="w-5 h-5 rounded-sm"/>
-                                    <span className="ml-2">en</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* 햄버거 메뉴 버튼 */}
-                        <button
-                            onClick={() => setIsMobileMenuOpen(true)}
-                            className="md:flex z-50 relative"
-                        >
-                            <Menu className="w-6 h-6  dark:text-white hover:text-[#56BC6F] cursor-pointer"/>
-                        </button>
-                    </div>
                 </nav>
-
             </header>
-
-
-            {/* 전체화면 오버레이 메뉴 */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        variants={overlayVariants}
-                        className="fixed inset-0 z-[100] bg-white dark:bg-neutral-900"
-                    >
-                        {/* 상단 헤더 바 */}
-                        <div
-                            className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-neutral-700">
-                            <Link href="/" className="flex items-center gap-3">
-                                <img src="/logo/portfolio_logo.png" alt="로고" className="h-8 w-auto object-contain pl-20"/>
-                                <img src="/logo/portfolio_logo_text.png" alt="로고"
-                                     className="mt-1 h-8 w-auto object-contain"/>
-                            </Link>
-
-                            {/* 언어 드롭다운 */}
-                            <div className="absolute right-35 top-13 hidden lg:flex pr-3" ref={dropdownRef}>
-                                <button
-                                    onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
-                                    className="flex items-center h-[20px] gap-1 text-gray-700 dark:text-white hover:text-[#56BC6F] cursor-pointer"
-                                >
-                                    <h3 className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-6 flex items-center gap-2 hover:text-[#56BC6F]">
-                                        <Globe2 className="w-5 h-5"/>
-                                        <span className="text-sm absolute left-4 top-0 font-bold">{currentLocale}</span>
-                                    </h3>
-                                    <ChevronDown className="w-4 h-4 mb-5"/>
-                                </button>
-                                <div
-                                  className={clsx(
-                                    'absolute text-black left-1/2 -translate-x-1/2 mt-5 w-20 bg-white dark:bg-neutral-700 rounded shadow transition-all duration-300 overflow-hidden z-50',
-                                    showLanguageDropdown
-                                      ? 'max-h-40 opacity-100 scale-100'
-                                      : 'max-h-0 opacity-0 scale-95 pointer-events-none'
-                                  )}
-                                >
-                                    <button
-                                        onClick={() => {
-                                            changeLanguage('ko');
-                                            setShowLanguageDropdown(false);
-                                        }}
-                                        className="w-full text-base text-left flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600 cursor-pointer"
-                                    >
-                                        <img src="/flags/kr.png" alt="한국어" className="w-5 h-5 rounded-sm"/>
-                                        <span className="ml-2">ko</span>
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            changeLanguage('en');
-                                            setShowLanguageDropdown(false);
-                                        }}
-                                        className="w-full text-base text-left flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-neutral-600 cursor-pointer"
-                                    >
-                                        <img src="/flags/us.png" alt="English" className="w-5 h-5 rounded-sm"/>
-                                        <span className="ml-2">en</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <button
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="p-2 rounded-full transition-colors pr-20"
-                            >
-                                <X className="w-8 h-8 text-gray-700 dark:text-gray-200 hover:text-[#56BC6F] cursor-pointer"/>
-                            </button>
-                        </div>
-
-                        {/* 메뉴 컨테이너 */}
-                        <motion.div
-                            variants={menuVariants}
-                            className="flex flex-col lg:flex-row px-8 py-4 justify-center overflow-auto lg:px-16 lg:ml-0 h-[90vh]"
-                        >
-                            {/* 왼쪽 메인 메뉴 */}
-                            <div className="w-full lg:w-1/2 mb-12 lg:ml-40 lg:hidden overflow-auto overflow-auto scrollbar-hide h-full ">
-                                <nav className="space-y-6">
-                                    {/* 회사소개 */}
-                                    <div className="group">
-                                        <button
-                                            onClick={() => toggleMobileSubmenu('about')}
-                                            className="flex items-center justify-between w-full text-3xl lg:text-4xl font-light text-gray-800 dark:text-gray-200 hover:text-[#56BC6F] transition-colors py-3 border-b border-gray-200 dark:border-neutral-700"
-                                        >
-                                            <span>{t('회사소개')}</span>
-                                            <ChevronDown
-                                                className={clsx("w-8 h-8 transition-transform duration-300", mobileSubmenuOpen['about'] && "rotate-180")}/>
-                                        </button>
-                                        <AnimatePresence>
-                                            {mobileSubmenuOpen['about'] && (
-                                                <motion.div
-                                                    initial={{height: 0, opacity: 0}}
-                                                    animate={{height: 'auto', opacity: 1}}
-                                                    exit={{height: 0, opacity: 0}}
-                                                    transition={{duration: 0.3}}
-                                                    className="overflow-hidden ml-8 mt-4"
-                                                >
-                                                    <div className="space-y-3">
-                                                        <Link
-                                                            href={`/${currentLocale}/company/Vision`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('비전&목표')}
-                                                        </Link>
-                                                        <Link
-                                                            href={`/${currentLocale}/company/Timeline`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('연혁')}
-                                                        </Link>
-                                                        <Link
-                                                            href={`/${currentLocale}/company/Certification`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('인증')}
-                                                        </Link>
-                                                        <Link
-                                                            href={`/${currentLocale}/company/Locations`}
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                            className="block text-xl text-gray-600 dark:text-gray-400 hover:text-[#56BC6F] transition-colors py-2"
-                                                        >
-                                                            {t('사업장')}
-                                                        </Link>
-                                                    </div>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-
-
-
-
-                                </nav>
-                            </div>
-
-
-                            {/* PC 가로 메뉴 (lg 이상에만 보이도록) */}
-                            <div className="w-full hidden lg:flex justify-center gap-32 py-26 bg-white dark:bg-neutral-900 dark:border-neutral-700">
-                                {/* 회사소개 */}
-                                <div className="flex flex-col items-center group">
-                                <span
-                                    className="text-3xl font-semibold text-gray-300 group-hover:text-[#53BA6E] transition-colors duration-200 dark:text-gray-400 dark:group-hover:text-[#53BA6E]">
-                                  <Link href={`/${currentLocale}/company/Vision`}
-                                        onClick={() => setIsMobileMenuOpen(false)}>{t('회사소개')}</Link>
-                                </span>
-                                    <div className="mt-10 flex flex-col items-center gap-1">
-                                        {["Vision", "Timeline", "Certification", "Locations"].map((path, i) => (
-                                            <Link
-                                                key={i}
-                                                href={`/${currentLocale}/company/${path}`}
-                                                onClick={() => setIsMobileMenuOpen(false)}
-                                                className="text-xl text-gray-300 group-hover:text-black dark:text-gray-400 dark:group-hover:text-black py-2 transition-colors duration-300 hover:animate-blink hover:scale-105"
-                                            >
-                                                {{
-                                                    Vision: t("비전&목표"),
-                                                    Timeline: t("연혁"),
-                                                    Certification: t("인증"),
-                                                    Locations: t("사업장")
-                                                }[path]}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-
-
-
-
-
-                            </div>
-
-                            <style jsx global>{`
-                                @keyframes blink {
-                                    0%, 100% {
-                                        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.7);
-                                    }
-                                    50% {
-                                        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.9);
-                                    }
-                                }
-
-                                .hover\\:animate-blink:hover {
-                                    animation: blink 1.5s ease-in-out infinite;
-                                }
-                            `}</style>
-
-
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
         </>
     );

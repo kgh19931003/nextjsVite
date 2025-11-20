@@ -108,7 +108,7 @@ export default function UploadImage({
                 return {
                     id: item, // 문자열 URL 자체를 id로 사용
                     file: item,
-                    preview: (item)
+                    preview: "http://localhost:9090/"+(item)
                 };
             } else {
                 // File일 경우 캐시된 URL 재사용
@@ -163,6 +163,16 @@ export default function UploadImage({
         onDrop,
         accept: { 'image/*': [] },
         multiple: true,
+        maxSize: 10 * 1024 * 1024, // 10MB
+        onDropRejected: (fileRejections) => {
+            fileRejections.forEach(rejection => {
+                rejection.errors.forEach(err => {
+                    if (err.code === "file-too-large") {
+                        alert(`파일 "${rejection.file.name}" 은(는) 10MB를 초과하여 업로드할 수 없습니다.`);
+                    }
+                });
+            });
+        }
     });
 
     // 삭제
@@ -254,7 +264,7 @@ export default function UploadImage({
     };
 
     return (
-        <div className="w-full mx-auto p-4">
+        <div className="w-full mx-auto py-4">
             <div
                 {...getRootProps()}
                 className="border-2 border-dashed border-gray-400 p-6 text-center rounded-lg cursor-pointer hover:border-blue-500 transition"

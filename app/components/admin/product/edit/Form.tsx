@@ -5,39 +5,12 @@ import {useParams, usePathname, useRouter} from 'next/navigation';
 import {swrFetcher} from "@/lib/function";
 import {mutate} from "swr";
 import UploadImage from "@/lib/upload/Image";
+import UploadVideo from "@/lib/upload/Video";
+import {productFormType, ProductResponse} from "@/lib/types/common";
 
-
-interface ProductResponse {
-    language: string;
-    name: string;
-    price: number;
-    fileUuid: string[];
-    fileDeleteUuid: string[];
-    fileIndex: number[];                // res.productImgIdx 가 배열이라 가정
-    fileOriginalIndex: number[];        // 위와 동일하게 number[]
-    fileDeleteIndex: number[];
-    fileMultipartFileOrder: number[];
-    fileOrder: number[];                 // res.productImgOrder 도 배열로 추정
-    fileImage: string[];                      // 문자열 배열 (단일 string일 수도 있어 배열로 처리)
-}
-
-interface FormType {
-    language: string;
-    name: string;
-    price: string | number;
-    fileUuid: string[];
-    fileDeleteUuid: string[];
-    fileOrder: number[];
-    fileIndex: number[];
-    fileOriginalIndex: number[];
-    fileDeleteIndex: number[];
-    fileMultipartFileOrder: number[];
-    // 기타 필드들...
-}
 const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
     const router = useRouter();
     const isEditMode = idx !== undefined && idx !== 'new' && idx !== '';
-
     const pathname = usePathname();
     const [loading, setLoading] = useState(false);
     const currentLocale = useMemo(() => {
@@ -48,6 +21,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         language: '',
         name: '',
         price: '',
+        // 이미지 관련
         fileUuid: [] as string[],
         fileDeleteUuid: [] as string[],
         fileOriginalIndex: [] as number[],
@@ -55,10 +29,17 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         fileDeleteIndex: [] as number[],
         fileMultipartFileOrder: [] as number[],
         fileOrder: [] as number[],
-        fileImage: [] as (File | string)[] // File 또는 URL
+        fileImage: [] as (File | string)[],
+        // 비디오 관련
+        videoUuid: [] as string[],
+        videoDeleteUuid: [] as string[],
+        videoOriginalIndex: [] as number[],
+        videoIndex: [] as number[],
+        videoDeleteIndex: [] as number[],
+        videoMultipartFileOrder: [] as number[],
+        videoOrder: [] as number[],
+        fileVideo: [] as (File | string)[]
     });
-
-    //console.log("form : "+JSON.stringify(form))
 
     useEffect(() => {
         const fetchData = async () => {
@@ -71,6 +52,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     language: currentLocale || '',
                     name: res.name || '',
                     price: res.price != null ? String(res.price) : '',
+                    // 이미지
                     fileUuid: res.fileUuid,
                     fileDeleteUuid: res.fileDeleteUuid,
                     fileIndex: res.fileIndex,
@@ -81,7 +63,20 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     fileImage: res.fileImage
                         ? Array.isArray(res.fileImage)
                             ? res.fileImage
-                            : [res.fileImage] // 단일 string인 경우 배열로 감쌈
+                            : [res.fileImage]
+                        : [],
+                    // 비디오
+                    videoUuid: res.videoUuid || [],
+                    videoDeleteUuid: res.videoDeleteUuid || [],
+                    videoIndex: res.videoIndex || [],
+                    videoOriginalIndex: res.videoIndex || [],
+                    videoDeleteIndex: res.videoDeleteIndex || [],
+                    videoMultipartFileOrder: res.videoMultipartFileOrder || [],
+                    videoOrder: res.videoOrder || [],
+                    fileVideo: res.fileVideo
+                        ? Array.isArray(res.fileVideo)
+                            ? res.fileVideo
+                            : [res.fileVideo]
                         : []
                 });
 
@@ -91,7 +86,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         };
 
         fetchData();
-    }, [isEditMode, idx]);
+    }, [isEditMode, idx, currentLocale]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -107,34 +102,50 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
 
         const method = 'POST';
         const formdata = new FormData();
-        // Partial로 부분적 타입 지정
-        const formJson: Partial<FormType> = {};
+        const formJson: Partial<productFormType> = {};
 
-        if(form.language) formJson.language = currentLocale
-        if(form.name) formJson.name = form.name
-        if(form.price) formJson.price = form.price
-        if(form.fileUuid) formJson.fileUuid = form.fileUuid
-        if(form.fileDeleteUuid) formJson.fileDeleteUuid = form.fileDeleteUuid
-        if(form.fileOrder) formJson.fileOrder = form.fileOrder
-        if(form.fileIndex) formJson.fileIndex = form.fileIndex
-        if(form.fileOriginalIndex) formJson.fileOriginalIndex = form.fileOriginalIndex
-        if(form.fileDeleteIndex) formJson.fileDeleteIndex = form.fileDeleteIndex
-        if(form.fileMultipartFileOrder) formJson.fileMultipartFileOrder = form.fileMultipartFileOrder
+        formJson.language = currentLocale;
+        if(form.name) formJson.name = form.name;
+        if(form.price) formJson.price = form.price;
 
+        // 이미지 관련
+        if(form.fileUuid) formJson.fileUuid = form.fileUuid;
+        if(form.fileDeleteUuid) formJson.fileDeleteUuid = form.fileDeleteUuid;
+        if(form.fileOrder) formJson.fileOrder = form.fileOrder;
+        if(form.fileIndex) formJson.fileIndex = form.fileIndex;
+        if(form.fileOriginalIndex) formJson.fileOriginalIndex = form.fileOriginalIndex;
+        if(form.fileDeleteIndex) formJson.fileDeleteIndex = form.fileDeleteIndex;
+        if(form.fileMultipartFileOrder) formJson.fileMultipartFileOrder = form.fileMultipartFileOrder;
+
+        // 비디오 관련
+        if(form.videoUuid) formJson.videoUuid = form.videoUuid;
+        if(form.videoDeleteUuid) formJson.videoDeleteUuid = form.videoDeleteUuid;
+        if(form.videoOrder) formJson.videoOrder = form.videoOrder;
+        if(form.videoIndex) formJson.videoIndex = form.videoIndex;
+        if(form.videoOriginalIndex) formJson.videoOriginalIndex = form.videoOriginalIndex;
+        if(form.videoDeleteIndex) formJson.videoDeleteIndex = form.videoDeleteIndex;
+        if(form.videoMultipartFileOrder) formJson.videoMultipartFileOrder = form.videoMultipartFileOrder;
+
+        console.log(form)
 
         formdata.append(
             "form",
             new Blob([JSON.stringify(formJson)], { type: "application/json" })
         );
 
-
-        // ✅ 파일 데이터
+        // 이미지 파일 추가
         if (Array.isArray(form.fileImage)) {
             form.fileImage.forEach(file => {
                 formdata.append("fileImage", file);
             });
         }
 
+        // 비디오 파일 추가
+        if (Array.isArray(form.fileVideo)) {
+            form.fileVideo.forEach(file => {
+                formdata.append("fileVideo", file);
+            });
+        }
 
         try {
             const res = await swrFetcher(url, {
@@ -176,7 +187,6 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     className="w-full px-4 py-2 border rounded"
                 />
 
-
                 <UploadImage
                     fileImage={form.fileImage}
                     fileIndex={form.fileIndex}
@@ -208,6 +218,37 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     }
                 />
 
+                <UploadVideo
+                    fileVideo={form.fileVideo}
+                    fileIndex={form.videoIndex}
+                    fileDeleteIndex={form.videoDeleteIndex}
+                    fileMultipartFileOrder={form.videoMultipartFileOrder}
+                    fileOrder={form.videoOrder}
+                    fileUuid={form.videoUuid}
+                    fileDeleteUuid={form.videoDeleteUuid}
+                    setFileVideo={(files) =>
+                        setForm((prev) => ({ ...prev, fileVideo: files }))
+                    }
+                    setFileIndex={(VideoIndex) =>
+                        setForm((prev) => ({ ...prev, videoIndex: VideoIndex }))
+                    }
+                    setFileDeleteIndex={(VideoDeleteIndex) =>
+                        setForm((prev) => ({ ...prev, videoDeleteIndex: VideoDeleteIndex }))
+                    }
+                    setFileMultipartFileOrder={(VideoMultipartFileOrder) =>
+                        setForm((prev) => ({ ...prev, videoMultipartFileOrder: VideoMultipartFileOrder }))
+                    }
+                    setFileOrder={(VideoOrder) =>
+                        setForm((prev) => ({ ...prev, videoOrder: VideoOrder }))
+                    }
+                    setFileUuid={(VideoUuid) =>
+                        setForm((prev) => ({ ...prev, videoUuid: VideoUuid }))
+                    }
+                    setFileDeleteUuid={(VideoDeleteUuid) =>
+                        setForm((prev) => ({ ...prev, videoDeleteUuid: VideoDeleteUuid }))
+                    }
+                />
+
                 <button
                     onClick={handleSubmit}
                     disabled={loading}
@@ -217,8 +258,6 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                 >
                     {isEditMode ? '수정하기' : '추가하기'}
                 </button>
-
-
             </div>
         </div>
     );
