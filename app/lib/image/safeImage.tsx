@@ -8,6 +8,7 @@ interface Props {
     width: number;
     height: number;
     fallbackSrc?: string; // optional, 필요 시
+    alt?: string;  // 👈 alt 추가!
 }
 
 export default function SafeImage({
@@ -37,6 +38,7 @@ export default function SafeImage({
             {/* height를 px로 지정하거나 min-h 설정 가능 */}
             {imgSrc && (
                 <Image
+                    loader={({ src }) => imgSrc ?? src ?? ""}
                     src={imgSrc}
                     alt=""
                     width={width}

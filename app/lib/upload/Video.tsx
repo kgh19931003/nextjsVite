@@ -12,31 +12,18 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { v4 as uuidv4 } from 'uuid';
 import {isFile, makeArray} from "@/lib/function";
+import { useUploadState } from '@/lib/upload/hook/useUploadState';
 
 type UploadVideoItem = {
     id: string;
     file?: File | string;
     preview: string;
-    thumbnail?: string; // 비디오 썸네일
+    thumbnail?: string;
 };
 
 type UploadVideoProps = {
-    fileVideo: (File | string)[];
-    fileIndex: number[];
-    fileDeleteIndex: number[];
-    fileMultipartFileOrder: number[];
-    fileOrder: number[];
-    fileUuid: string[];
-    fileDeleteUuid: string[];
-    fileUrl?: string[];
-    setFileVideo: (files: (File | string)[]) => void;
-    setFileIndex: (videoIndex: number[]) => void;
-    setFileDeleteIndex: (videoDeleteIndex: number[]) => void;
-    setFileMultipartFileOrder: (videoMultipartFileOrder: number[]) => void;
-    setFileOrder: (videoOrder: number[]) => void;
-    setFileUuid: (videoUuid: string[]) => void;
-    setFileDeleteUuid: (videoDeleteUuid: string[]) => void;
-    setFileUrl?: (urls: string[]) => void;
+    title: string;
+    uploadState: useUploadState;
 };
 
 // 개별 비디오 박스
@@ -89,28 +76,18 @@ function SortableVideo({
     );
 }
 
-export default function UploadVideo({
-                                        fileVideo, setFileVideo,
-                                        fileIndex, setFileIndex,
-                                        fileUrl, setFileUrl,
-                                        fileOrder, setFileOrder,
-                                        fileUuid, setFileUuid,
-                                        fileDeleteUuid, setFileDeleteUuid,
-                                        fileMultipartFileOrder, setFileMultipartFileOrder,
-                                        fileDeleteIndex, setFileDeleteIndex
-                                    }: UploadVideoProps) {
-
+export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
     const [videos, setVideos] = useState<UploadVideoItem[]>([]);
     const objectUrlMap = useRef<Map<string, string>>(new Map());
 
-    // 최초 fileVideo로 초기화
+    // 최초 fileData로 초기화
     useEffect(() => {
-        const initial = fileVideo.map((item, index) => {
+        const initial = uploadState.fileData.map((item, index) => {
             if (typeof item === 'string') {
                 return {
                     id: item,
                     file: item,
-                    preview: "http://localhost:9090/"+item
+                    preview: "http://localhost:9090/" + item
                 };
             } else {
                 let url = objectUrlMap.current.get(item.name);
@@ -128,7 +105,7 @@ export default function UploadVideo({
         });
 
         setVideos(initial);
-    }, [fileVideo]);
+    }, [uploadState.fileData]);
 
     // 파일 업로드 시 처리
     const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -146,20 +123,25 @@ export default function UploadVideo({
             .filter((vid): vid is UploadVideoItem & { file: (File | string) } => !!vid.file)
             .map(vid => vid.file);
 
-        setFileOrder(makeArray(initFiles.length));
-        setFileVideo(allFiles);
+        uploadState.setFileOrder(makeArray(initFiles.length));
+        uploadState.setFileData(allFiles);
 
-        fileMultipartFileOrder
-            ? setFileMultipartFileOrder([...fileMultipartFileOrder, ...Array.from({ length: newVideos.length }, (_, i) => allFiles.length + i - 1)])
-            : setFileMultipartFileOrder(Array.from({ length: newVideos.length }, (_, i) => initFiles.length + i));
+        uploadState.fileMultipartFileOrder
+            ? uploadState.setFileMultipartFileOrder([
+                ...uploadState.fileMultipartFileOrder,
+                ...Array.from({ length: newVideos.length }, (_, i) => allFiles.length + i - 1)
+            ])
+            : uploadState.setFileMultipartFileOrder(
+                Array.from({ length: newVideos.length }, (_, i) => initFiles.length + i)
+            );
 
-    }, [videos, setFileVideo, fileMultipartFileOrder, setFileMultipartFileOrder, setFileOrder]);
+    }, [videos, uploadState]);
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
         accept: { 'video/*': [] },
         multiple: true,
-        maxSize: 10 * 1024 * 1024, // 10MB
+        maxSize: 10 * 1024 * 1024,
         onDropRejected: (fileRejections) => {
             fileRejections.forEach(rejection => {
                 rejection.errors.forEach(err => {
@@ -172,43 +154,40 @@ export default function UploadVideo({
     });
 
     // 삭제
-    const onDelete = (id: string) => {
-        let updated: UploadVideoItem[] = [];
-        const indexToRemove = videos.findIndex((vid) => vid.id === id);
-
+    const onDelete = useCallback((id: string) => {
         const toRevoke = videos.find((vid) => vid.id === id);
         if (toRevoke?.file) {
             URL.revokeObjectURL(toRevoke.preview);
         }
 
-        updated = videos.filter((vid) => vid.id !== id);
+        const updated = videos.filter((vid) => vid.id !== id);
 
         const updatedToMap = updated
             .filter((vid): vid is UploadVideoItem & { file: File | string } => !!vid.file)
             .map((vid) => vid.file);
 
         setVideos(updated);
-        setFileVideo(updatedToMap);
+        uploadState.setFileData(updatedToMap);
 
-        setFileOrder(updated
+        uploadState.setFileOrder(updated
             .map((vid, index) => (typeof vid.file === 'string' ? index : -1))
             .filter(index => index !== -1));
 
-        setFileMultipartFileOrder(updated
+        uploadState.setFileMultipartFileOrder(updated
             .map((vid, index) => (vid.file instanceof File ? index : -1))
             .filter(index => index !== -1));
 
         if (!isFile(toRevoke?.file)) {
             let videoIndex = videos.filter(vid => typeof vid.file === 'string').findIndex((vid) => vid.id === id);
-            setFileIndex(fileIndex.filter((_, idx) => idx !== videoIndex));
-            fileDeleteIndex
-                ? setFileDeleteIndex([...fileDeleteIndex, fileIndex[videoIndex]])
-                : setFileDeleteIndex([fileIndex[videoIndex]]);
+            uploadState.setFileIndex(uploadState.fileIndex.filter((_, idx) => idx !== videoIndex));
+            uploadState.fileDeleteIndex
+                ? uploadState.setFileDeleteIndex([...uploadState.fileDeleteIndex, uploadState.fileIndex[videoIndex]])
+                : uploadState.setFileDeleteIndex([uploadState.fileIndex[videoIndex]]);
         }
-    };
+    }, [videos, uploadState]);
 
     // 정렬 변경
-    const onDragEnd = (event: any) => {
+    const onDragEnd = useCallback((event: any) => {
         const { active, over } = event;
         if (active.id !== over?.id) {
             const oldIndex = videos.findIndex((vid) => vid.id === active.id);
@@ -225,34 +204,38 @@ export default function UploadVideo({
             let oldVideoIsFile = isFile(oldVideo?.file);
             let newVideoIsFile = isFile(newVideo?.file);
 
-            setFileVideo(orderedFiles);
+            uploadState.setFileData(orderedFiles);
 
             const newMultipartStringOrder = newVideos
                 .map((vid, index) => (typeof vid.file === 'string' ? index : -1))
                 .filter(index => index !== -1);
 
-            setFileOrder(newMultipartStringOrder);
+            uploadState.setFileOrder(newMultipartStringOrder);
 
             if(!oldVideoIsFile && !newVideoIsFile){
                 let oldStringIndex = videos.filter(vid => typeof vid.file === 'string').findIndex((vid) => vid.id === active.id);
                 let newStringIndex = videos.filter(vid => typeof vid.file === 'string').findIndex((vid) => vid.id === over?.id);
 
-                let newVideosIndex = arrayMove(fileIndex, oldStringIndex, newStringIndex);
-                setFileIndex(newVideosIndex);
+                let newVideosIndex = arrayMove(uploadState.fileIndex, oldStringIndex, newStringIndex);
+                uploadState.setFileIndex(newVideosIndex);
             }
 
-            if(fileMultipartFileOrder){
+            if(uploadState.fileMultipartFileOrder){
                 const newMultipartFileOrder = newVideos
                     .map((vid, index) => (vid.file instanceof File ? index : -1))
                     .filter(index => index !== -1);
 
-                setFileMultipartFileOrder(newMultipartFileOrder);
+                uploadState.setFileMultipartFileOrder(newMultipartFileOrder);
             }
         }
-    };
+    }, [videos, uploadState]);
 
     return (
-        <div className="w-full mx-auto py-4">
+        <div className="w-full mx-auto py-2">
+            <h1 className="text-xl font-bold my-3">
+                {title}
+            </h1>
+
             <div
                 {...getRootProps()}
                 className="border-2 border-dashed border-gray-400 p-6 text-center rounded-lg cursor-pointer hover:border-blue-500 transition"
@@ -266,7 +249,7 @@ export default function UploadVideo({
                             <SortableContext items={videos.map((vid) => vid.id)} strategy={rectSortingStrategy}>
                                 <div className="flex flex-wrap gap-4">
                                     {videos.map((video) => (
-                                        <SortableVideo key={video.id} video={video} onDelete={onDelete} />
+                                        <SortableVideo key={video.id} video={video} onDelete={onDelete}/>
                                     ))}
                                 </div>
                             </SortableContext>

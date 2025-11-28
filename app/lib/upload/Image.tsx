@@ -11,31 +11,18 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { v4 as uuidv4 } from 'uuid';
-import {isFile, isNumeric, makeArray} from "@/lib/function";
+import {isFile, makeArray} from "@/lib/function";
+import { useUploadState } from '@/lib/upload/hook/useUploadState';
 
 type UploadImageItem = {
     id: string;
-    file?: File | string;  // string 타입 추가
-    preview: string;   // 수정: 미리보기 URL 문자열
+    file?: File | string;
+    preview: string;
 };
 
 type UploadImageProps = {
-    fileImage: (File | string)[];
-    fileIndex: number[],
-    fileDeleteIndex: number[],
-    fileMultipartFileOrder: number[],
-    fileOrder: number[],
-    fileUuid: string[],
-    fileDeleteUuid: string[],
-    fileUrl?: string[];  // 이미지 URL 배열, 필요 시 타입 맞춰서 변경
-    setFileImage: (files: (File | string)[]) => void;
-    setFileIndex: (imageIndex: number[]) => void;
-    setFileDeleteIndex: (imageDeleteIndex: number[]) => void;
-    setFileMultipartFileOrder: (imageMultipartFileOrder: number[]) => void;
-    setFileOrder: (imageOrder: number[]) => void;
-    setFileUuid: (imageUuid: string[]) => void;
-    setFileDeleteUuid: (imageDeleteUuid: string[]) => void;
-    setFileUrl?: (urls: string[]) => void;
+    title: string;
+    uploadState: useUploadState;
 };
 
 // 개별 이미지 박스
@@ -71,7 +58,7 @@ function SortableImage({
                 {...listeners}
                 src={image.preview}
                 alt="preview"
-                className="w-full h-full  cursor-pointer"
+                className="w-full h-full cursor-pointer"
             />
             <button
                 onClick={(e) => {
@@ -86,32 +73,20 @@ function SortableImage({
     );
 }
 
-export default function UploadImage({
-                  fileImage, setFileImage,
-                  fileIndex, setFileIndex,
-                  fileUrl, setFileUrl,
-                  fileOrder, setFileOrder,
-                  fileUuid, setFileUuid,
-                  fileDeleteUuid, setFileDeleteUuid,
-                  fileMultipartFileOrder, setFileMultipartFileOrder,
-                  fileDeleteIndex, setFileDeleteIndex
-}: UploadImageProps) {
-
+export default function UploadImage({ title, uploadState }: UploadImageProps) {
     const [images, setImages] = useState<UploadImageItem[]>([]);
     const objectUrlMap = useRef<Map<string, string>>(new Map());
 
-
-    // 최초 fileImage로 초기화
+    // 최초 fileData로 초기화
     useEffect(() => {
-        const initial = fileImage.map((item, index) => {
+        const initial = uploadState.fileData.map((item, index) => {
             if (typeof item === 'string') {
                 return {
-                    id: item, // 문자열 URL 자체를 id로 사용
+                    id: item,
                     file: item,
-                    preview: "http://localhost:9090/"+(item)
+                    preview: item
                 };
             } else {
-                // File일 경우 캐시된 URL 재사용
                 let url = objectUrlMap.current.get(item.name);
                 if (!url) {
                     url = URL.createObjectURL(item);
@@ -119,7 +94,7 @@ export default function UploadImage({
                 }
 
                 return {
-                    id: item.name + index, // 파일명+인덱스 조합으로 id 생성
+                    id: item.name + index,
                     file: item,
                     preview: url
                 };
@@ -127,7 +102,7 @@ export default function UploadImage({
         });
 
         setImages(initial);
-    }, [fileImage]);
+    }, [uploadState.fileData]);
 
     // 파일 업로드 시 처리
     const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -145,25 +120,25 @@ export default function UploadImage({
             .filter((img): img is UploadImageItem & { file: (File | string) } => !!img.file)
             .map(img => img.file);
 
+        uploadState.setFileOrder(makeArray(initFiles.length));
+        uploadState.setFileData(allFiles);
 
-        /*
-        const newFiles = [...newImages]
-            .filter((img): img is UploadImageItem & { file: (File | string) } => !!img.file)
-            .map(img => img.file);
-        */
+        uploadState.fileMultipartFileOrder
+            ? uploadState.setFileMultipartFileOrder([
+                ...uploadState.fileMultipartFileOrder,
+                ...Array.from({ length: newImages.length }, (_, i) => allFiles.length + i - 1)
+            ])
+            : uploadState.setFileMultipartFileOrder(
+                Array.from({ length: newImages.length }, (_, i) => initFiles.length + i)
+            );
 
-        setFileOrder(makeArray(initFiles.length))
-        setFileImage(allFiles);
-
-        fileMultipartFileOrder ? setFileMultipartFileOrder([...fileMultipartFileOrder, ...Array.from({ length: newImages.length }, (_, i) => allFiles.length + i - 1 )]) : setFileMultipartFileOrder(Array.from({ length: newImages.length }, (_, i) => initFiles.length + i ))
-
-    }, [images, setFileImage]);
+    }, [images, uploadState]);
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
         accept: { 'image/*': [] },
         multiple: true,
-        maxSize: 10 * 1024 * 1024, // 10MB
+        maxSize: 10 * 1024 * 1024,
         onDropRejected: (fileRejections) => {
             fileRejections.forEach(rejection => {
                 rejection.errors.forEach(err => {
@@ -176,47 +151,40 @@ export default function UploadImage({
     });
 
     // 삭제
-    const onDelete = (id: string) => {
-        let updated: UploadImageItem[] = [];
-        const indexToRemove = images.findIndex((img) => img.id === id); // 인덱스 추출
-
+    const onDelete = useCallback((id: string) => {
         const toRevoke = images.find((img) => img.id === id);
         if (toRevoke?.file) {
             URL.revokeObjectURL(toRevoke.preview);
         }
 
-        updated = images.filter((img) => img.id !== id);
+        const updated = images.filter((img) => img.id !== id);
 
         const updatedToMap = updated
             .filter((img): img is UploadImageItem & { file: File | string } => !!img.file)
             .map((img) => img.file);
 
-        // ✅ 먼저 이미지 상태만 갱신
         setImages(updated);
+        uploadState.setFileData(updatedToMap);
 
-
-        // ✅ 이후에 다른 상태들 갱신 (렌더링 끝난 이후 실행됨)
-        setFileImage(updatedToMap);
-
-
-        setFileOrder(updated
+        uploadState.setFileOrder(updated
             .map((img, index) => (typeof img.file === 'string' ? index : -1))
             .filter(index => index !== -1));
 
-        setFileMultipartFileOrder(updated
+        uploadState.setFileMultipartFileOrder(updated
             .map((img, index) => (img.file instanceof File ? index : -1))
-            .filter(index => index !== -1))
-
+            .filter(index => index !== -1));
 
         if (!isFile(toRevoke?.file)) {
             let imageIndex = images.filter(img => typeof img.file === 'string').findIndex((img) => img.id === id);
-            setFileIndex(fileIndex.filter((_, idx) => idx !== imageIndex));
-            fileDeleteIndex ? setFileDeleteIndex( [...fileDeleteIndex, fileIndex[imageIndex]]) : setFileDeleteIndex([fileIndex[imageIndex]])
+            uploadState.setFileIndex(uploadState.fileIndex.filter((_, idx) => idx !== imageIndex));
+            uploadState.fileDeleteIndex
+                ? uploadState.setFileDeleteIndex([...uploadState.fileDeleteIndex, uploadState.fileIndex[imageIndex]])
+                : uploadState.setFileDeleteIndex([uploadState.fileIndex[imageIndex]]);
         }
-    };
+    }, [images, uploadState]);
 
     // 정렬 변경
-    const onDragEnd = (event: any) => {
+    const onDragEnd = useCallback((event: any) => {
         const { active, over } = event;
         if (active.id !== over?.id) {
             const oldIndex = images.findIndex((img) => img.id === active.id);
@@ -230,41 +198,41 @@ export default function UploadImage({
                 .filter((img): img is UploadImageItem & { file: (File | string | object) } => !!img.file)
                 .map((img) => img.file);
 
+            let oldImageIsFile = isFile(oldImage?.file);
+            let newImageIsFile = isFile(newImage?.file);
 
-            let oldImageIsFIle = isFile(oldImage?.file)
-            let newImageIsFIle = isFile(newImage?.file)
-
-            setFileImage(orderedFiles);
+            uploadState.setFileData(orderedFiles);
 
             const newMultipartStringOrder = newImages
                 .map((img, index) => (typeof img.file === 'string' ? index : -1))
                 .filter(index => index !== -1);
 
-            setFileOrder(newMultipartStringOrder)
+            uploadState.setFileOrder(newMultipartStringOrder);
 
-
-            if(!oldImageIsFIle && !newImageIsFIle){
+            if(!oldImageIsFile && !newImageIsFile){
                 let oldStringIndex = images.filter(img => typeof img.file === 'string').findIndex((img) => img.id === active.id);
                 let newStringIndex = images.filter(img => typeof img.file === 'string').findIndex((img) => img.id === over?.id);
 
-                let newImagesIndex = arrayMove(fileIndex, oldStringIndex, newStringIndex );
-                setFileIndex(newImagesIndex);
+                let newImagesIndex = arrayMove(uploadState.fileIndex, oldStringIndex, newStringIndex);
+                uploadState.setFileIndex(newImagesIndex);
             }
 
-            if(fileMultipartFileOrder){
+            if(uploadState.fileMultipartFileOrder){
                 const newMultipartFileOrder = newImages
                     .map((img, index) => (img.file instanceof File ? index : -1))
                     .filter(index => index !== -1);
 
-                //console.log("newMultipartFileOrder : "+ newMultipartFileOrder)
-                setFileMultipartFileOrder(newMultipartFileOrder)
+                uploadState.setFileMultipartFileOrder(newMultipartFileOrder);
             }
-
         }
-    };
+    }, [images, uploadState]);
 
     return (
-        <div className="w-full mx-auto py-4">
+        <div className="w-full mx-auto py-2">
+            <h1 className="text-sm font-bold my-3">
+                {title}
+            </h1>
+
             <div
                 {...getRootProps()}
                 className="border-2 border-dashed border-gray-400 p-6 text-center rounded-lg cursor-pointer hover:border-blue-500 transition"
@@ -278,7 +246,7 @@ export default function UploadImage({
                             <SortableContext items={images.map((img) => img.id)} strategy={rectSortingStrategy}>
                                 <div className="flex flex-wrap gap-4">
                                     {images.map((image) => (
-                                        <SortableImage key={image.id} image={image} onDelete={onDelete} />
+                                        <SortableImage key={image.id} image={image} onDelete={onDelete}/>
                                     ))}
                                 </div>
                             </SortableContext>
