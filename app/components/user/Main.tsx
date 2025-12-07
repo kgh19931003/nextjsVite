@@ -75,6 +75,7 @@ export default function Introduction() {
         { id: 4, name: 'IDE Tool', value: ['phpstorm.png', 'intellij.png'], size: ['80', '100'], text: ['', ''] },
         { id: 5, name: 'Platform', value: ['docker.png'], size: ['100'], text: [''] },
         { id: 6, name: 'Framework', value: ['ci4.png', 'boot_spring.png'], size: ['80', '150'], text: ['', ''] },
+        { id: 7, name: 'AWS', value: ['aws.png'], size: ['200'], text: ['EC2, ECS, ECR, RDS, S3, IAM'] },
     ];
 
     const settings = {
