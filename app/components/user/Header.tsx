@@ -155,8 +155,8 @@ export default function Header() {
                     {/* 데스크탑 메뉴 */}
                     <ul className="hidden md:flex gap-30 relative">
                         <li
-                            className="relative py-10 font-bold"
-                            onClick={() => location.href = `/${currentLocale}/admin`}>
+                            className="relative py-10 font-bold cursor-pointer hover:text-[#56BC6F]"
+                            onClick={() => location.href = `/${currentLocale}/admin/fileUpload/edit`}>
                                 {t('관리자')}
                         </li>
                         <li className="relative py-10">

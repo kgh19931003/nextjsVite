@@ -117,7 +117,7 @@ export function MultiImageSlider({
                         transition: isDragging ? 'none' : 'transform 0.3s ease-out'
                     }}
                 >
-                    {currentImages.map((src, index) => (
+                    {currentImages.map((src: any, index: number) => (
                         <div key={index} className="min-w-full h-full flex items-center justify-center">
                             <img
                                 src={src}
@@ -189,7 +189,7 @@ export function MultiImageSlider({
             {/* Image Indicators (현재 제품 내 이미지 표시) - 이미지가 2개 이상일 때만 표시 */}
             {currentImages.length > 1 && (
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                    {currentImages.map((_, index) => (
+                    {currentImages.map((_: any, index: number) => (
                         <button
                             key={index}
                             onClick={() => setCurrentImageInGroup(index)}

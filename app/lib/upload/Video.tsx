@@ -19,11 +19,12 @@ type UploadVideoItem = {
     file?: File | string;
     preview: string;
     thumbnail?: string;
+    fileOriginalName?: string;
 };
 
 type UploadVideoProps = {
     title: string;
-    uploadState: useUploadState;
+    uploadState: ReturnType<typeof useUploadState>;
 };
 
 // 개별 비디오 박스
@@ -41,12 +42,14 @@ function SortableVideo({
     const style: React.CSSProperties = {
         transform: transform ? CSS.Transform.toString(transform) : undefined,
         transition,
-        width: '150px',
-        height: '150px',
+        width: '350px',
+        height: '250px',
         position: 'relative',
         flex: '0 0 auto',
         cursor: 'default',
     };
+
+    console.log("video.fileOriginalName : "+video.fileOriginalName)
 
     return (
         <div
@@ -63,6 +66,11 @@ function SortableVideo({
                 playsInline
                 controls
             />
+            {(video.file instanceof File || video.fileOriginalName) && (
+                <div className="absolute top-1 left-1 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded z-10 max-w-[280px] truncate">
+                    {video.file instanceof File ? video.file.name : video.fileOriginalName}
+                </div>
+            )}
             <button
                 onClick={(e) => {
                     e.stopPropagation();
@@ -87,7 +95,7 @@ export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
                 return {
                     id: item,
                     file: item,
-                    preview: "http://localhost:9090/" + item
+                    preview: item
                 };
             } else {
                 let url = objectUrlMap.current.get(item.name);
@@ -141,12 +149,12 @@ export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
         onDrop,
         accept: { 'video/*': [] },
         multiple: true,
-        maxSize: 10 * 1024 * 1024,
+        maxSize: 50 * 1024 * 1024,
         onDropRejected: (fileRejections) => {
             fileRejections.forEach(rejection => {
                 rejection.errors.forEach(err => {
                     if (err.code === "file-too-large") {
-                        alert(`파일 "${rejection.file.name}" 은(는) 10MB를 초과하여 업로드할 수 없습니다.`);
+                        alert(`파일 "${rejection.file.name}" 은(는) 50MB를 초과하여 업로드할 수 없습니다.`);
                     }
                 });
             });
@@ -232,7 +240,7 @@ export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
 
     return (
         <div className="w-full mx-auto py-2">
-            <h1 className="text-xl font-bold my-3">
+            <h1 className="text-sm font-bold my-3">
                 {title}
             </h1>
 

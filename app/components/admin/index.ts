@@ -16,6 +16,7 @@ import PerformanceList from './performance/List';
 import PerformanceEdit from './performance/edit/Form';
 import AlloyList from './alloy/List';
 import AlloyEdit from './alloy/edit/Form';
+import FileUploadEdit from  './fileUpload/edit/Form'
 
 export {
     UsersList,
@@ -35,5 +36,6 @@ export {
     PerformanceList,
     PerformanceEdit,
     AlloyList,
-    AlloyEdit
+    AlloyEdit,
+    FileUploadEdit
 };

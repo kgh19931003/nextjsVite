@@ -32,9 +32,12 @@ export default async function adminLocaleLayout({ children, params }: Props) {
     const cookieStore = await cookies();
     const token = cookieStore.get('token')?.value ?? '';
 
+    /*
     if(!token && segments[2] !== "login"){
         redirect(`/${locale}/admin/login`);
     }
+
+     */
 
     // 토큰 검사 제외할 경로
     const hideLayoutPaths = ['/admin/login'];

@@ -22,7 +22,7 @@ type UploadImageItem = {
 
 type UploadImageProps = {
     title: string;
-    uploadState: useUploadState;
+    uploadState: ReturnType<typeof useUploadState>;
 };
 
 // 개별 이미지 박스

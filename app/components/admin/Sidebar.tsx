@@ -40,17 +40,18 @@ const sidebarItems: ({ path: string; subItems: any[]; icon: string; title: strin
     },
     {
         title: '',
-        path: '/admin/product/list',
-        icon: '상품관리',
+        path: '/admin/fileUpload/edit',
+        icon: '파일업로드',
         subItems: [],
     },
+    
+    /*
     {
         title: '',
         path: '/admin/policy/list',
         icon: '정책 관리',
         subItems: [],
     }
-    /*
     {
         title: '',
         path: '/admin/settings',
@@ -60,7 +61,7 @@ const sidebarItems: ({ path: string; subItems: any[]; icon: string; title: strin
             { title: '보안 설정', path: '/admin/settings/security' },
         ],
     }
-
+    
      */
 ];
 

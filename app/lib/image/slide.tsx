@@ -26,7 +26,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
         setTranslateX(clientX - startX);
     };
 
-    const handleDragEnd = () => {
+    const handleDragEnd = (e: any) => {
         if (!isDragging) return;
 
         const threshold = 50; // 드래그 민감도
@@ -44,14 +44,35 @@ export function ImageSlider({ images }: ImageSliderProps) {
     return (
         <div
             ref={sliderRef}
-            className="relative w-full aspect-square overflow-hidden rounded-xl cursor-grab active:cursor-grabbing"
-            onMouseDown={handleDragStart}
-            onMouseMove={handleDragMove}
-            onMouseUp={handleDragEnd}
-            onMouseLeave={handleDragEnd}
-            onTouchStart={handleDragStart}
-            onTouchMove={handleDragMove}
-            onTouchEnd={handleDragEnd}
+            className="relative w-full overflow-hidden rounded-xl cursor-grab active:cursor-grabbing"
+            onMouseDown={(e) => {
+                e.stopPropagation();
+                handleDragStart(e);
+            }}
+            onMouseMove={(e) => {
+                e.stopPropagation();
+                handleDragMove(e);
+            }}
+            onMouseUp={(e) => {
+                e.stopPropagation();
+                handleDragEnd(e);
+            }}
+            onMouseLeave={(e) => {
+                e.stopPropagation();
+                handleDragEnd(e);
+            }}
+            onTouchStart={(e) => {
+                e.stopPropagation();
+                handleDragStart(e);
+            }}
+            onTouchMove={(e) => {
+                e.stopPropagation();
+                handleDragMove(e);
+            }}
+            onTouchEnd={(e) => {
+                e.stopPropagation();
+                handleDragEnd(e);
+            }}
         >
             {/* 슬라이드 이미지 */}
             <div
@@ -66,7 +87,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
                         <img
                             src={src}
                             alt={`Slide ${index + 1}`}
-                            className="max-w-full max-h-full object-contain pointer-events-none"
+                            className="max-w-full max-h-full object-cover pointer-events-none select-none"
                             draggable={false}
                             onError={(e) => {
                                 (e.target as HTMLImageElement).src =
@@ -77,17 +98,18 @@ export function ImageSlider({ images }: ImageSliderProps) {
                 ))}
             </div>
 
+
             {/* 불렛 인디케이터 */}
             {images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3">
                     {images.map((_, idx) => (
                         <button
                             key={idx}
                             onClick={() => setCurrentSlide(idx)}
-                            className={`w-2 h-2 rounded-full transition-all ${
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
                                 idx === currentSlide
-                                    ? 'bg-white w-6'
-                                    : 'bg-white/50 hover:bg-white/75'
+                                    ? 'bg-white h-6'
+                                    : 'bg-white/50 hover:bg-white/80'
                             }`}
                         />
                     ))}

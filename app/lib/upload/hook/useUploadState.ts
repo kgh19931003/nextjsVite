@@ -9,6 +9,7 @@ export type UploadStateType = {
     fileDeleteIndex: number[];
     fileMultipartFileOrder: number[];
     fileOrder: number[];
+    fileOriginalName: string[]
 };
 
 export type UploadStateActions = {
@@ -33,6 +34,7 @@ const initialState: UploadStateType = {
     fileDeleteIndex: [],
     fileMultipartFileOrder: [],
     fileOrder: [],
+    fileOriginalName: []
 };
 
 export function useUploadState(): UploadStateType & UploadStateActions {
