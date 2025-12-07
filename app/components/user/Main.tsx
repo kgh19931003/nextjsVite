@@ -49,11 +49,11 @@ export default function Introduction() {
     const [typedText, setTypedText] = useState('');
     const fullText = useMemo(() => {
         if (currentLocale === 'ko') {
-            return '해당 페이지는 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
+            return '해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
         } else if (currentLocale === 'en') {
-            return '해당 페이지는 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
+            return '해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
         } else {
-            return '해당 페이지는 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
+            return '해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
         }
     }, [currentLocale]);
 

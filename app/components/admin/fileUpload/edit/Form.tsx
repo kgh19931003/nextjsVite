@@ -122,7 +122,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
     return (
         <div className="max-w-7xl mx-auto my-10 p-6 bg-white shadow-md rounded-md">
             <h1 className="text-2xl font-bold mb-6">
-                {isEditMode ? '파일 수정' : '파일 수정'}
+                파일 업로드
             </h1>
 
             {/*  섹션 */}

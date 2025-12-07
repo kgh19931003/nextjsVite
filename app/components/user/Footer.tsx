@@ -29,7 +29,8 @@ export default function Footer() {
 
     return (
         <footer className="bg-[#f3f3f3] dark:bg-neutral-900 text-sm text-gray-700 dark:text-gray-300 pt-3 pb-10 border-t border-gray-200 dark:border-neutral-800">
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[3fr_2fr_1fr] gap-y-8 gap-x-8">
+            <div
+                className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[3fr_2fr_1fr] gap-y-8 gap-x-8">
                 {/* 1행: 로고 */}
                 <Link href="/">
 
@@ -47,7 +48,7 @@ export default function Footer() {
                                     <Listbox.Option
                                         key={idx}
                                         value={link}
-                                        className={({ active, selected }) =>
+                                        className={({active, selected}) =>
                                             clsx(
                                                 "cursor-pointer select-none relative py-2 pl-4 pr-10",
                                                 active
@@ -67,10 +68,9 @@ export default function Footer() {
 
                 {/* 2행: 구분선 (전체 가로) */}
                 <div className="col-span-full">
-                    <hr className="border-t border-gray-400 dark:border-neutral-700" />
+                    <hr className="border-t border-gray-400 dark:border-neutral-700"/>
                 </div>
 
-                {/* 3행: 본사, 공장, 지사 정보 */}
                 <div className="text-sm text-center sm:text-left grid grid-cols-[1fr_10fr] gap-x-2 gap-y-3">
 
                     <div className="font-semibold">{t("주소")}</div>
@@ -79,30 +79,20 @@ export default function Footer() {
                 </div>
 
 
-                {/* 4행: 연락처 */}
                 <div className="text-sm grid grid-cols-[50px_1fr] gap-x-2 gap-y-1">
                     <div className="font-semibold">{t("전화")}</div>
                     <div className="lg:whitespace-nowrap">010-7615-3865</div>
+                </div>
 
 
+                <div className="text-sm grid grid-cols-[50px_1fr] gap-x-2 gap-y-1">
                     <div className="font-semibold">{t("이메일")}</div>
                     <div className="lg:whitespace-nowrap">sasaa3865@naver.com</div>
                 </div>
 
-                {/* 4행: 인스타그램 아이콘 */}
-                <div className="flex  sm:justify-end items-center lg:items-start">
-                    <a
-                        href=""
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        className="hover:text-pink-500 text-gray-600 dark:text-gray-300 cursor-pointer transition transform hover:scale-110"
-                    >
-                        <FontAwesomeIcon icon={faInstagram} size="3x" />
-                    </a>
-                </div>
 
                 {/* 5행: 하단 링크 및 저작권 */}
+                {/*
                 <div className="col-span-full flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4 mt-0 pt-4 text-xs text-gray-500 dark:text-gray-400">
                     <ul className="flex gap-3">
                         <li>
@@ -137,6 +127,7 @@ export default function Footer() {
                         © {new Date().getFullYear()} {t('Portfolio. All rights reserved.')}
                     </div>
                 </div>
+                */}
             </div>
         </footer>
     );
