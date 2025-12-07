@@ -1,68 +1,19 @@
 'use client';
 
 import React, {useEffect, useMemo, useState} from 'react';
-import {useParams, usePathname, useRouter} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 import {swrFetcher} from "@/lib/function";
 import {mutate} from "swr";
 import UploadImage from "@/lib/upload/Image";
 import Editor from "@/lib/tiptap/Editor";
-
-
-interface AlloyResponse {
-    language: string;
-    type: string;
-    title: string | number;
-    subtitle: string | number;
-    content: string;
-    fileUuid: string[];
-    fileDeleteUuid: string[];
-    fileIndex: number[];                // res.alloyImgIdx 가 배열이라 가정
-    fileOriginalIndex: number[];        // 위와 동일하게 number[]
-    fileDeleteIndex: number[];
-    fileMultipartFileOrder: number[];
-    fileOrder: number[];                 // res.alloyImgOrder 도 배열로 추정
-    fileImage: string[];                      // 문자열 배열 (단일 string일 수도 있어 배열로 처리)
-}
-
-interface FormType {
-    language: string;
-    type: string;
-    title: string | number;
-    subtitle: string | number;
-    content: string;
-    fileUuid: string[];
-    fileDeleteUuid: string[];
-    fileOrder: number[];
-    fileIndex: number[];
-    fileOriginalIndex: number[];
-    fileDeleteIndex: number[];
-    fileMultipartFileOrder: number[];
-    // 기타 필드들...
-}
-
-const categoryList: Record<string, string[]> = {
-    "ko": [
-        "Material",
-        "Repair",
-        "Manufacturing"
-    ],
-
-    "en": [
-        "Material",
-        "Repair",
-        "Manufacturing"
-    ]
-}
+import { useUploadState } from '@/lib/upload/hook/useUploadState';
+import {AlloyFormType, AlloyResponse} from "@/lib/types/common";
 
 
 const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
     const router = useRouter();
     const isEditMode = idx !== undefined && idx !== 'new' && idx !== '';
-
     const pathname = usePathname();
-    const [title, setTitle] = useState('');
-    const [subtitle, setSubTitle] = useState('');
-    const [type, setType] = useState();
     const [loading, setLoading] = useState(false);
     const currentLocale = useMemo(() => {
         return pathname?.split('/')[1];
@@ -71,23 +22,17 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
     let [content, setContent] = useState('');
     let editorGetHTML = () => '';
 
+    // 기본 폼 필드
     const [form, setForm] = useState({
         language: currentLocale,
         type: '',
         title: '',
         subtitle: '',
         content: '',
-        fileUuid: [] as string[],
-        fileDeleteUuid: [] as string[],
-        fileOriginalIndex: [] as number[],
-        fileIndex: [] as number[],
-        fileDeleteIndex: [] as number[],
-        fileMultipartFileOrder: [] as number[],
-        fileOrder: [] as number[],
-        fileImage: [] as (File | string)[] // File 또는 URL
     });
 
-    //console.log("form : "+JSON.stringify(form))
+    // 이미지 업로드 상태 (커스텀 훅 사용)
+    const imageUpload = useUploadState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -102,18 +47,22 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     title: res.title || '',
                     subtitle: res.subtitle || '',
                     content: res.content || '',
-                    fileUuid: res.fileUuid,
-                    fileDeleteUuid: res.fileDeleteUuid,
-                    fileIndex: res.fileIndex,
-                    fileOriginalIndex: res.fileIndex,
-                    fileDeleteIndex: res.fileDeleteIndex,
-                    fileMultipartFileOrder: res.fileMultipartFileOrder,
-                    fileOrder: res.fileOrder,
-                    fileImage: res.fileImage
+                });
+
+                // 이미지 상태 초기화
+                imageUpload.initializeUploadState({
+                    fileData: res.fileImage
                         ? Array.isArray(res.fileImage)
                             ? res.fileImage
-                            : [res.fileImage] // 단일 string인 경우 배열로 감쌈
-                        : []
+                            : [res.fileImage]
+                        : [],
+                    fileUuid: res.fileUuid || [],
+                    fileDeleteUuid: res.fileDeleteUuid || [],
+                    fileIndex: res.fileIndex || [],
+                    fileOriginalIndex: res.fileIndex || [],
+                    fileDeleteIndex: res.fileDeleteIndex || [],
+                    fileMultipartFileOrder: res.fileMultipartFileOrder || [],
+                    fileOrder: res.fileOrder || [],
                 });
 
             } catch (err) {
@@ -122,11 +71,10 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         };
 
         fetchData();
-    }, [isEditMode, idx]);
+    }, [isEditMode, idx, currentLocale]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        console.log(form); // <-- 여기에 \n 포함된 내용 확인
         setForm(prev => ({ ...prev, [name]: value }));
     };
 
@@ -137,45 +85,43 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
             ? `/${currentLocale}/api/admin/alloy/update/${idx}`
             : `/${currentLocale}/api/admin/alloy/create`;
 
-        content = editorGetHTML(); // submit 시점 HTML 가져오기
-        content = content.replace(/<p>\s*<\/p>/g, '<br/>'); // 빈 <p></p> → <br/> 변환
-
-        form.content = content
+        content = editorGetHTML();
+        content = content.replace(/<p>\s*<\/p>/g, '<br/>');
 
         const method = 'POST';
         const formdata = new FormData();
-        // Partial로 부분적 타입 지정
-        const formJson: Partial<FormType> = {};
+        const formJson: Partial<AlloyFormType> = {};
 
-        if(form.language) formJson.language = currentLocale
-        if(form.type) formJson.type = form.type
-        if(form.title) formJson.title = form.title
-        if(form.subtitle) formJson.subtitle = form.subtitle
-        if(form.content) formJson.content = form.content
-        if(form.fileUuid) formJson.fileUuid = form.fileUuid
-        if(form.fileDeleteUuid) formJson.fileDeleteUuid = form.fileDeleteUuid
-        if(form.fileOrder) formJson.fileOrder = form.fileOrder
-        if(form.fileIndex) formJson.fileIndex = form.fileIndex
-        if(form.fileOriginalIndex) formJson.fileOriginalIndex = form.fileOriginalIndex
-        if(form.fileDeleteIndex) formJson.fileDeleteIndex = form.fileDeleteIndex
-        if(form.fileMultipartFileOrder) formJson.fileMultipartFileOrder = form.fileMultipartFileOrder
+        formJson.language = currentLocale;
+        if(form.type) formJson.type = form.type;
+        if(form.title) formJson.title = form.title;
+        if(form.subtitle) formJson.subtitle = form.subtitle;
+        if(content) formJson.content = content;
 
-        console.log('전송값:', JSON.stringify(form.subtitle));
+        // 이미지 관련
+        if(imageUpload.fileUuid) formJson.fileUuid = imageUpload.fileUuid;
+        if(imageUpload.fileDeleteUuid) formJson.fileDeleteUuid = imageUpload.fileDeleteUuid;
+        if(imageUpload.fileOrder) formJson.fileOrder = imageUpload.fileOrder;
+        if(imageUpload.fileIndex) formJson.fileIndex = imageUpload.fileIndex;
+        if(imageUpload.fileOriginalIndex) formJson.fileOriginalIndex = imageUpload.fileOriginalIndex;
+        if(imageUpload.fileDeleteIndex) formJson.fileDeleteIndex = imageUpload.fileDeleteIndex;
+        if(imageUpload.fileMultipartFileOrder) formJson.fileMultipartFileOrder = imageUpload.fileMultipartFileOrder;
+
+        console.log('Form Data:', { form, imageUpload });
+
         formdata.append(
             "form",
             new Blob([JSON.stringify(formJson)], { type: "application/json" })
         );
 
-
-        // ✅ 파일 데이터
-        if (Array.isArray(form.fileImage)) {
-            form.fileImage.forEach(file => {
+        // 이미지 파일 추가
+        if (Array.isArray(imageUpload.fileData)) {
+            imageUpload.fileData.forEach(file => {
                 if (file instanceof File) {
-                    formdata.append("fileImage", file); // 새 업로드 파일만 append
+                    formdata.append("fileImage", file);
                 }
             });
         }
-
 
         try {
             const res = await swrFetcher(url, {
@@ -200,7 +146,6 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
             </h1>
 
             <div className="space-y-4">
-
                 <div className="flex-1">
                     <label className="block mb-1 text-sm font-medium text-gray-700">제목</label>
                     <input
@@ -220,7 +165,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                         value={form.subtitle}
                         onChange={handleChange}
                         placeholder="부제목"
-                        rows={3} // 기본 높이, 필요에 따라 조절 가능
+                        rows={3}
                         className="w-full px-4 py-2 border border-gray-300 rounded resize-none"
                     />
                 </div>
@@ -237,46 +182,14 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     />
                 </div>
 
-
-
                 <div className="flex-1">
                     <label className="block mb-1 text-sm font-medium text-gray-700">강종 이미지 업로드</label>
-
                     <UploadImage
-                        fileImage={form.fileImage}
-                        fileIndex={form.fileIndex}
-                        fileDeleteIndex={form.fileDeleteIndex}
-                        fileMultipartFileOrder={form.fileMultipartFileOrder}
-                        fileOrder={form.fileOrder}
-                        fileUuid={form.fileUuid}
-                        fileDeleteUuid={form.fileDeleteUuid}
-                        setFileImage={(files) =>
-                            setForm((prev) => ({...prev, fileImage: files}))
-                        }
-                        setFileIndex={(ImageIndex) =>
-                            setForm((prev) => ({...prev, fileIndex: ImageIndex}))
-                        }
-                        setFileDeleteIndex={(ImageDeleteIndex) =>
-                            setForm((prev) => ({...prev, fileDeleteIndex: ImageDeleteIndex}))
-                        }
-                        setFileMultipartFileOrder={(ImageMultipartFileOrder) =>
-                            setForm((prev) => ({...prev, fileMultipartFileOrder: ImageMultipartFileOrder}))
-                        }
-                        setFileOrder={(ImageOrder) =>
-                            setForm((prev) => ({...prev, fileOrder: ImageOrder}))
-                        }
-                        setFileUuid={(ImageUuid) =>
-                            setForm((prev) => ({...prev, fileUuid: ImageUuid}))
-                        }
-                        setFileDeleteUuid={(ImageDeleteUuid) =>
-                            setForm((prev) => ({...prev, fileDeleteUuid: ImageDeleteUuid}))
-                        }
+                        title="강종 이미지"
+                        uploadState={imageUpload}
                     />
-
                 </div>
 
-
-                {/* 에디터 박스 */}
                 <div>
                     <Editor
                         idx={idx}
@@ -285,7 +198,6 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                         editorImageUploadUrl={`/${currentLocale}/api/admin/alloy/imageUpload/${idx}`}
                     />
                 </div>
-
 
                 <button
                     onClick={handleSubmit}
@@ -296,8 +208,6 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                 >
                     {isEditMode ? '수정하기' : '추가하기'}
                 </button>
-
-
             </div>
         </div>
     );

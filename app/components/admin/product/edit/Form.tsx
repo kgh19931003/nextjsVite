@@ -1,12 +1,12 @@
 'use client';
 
 import React, {useEffect, useMemo, useState} from 'react';
-import {useParams, usePathname, useRouter} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 import {swrFetcher} from "@/lib/function";
 import {mutate} from "swr";
 import UploadImage from "@/lib/upload/Image";
-import UploadVideo from "@/lib/upload/Video";
 import {productFormType, ProductResponse} from "@/lib/types/common";
+import { useUploadState } from '@/lib/upload/hook/useUploadState';
 
 const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
     const router = useRouter();
@@ -17,29 +17,15 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         return pathname?.split('/')[1];
     }, [pathname]);
 
+    // 기본 폼 필드
     const [form, setForm] = useState({
         language: '',
         name: '',
         price: '',
-        // 이미지 관련
-        fileUuid: [] as string[],
-        fileDeleteUuid: [] as string[],
-        fileOriginalIndex: [] as number[],
-        fileIndex: [] as number[],
-        fileDeleteIndex: [] as number[],
-        fileMultipartFileOrder: [] as number[],
-        fileOrder: [] as number[],
-        fileImage: [] as (File | string)[],
-        // 비디오 관련
-        videoUuid: [] as string[],
-        videoDeleteUuid: [] as string[],
-        videoOriginalIndex: [] as number[],
-        videoIndex: [] as number[],
-        videoDeleteIndex: [] as number[],
-        videoMultipartFileOrder: [] as number[],
-        videoOrder: [] as number[],
-        fileVideo: [] as (File | string)[]
     });
+
+    // 이미지 업로드 상태 (커스텀 훅 사용)
+    const imageUpload = useUploadState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -52,32 +38,22 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     language: currentLocale || '',
                     name: res.name || '',
                     price: res.price != null ? String(res.price) : '',
-                    // 이미지
-                    fileUuid: res.fileUuid,
-                    fileDeleteUuid: res.fileDeleteUuid,
-                    fileIndex: res.fileIndex,
-                    fileOriginalIndex: res.fileIndex,
-                    fileDeleteIndex: res.fileDeleteIndex,
-                    fileMultipartFileOrder: res.fileMultipartFileOrder,
-                    fileOrder: res.fileOrder,
-                    fileImage: res.fileImage
+                });
+
+                // 이미지 상태 초기화
+                imageUpload.initializeUploadState({
+                    fileData: res.fileImage
                         ? Array.isArray(res.fileImage)
                             ? res.fileImage
                             : [res.fileImage]
                         : [],
-                    // 비디오
-                    videoUuid: res.videoUuid || [],
-                    videoDeleteUuid: res.videoDeleteUuid || [],
-                    videoIndex: res.videoIndex || [],
-                    videoOriginalIndex: res.videoIndex || [],
-                    videoDeleteIndex: res.videoDeleteIndex || [],
-                    videoMultipartFileOrder: res.videoMultipartFileOrder || [],
-                    videoOrder: res.videoOrder || [],
-                    fileVideo: res.fileVideo
-                        ? Array.isArray(res.fileVideo)
-                            ? res.fileVideo
-                            : [res.fileVideo]
-                        : []
+                    fileUuid: res.fileUuid || [],
+                    fileDeleteUuid: res.fileDeleteUuid || [],
+                    fileIndex: res.fileIndex || [],
+                    fileOriginalIndex: res.fileIndex || [],
+                    fileDeleteIndex: res.fileDeleteIndex || [],
+                    fileMultipartFileOrder: res.fileMultipartFileOrder || [],
+                    fileOrder: res.fileOrder || [],
                 });
 
             } catch (err) {
@@ -109,24 +85,15 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         if(form.price) formJson.price = form.price;
 
         // 이미지 관련
-        if(form.fileUuid) formJson.fileUuid = form.fileUuid;
-        if(form.fileDeleteUuid) formJson.fileDeleteUuid = form.fileDeleteUuid;
-        if(form.fileOrder) formJson.fileOrder = form.fileOrder;
-        if(form.fileIndex) formJson.fileIndex = form.fileIndex;
-        if(form.fileOriginalIndex) formJson.fileOriginalIndex = form.fileOriginalIndex;
-        if(form.fileDeleteIndex) formJson.fileDeleteIndex = form.fileDeleteIndex;
-        if(form.fileMultipartFileOrder) formJson.fileMultipartFileOrder = form.fileMultipartFileOrder;
+        if(imageUpload.fileUuid) formJson.fileUuid = imageUpload.fileUuid;
+        if(imageUpload.fileDeleteUuid) formJson.fileDeleteUuid = imageUpload.fileDeleteUuid;
+        if(imageUpload.fileOrder) formJson.fileOrder = imageUpload.fileOrder;
+        if(imageUpload.fileIndex) formJson.fileIndex = imageUpload.fileIndex;
+        if(imageUpload.fileOriginalIndex) formJson.fileOriginalIndex = imageUpload.fileOriginalIndex;
+        if(imageUpload.fileDeleteIndex) formJson.fileDeleteIndex = imageUpload.fileDeleteIndex;
+        if(imageUpload.fileMultipartFileOrder) formJson.fileMultipartFileOrder = imageUpload.fileMultipartFileOrder;
 
-        // 비디오 관련
-        if(form.videoUuid) formJson.videoUuid = form.videoUuid;
-        if(form.videoDeleteUuid) formJson.videoDeleteUuid = form.videoDeleteUuid;
-        if(form.videoOrder) formJson.videoOrder = form.videoOrder;
-        if(form.videoIndex) formJson.videoIndex = form.videoIndex;
-        if(form.videoOriginalIndex) formJson.videoOriginalIndex = form.videoOriginalIndex;
-        if(form.videoDeleteIndex) formJson.videoDeleteIndex = form.videoDeleteIndex;
-        if(form.videoMultipartFileOrder) formJson.videoMultipartFileOrder = form.videoMultipartFileOrder;
-
-        console.log(form)
+        console.log('Form Data:', { form, imageUpload });
 
         formdata.append(
             "form",
@@ -134,16 +101,9 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         );
 
         // 이미지 파일 추가
-        if (Array.isArray(form.fileImage)) {
-            form.fileImage.forEach(file => {
+        if (Array.isArray(imageUpload.fileData)) {
+            imageUpload.fileData.forEach(file => {
                 formdata.append("fileImage", file);
-            });
-        }
-
-        // 비디오 파일 추가
-        if (Array.isArray(form.fileVideo)) {
-            form.fileVideo.forEach(file => {
-                formdata.append("fileVideo", file);
             });
         }
 
@@ -188,65 +148,8 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                 />
 
                 <UploadImage
-                    fileImage={form.fileImage}
-                    fileIndex={form.fileIndex}
-                    fileDeleteIndex={form.fileDeleteIndex}
-                    fileMultipartFileOrder={form.fileMultipartFileOrder}
-                    fileOrder={form.fileOrder}
-                    fileUuid={form.fileUuid}
-                    fileDeleteUuid={form.fileDeleteUuid}
-                    setFileImage={(files) =>
-                        setForm((prev) => ({ ...prev, fileImage: files }))
-                    }
-                    setFileIndex={(ImageIndex) =>
-                        setForm((prev) => ({ ...prev, fileIndex: ImageIndex }))
-                    }
-                    setFileDeleteIndex={(ImageDeleteIndex) =>
-                        setForm((prev) => ({ ...prev, fileDeleteIndex: ImageDeleteIndex }))
-                    }
-                    setFileMultipartFileOrder={(ImageMultipartFileOrder) =>
-                        setForm((prev) => ({ ...prev, fileMultipartFileOrder: ImageMultipartFileOrder }))
-                    }
-                    setFileOrder={(ImageOrder) =>
-                        setForm((prev) => ({ ...prev, fileOrder: ImageOrder }))
-                    }
-                    setFileUuid={(ImageUuid) =>
-                        setForm((prev) => ({ ...prev, fileUuid: ImageUuid }))
-                    }
-                    setFileDeleteUuid={(ImageDeleteUuid) =>
-                        setForm((prev) => ({ ...prev, fileDeleteUuid: ImageDeleteUuid }))
-                    }
-                />
-
-                <UploadVideo
-                    fileVideo={form.fileVideo}
-                    fileIndex={form.videoIndex}
-                    fileDeleteIndex={form.videoDeleteIndex}
-                    fileMultipartFileOrder={form.videoMultipartFileOrder}
-                    fileOrder={form.videoOrder}
-                    fileUuid={form.videoUuid}
-                    fileDeleteUuid={form.videoDeleteUuid}
-                    setFileVideo={(files) =>
-                        setForm((prev) => ({ ...prev, fileVideo: files }))
-                    }
-                    setFileIndex={(VideoIndex) =>
-                        setForm((prev) => ({ ...prev, videoIndex: VideoIndex }))
-                    }
-                    setFileDeleteIndex={(VideoDeleteIndex) =>
-                        setForm((prev) => ({ ...prev, videoDeleteIndex: VideoDeleteIndex }))
-                    }
-                    setFileMultipartFileOrder={(VideoMultipartFileOrder) =>
-                        setForm((prev) => ({ ...prev, videoMultipartFileOrder: VideoMultipartFileOrder }))
-                    }
-                    setFileOrder={(VideoOrder) =>
-                        setForm((prev) => ({ ...prev, videoOrder: VideoOrder }))
-                    }
-                    setFileUuid={(VideoUuid) =>
-                        setForm((prev) => ({ ...prev, videoUuid: VideoUuid }))
-                    }
-                    setFileDeleteUuid={(VideoDeleteUuid) =>
-                        setForm((prev) => ({ ...prev, videoDeleteUuid: VideoDeleteUuid }))
-                    }
+                    title="상품 이미지"
+                    uploadState={imageUpload}
                 />
 
                 <button
