@@ -223,7 +223,7 @@ export default function Introduction() {
                                                     className="object-contain"
                                                 />
                                                 <div className='text-center pt-2'>
-                                                    {t(item.text[i])}
+                                                    {item.text[i]}
                                                 </div>
                                             </div>
                                         ))}
@@ -254,9 +254,9 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/matchup/1.png" alt="매치업 1" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/matchup/2.png" alt="매치업 2" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/matchup/3.png" alt="매치업 3" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/matchup/1.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/matchup/2.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/matchup/3.png" alt="" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
