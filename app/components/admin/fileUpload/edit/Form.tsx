@@ -30,7 +30,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         const fetchData = async () => {
 
             try {
-                const res = await swrFetcher<FileUploadResponse>(`/${currentLocale}/api/admin/am-case/one/?locale=${currentLocale}`);
+                const res = await swrFetcher<FileUploadResponse>(`/${currentLocale}/api/admin/file-upload/one/?locale=${currentLocale}`);
 
                 setForm({
                     language: currentLocale || ''
@@ -44,18 +44,18 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                     fileDeleteIndex: res.fileImageDeleteIndex || [],
                     fileMultipartFileOrder: res.fileImageMultipartFileOrder || [],
                     fileOrder: res.fileImageOrder || [],
-                    fileOriginalName: res.fileImageOriginalName || []
+                    fileOriginalName: res.fileOriginalName || []
                 });
 
                 //  비디오
                 fileVideoUpload.initializeUploadState({
-                    fileData: res.fileFileImage ? (Array.isArray(res.fileFileImage) ? res.fileFileImage : [res.fileFileImage]) : [],
-                    fileIndex: res.fileFileIndex || [],
-                    fileOriginalIndex: res.fileFileIndex || [],
-                    fileDeleteIndex: res.fileFileDeleteIndex || [],
-                    fileMultipartFileOrder: res.fileFileMultipartFileOrder || [],
-                    fileOrder: res.fileFileOrder || [],
-                    fileOriginalName: res.fileFileOriginalName || []
+                    fileData: res.fileVideo ? (Array.isArray(res.fileVideo) ? res.fileVideo : [res.fileVideo]) : [],
+                    fileIndex: res.fileIndex || [],
+                    fileOriginalIndex: res.fileIndex || [],
+                    fileDeleteIndex: res.fileDeleteIndex || [],
+                    fileMultipartFileOrder: res.fileMultipartFileOrder || [],
+                    fileOrder: res.fileOrder || [],
+                    fileOriginalName: res.fileOriginalName || []
                 });
 
 
@@ -70,7 +70,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
     const handleSubmit = async () => {
         setLoading(true);
 
-        const url = `/${currentLocale}/api/admin/am-case/update`
+        const url = `/${currentLocale}/api/admin/file-upload/update`
 
         const method = 'POST';
         const formdata = new FormData();
@@ -110,8 +110,9 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
             });
 
             alert(isEditMode ? '파일 수정 완료' : '파일 수정 완료');
-            await mutate(`/${currentLocale}/api/admin/business/amCase/edit`);
-            router.push(`/${currentLocale}/admin/business/amCase/edit`);
+            await mutate(`/${currentLocale}/api/admin/fileUpload/edit`);
+            //router.push(`/${currentLocale}/admin/fileUpload/edit`);
+            location.reload();
         } catch {
             alert('저장 실패');
         } finally {

@@ -95,7 +95,7 @@ export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
                 return {
                     id: item,
                     file: item,
-                    preview: item
+                    preview: item.startsWith('http://localhost:9090/') ? item : `http://localhost:9090/${item}`
                 };
             } else {
                 let url = objectUrlMap.current.get(item.name);
