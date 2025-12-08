@@ -177,8 +177,8 @@ export default function Introduction() {
                                 >
                                     <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
                                     <div className="flex-1 flex items-center">
-                                        <div className="font-bold text-lg w-32 text-gray-700 dark:text-gray-300">{item.name}</div>
-                                        <div className="flex-1 text-gray-600 dark:text-gray-400">{item.value}</div>
+                                        <div className="font-bold text-lg w-32 text-gray-700 dark:text-gray-300">{t(item.name)}</div>
+                                        <div className="flex-1 text-gray-600 dark:text-gray-400">{t(item.value)}</div>
                                     </div>
                                 </motion.div>
                             ))}
@@ -212,7 +212,7 @@ export default function Introduction() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-r from-gray-50 to-transparent dark:from-neutral-700/50 dark:to-transparent hover:shadow-lg transition-all duration-300"
                                 >
-                                    <div className="font-bold text-lg min-w-[140px] text-gray-700 dark:text-gray-300">{item.name}</div>
+                                    <div className="font-bold text-lg min-w-[140px] text-gray-700 dark:text-gray-300">{t(item.name)}</div>
                                     <div className="flex-1 flex items-center gap-6">
                                         {item.value.map((img, i) => (
                                             <div key={i} className="bg-white dark:bg-neutral-600 p-3 rounded-xl shadow-md hover:scale-110 transition-transform duration-300">
@@ -223,7 +223,7 @@ export default function Introduction() {
                                                     className="object-contain"
                                                 />
                                                 <div className='text-center pt-2'>
-                                                    {item.text[i]}
+                                                    {t(item.text[i])}
                                                 </div>
                                             </div>
                                         ))}
@@ -262,7 +262,7 @@ export default function Introduction() {
                             </div>
                             <div className="p-8 lg:p-8 flex flex-col justify-start">
                                 <div className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-8">Web Platform</div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">매치업 랜딩페이지</h3>
+                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('매치업 랜딩페이지')}</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
                                         <span className="text-blue-500 font-bold min-w-[100px]">URL</span>
@@ -271,37 +271,37 @@ export default function Introduction() {
                                     </div>
 
                                     <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[100px]">작업범위</span>
+                                        <span className="text-blue-500 font-bold min-w-[100px]">{t('작업범위')}</span>
                                         <div>
-                                        <div>PHP 백엔드, 프론트엔드(jQuery)</div>
-                                            <div>하이브리드앱 개발 및 배포(AOS, iOS)</div>
+                                        <div>{t('PHP 백엔드, 프론트엔드(jQuery)')}</div>
+                                            <div>{t('하이브리드앱 개발 및 배포(AOS, iOS)')}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-blue-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-blue-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
+                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
+                                                <td className="py-2">{t('PHP 7.x')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
-                                                <td className="py-2">Codeigniter 4.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
+                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[100px]">설명</span>
+                                        <span className="text-blue-500 font-bold min-w-[100px]">{t('설명')}</span>
                                         <div>
-                                            <div>강의영상과 시험문제를 온라인으로 학생들에게 제공하여</div>
-                                            <div>매치업 플랫폼을 홍보하는 랜딩 페이지를 작업했습니다.</div>
+                                            <div>{t('강의영상과 시험문제를 온라인으로 학생들에게 제공하여')}</div>
+                                            <div>{t('매치업 플랫폼을 홍보하는 랜딩 페이지를 작업했습니다.')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -322,51 +322,47 @@ export default function Introduction() {
                         className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
                         <div className="grid lg:grid-cols-2 gap-0">
                             <div className="w-full p-8 lg:p-8 flex flex-col justify-start order-2 lg:order-1">
-                                <div
-                                    className="inline-block px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-semibold mb-8 w-fit">Mobile
-                                    App
-                                </div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">가자</h3>
+                                <div className="inline-block px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-semibold mb-8 w-fit">{t('Mobile App')}</div>
+                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('가자')}</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
-                                        <span className="text-purple-500 font-bold min-w-[100px]">스토어</span>
+                                        <span className="text-purple-500 font-bold min-w-[100px]">{t('스토어')}</span>
                                         <a target="_blank" rel="noopener noreferrer"
-                                           className="text-purple-500 hover:text-green-700 hover:underline transition-colors">게시
-                                            취소됨</a>
+                                           className="text-purple-500 hover:text-green-700 hover:underline transition-colors">{t('게시 취소')}</a>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-purple-500 font-bold min-w-[100px]">작업범위</span>
+                                        <span className="text-purple-500 font-bold min-w-[100px]">{t('작업범위')}</span>
                                         <div>
-                                            <div>PHP 백엔드, 프론트엔드(jQuery)</div>
-                                            <div>하이브리드앱 개발 및 배포(AOS, iOS)</div>
+                                            <div>{t('PHP 백엔드, 프론트엔드(jQuery)')}</div>
+                                            <div>{t('하이브리드앱 개발 및 배포(AOS, iOS)')}</div>
                                         </div>
                                     </div>
 
                                     <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-purple-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-purple-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
+                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
+                                                <td className="py-2">{t('PHP 7.x')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
-                                                <td className="py-2">Codeigniter 4.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
+                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-purple-500 font-bold min-w-[100px]">설명</span>
+                                        <span className="text-purple-500 font-bold min-w-[100px]">{t('설명')}</span>
                                         <div>
-                                            <div>플랫폼에 등록된 상점 방문 시</div>
-                                            <div>쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다.</div>
+                                            <div>{t('플랫폼에 등록된 상점 방문 시')}</div>
+                                            <div>{t('쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다.')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -374,11 +370,11 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/go/1.png" alt="가자 1"
+                                        <div><img src="/content/go/1.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/go/2.png" alt="가자 2"
+                                        <div><img src="/content/go/2.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/go/3.png" alt="가자 3"
+                                        <div><img src="/content/go/3.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
                                     </Slider>
                                 </div>
@@ -401,56 +397,56 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/kanta/1.png" alt="칸타수학 1"
+                                        <div><img src="/content/kanta/1.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/kanta/2.png" alt="칸타수학 2" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/kanta/3.png" alt="칸타수학 3" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/kanta/4.png" alt="칸타수학 4" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/kanta/5.png" alt="칸타수학 5" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/2.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/3.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/4.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/kanta/5.png" alt="" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
                             <div className="p-8 lg:p-8 flex flex-col justify-center">
                                 <div className="inline-block px-4 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-semibold mb-8">Education Platform</div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">칸타수학</h3>
+                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('칸타수학')}</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
-                                        <span className="text-green-500 font-bold min-w-[100px]">URL</span>
+                                        <span className="text-green-500 font-bold min-w-[100px]">{t('URL')}</span>
                                         <a  target="_blank" rel="noopener noreferrer"
-                                           className="text-green-500 hover:text-green-700 hover:underline transition-colors">게시 취소됨</a>
+                                           className="text-green-500 hover:text-green-700 hover:underline transition-colors">{t('게시 취소')}</a>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-green-500 font-bold min-w-[100px]">작업범위</span>
+                                        <span className="text-green-500 font-bold min-w-[100px]">{t('작업범위')}</span>
                                         <div>
-                                            <div>PHP 백엔드, 프론트엔드(jQuery)</div>
-                                            <div>하이브리드앱 개발 및 배포(AOS, iOS)</div>
+                                            <div>{t('PHP 백엔드, 프론트엔드(jQuery)')}</div>
+                                            <div>{t('하이브리드앱 개발 및 배포(AOS, iOS)')}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-green-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-green-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
+                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
+                                                <td className="py-2">{t('PHP 7.x')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
-                                                <td className="py-2">Codeigniter 4.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
+                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-green-500 font-bold min-w-[100px]">설명</span>
+                                        <span className="text-green-500 font-bold min-w-[100px]">{t('설명')}</span>
                                         <div>
-                                            <div>강의영상과 시험문제를 온라인으로 학생들에게 제공하여</div>
-                                            <div>학습 효율을 높이는 교육 플랫폼입니다.</div>
+                                            <div>{t('강의영상과 시험문제를 온라인으로 학생들에게 제공하여')}</div>
+                                            <div>{t('학습 효율을 높이는 교육 플랫폼입니다.')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -472,70 +468,67 @@ export default function Introduction() {
                         <div className="grid lg:grid-cols-2 gap-0">
                             <div className="w-full p-8 lg:p-12 flex flex-col justify-start order-2 lg:order-1">
                                 <div
-                                    className="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-8 w-fit">Survey
-                                    App
+                                    className="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-8 w-fit">{t('Survey App')}
                                 </div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">주차실태조사</h3>
+                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('주차실태조사')}</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
-                                        <span className="text-orange-500 font-bold min-w-[100px]">스토어</span>
+                                        <span className="text-orange-500 font-bold min-w-[100px]">{t('스토어')}</span>
                                         <div className="flex flex-col gap-2">
                                             <a href="https://play.google.com/store/apps/details?id=com.wizmade.parkingsys"
                                                target="_blank" rel="noopener noreferrer"
-                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">Google
-                                                Play ( 게시취소 )</a>
+                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">Google Play ( {t('게시 취소')} )</a>
                                             <a href="https://apps.apple.com/us/app/%EC%A3%BC%EC%B0%A8%EC%8B%A4%ED%83%9C%EC%A1%B0%EC%82%AC/id1582133805"
                                                target="_blank" rel="noopener noreferrer"
-                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">App
-                                                Store</a>
+                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">{t('App Store')}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3 mt-10">
-                                    <div className="text-orange-500 font-bold min-w-[100px]">작업범위</div>
+                                    <div className="text-orange-500 font-bold min-w-[100px]">{t('작업범위')}</div>
                                         <div>
-                                            <div>Webview 컴포넌트 사용을 위한 모바일 웹 제작</div>
-                                            <div>Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작 </div>
-                                            <div>Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작</div>
-                                            <div>하이브리드앱 패키징 및 배포(iOS, AOS)</div>
+                                            <div>{t('Webview 컴포넌트 사용을 위한 모바일 웹 제작')}</div>
+                                            <div>{t('Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작')}</div>
+                                            <div>{t('Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작')}</div>
+                                            <div>{t('하이브리드앱 패키징 및 배포(iOS, AOS)')}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3 mt-10">
-                                        <span className="text-orange-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-orange-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">Aws S3, RDS</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
+                                                <td className="py-2">{t('Aws S3, RDS')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Server</td>
-                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Server')}</td>
+                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.4</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
+                                                <td className="py-2">{t('PHP 7.4')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">AOS</td>
-                                                <td className="py-2">Kotlin</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('AOS')}</td>
+                                                <td className="py-2">{t('Kotlin')}</td>
                                             </tr>
                                             <tr>
-                                                <td className="py-2 font-semibold text-slate-700">iOS</td>
-                                                <td className="py-2">Swift</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('iOS')}</td>
+                                                <td className="py-2">{t('Swift')}</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3 mt-10">
-                                        <div className="text-orange-500 font-bold min-w-[100px]">설명</div>
+                                        <div className="text-orange-500 font-bold min-w-[100px]">{t('설명')}</div>
 
                                         <div>
-                                            <div>서울시의 주차현황을 조사하는 플랫폼으로</div>
-                                            <div>조사원들은 해당 플랫폼 앱을 설치하여</div>
-                                            <div>불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여</div>
-                                            <div>해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의</div>
-                                            <div>위치를 통계 낼 수 있도록 하는 어플리케이션 입니다.</div>
+                                            <div>{t('서울시의 주차현황을 조사하는 플랫폼으로')}</div>
+                                            <div>{t('조사원들은 해당 플랫폼 앱을 설치하여')}</div>
+                                            <div>{t('불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여')}</div>
+                                            <div>{t('해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의')}</div>
+                                            <div>{t('위치를 통계 낼 수 있도록 하는 어플리케이션 입니다.')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -543,12 +536,11 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/park/1.png" alt="주차실태조사 1"
-                                                  className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/2.png" alt="주차실태조사 2" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/3.png" alt="주차실태조사 3" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/4.png" alt="주차실태조사 4" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/5.png" alt="주차실태조사 5" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/1.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/2.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/3.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/4.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/park/5.png" alt="" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
@@ -569,55 +561,55 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/lotte/1.png" alt="롯데케미칼 1" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/lotte/2.png" alt="롯데케미칼 2" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/lotte/3.png" alt="롯데케미칼 3" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/lotte/1.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/lotte/2.png" alt="" className="w-full h-full object-cover" /></div>
+                                        <div><img src="/content/lotte/3.png" alt="" className="w-full h-full object-cover" /></div>
                                     </Slider>
                                 </div>
                             </div>
                             <div className="p-8 lg:p-8 flex flex-col justify-center">
-                                <div className="inline-block px-4 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full text-sm font-semibold mb-8">E-Commerce</div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">롯데케미칼 Staron</h3>
+                                <div className="inline-block px-4 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full text-sm font-semibold mb-8">{t('E-Commerce')}</div>
+                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('롯데케미칼 Staron')}</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
-                                        <span className="text-red-500 font-bold min-w-[100px]">URL</span>
+                                        <span className="text-red-500 font-bold min-w-[100px]">{t('URL')}</span>
                                         <a href="https://www.staron.com" target="_blank" rel="noopener noreferrer"
-                                           className="text-red-500 hover:text-red-700 hover:underline transition-colors">staron.com</a>
+                                           className="text-red-500 hover:text-red-700 hover:underline transition-colors">{t('staron.com')}</a>
                                     </div>
 
                                     <div className="flex items-start gap-3">
-                                        <span className="text-red-500 font-bold min-w-[100px]">작업범위</span>
-                                        <span>유지보수 및 추가개발</span>
+                                        <span className="text-red-500 font-bold min-w-[100px]">{t('작업범위')}</span>
+                                        <span>{t('유지보수 및 추가개발')}</span>
                                     </div>
                                     <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-red-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-red-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">Aws EC2, S3, RDS</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
+                                                <td className="py-2">{t('Aws EC2, S3, RDS')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Server</td>
-                                                <td className="py-2">Amazon Linux 3</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Server')}</td>
+                                                <td className="py-2">{t('Amazon Linux 3')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
+                                                <td className="py-2">{t('PHP 7.x')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
-                                                <td className="py-2">Codeigniter 4.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
+                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-red-500 font-bold min-w-[100px]">설명</span>
+                                        <span className="text-red-500 font-bold min-w-[100px]">{t('설명')}</span>
                                         <div>
-                                            <div>인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은</div>
-                                            <div>인테리어 소재를 판매하는 사이트입니다.</div>
+                                            <div>{t('인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은')}</div>
+                                            <div>{t('인테리어 소재를 판매하는 사이트입니다.')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -640,59 +632,58 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/ydct/1.png" alt="영덕문화재단 1"
+                                        <div><img src="/content/ydct/1.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/ydct/2.png" alt="영덕문화재단 2"
+                                        <div><img src="/content/ydct/2.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/ydct/3.png" alt="영덕문화재단 3"
+                                        <div><img src="/content/ydct/3.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/ydct/4.png" alt="영덕문화재단 4"
+                                        <div><img src="/content/ydct/4.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
                                     </Slider>
                                 </div>
                             </div>
                             <div className="w-full p-8 lg:p-8 flex flex-col justify-center order-2 lg:order-1">
                                 <div
-                                    className="inline-block px-4 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full text-sm font-semibold mb-8 w-fit">Culture
-                                    Foundation
+                                    className="inline-block px-4 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full text-sm font-semibold mb-8 w-fit">{t('Culture Foundation')}
                                 </div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">영덕문화재단</h3>
+                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('영덕문화재단')}</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
-                                        <span className="text-teal-500 font-bold min-w-[100px]">URL</span>
+                                        <span className="text-teal-500 font-bold min-w-[100px]">{t('URL')}</span>
                                         <a href="https://ydct.org" target="_blank" rel="noopener noreferrer"
-                                           className="text-teal-500 hover:text-teal-700 hover:underline transition-colors">ydct.org</a>
+                                           className="text-teal-500 hover:text-teal-700 hover:underline transition-colors">{t('ydct.org')}</a>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-teal-500 font-bold min-w-[100px]">작업범위</span>
-                                        <span>유지보수 및 추가개발, 서버관리</span>
+                                        <span className="text-teal-500 font-bold min-w-[100px]">{t('작업범위')}</span>
+                                        <span>{t('유지보수 및 추가개발, 서버관리')}</span>
                                     </div>
                                     <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-teal-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-teal-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
+                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
+                                                <td className="py-2">{t('PHP 7.x')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
-                                                <td className="py-2">Codeigniter 4.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
+                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-teal-500 font-bold min-w-[100px]">설명</span>
+                                        <span className="text-teal-500 font-bold min-w-[100px]">{t('설명')}</span>
                                         <div>
-                                            <div>영덕문화 관광재단에서 제공하는</div>
-                                            <div>영화, 문화, 강좌, 재단에 대해서 정보를 제공하고</div>
-                                            <div>필요한 컨텐츠를 예약 할 수 있는 사이트 입니다.</div>
+                                            <div>{t('영덕문화 관광재단에서 제공하는')}</div>
+                                            <div>{t('영화, 문화, 강좌, 재단에 대해서 정보를 제공하고')}</div>
+                                            <div>{t('필요한 컨텐츠를 예약 할 수 있는 사이트 입니다.')}</div>
                                         </div>
 
                                     </div>
@@ -716,55 +707,55 @@ export default function Introduction() {
                             <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
                                 <div className="rounded-2xl overflow-hidden shadow-lg">
                                     <Slider {...settings}>
-                                        <div><img src="/content/sunin/1.png" alt="선인 1"
+                                        <div><img src="/content/sunin/1.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/sunin/2.png" alt="선인 2"
+                                        <div><img src="/content/sunin/2.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/sunin/3.png" alt="선인 3"
+                                        <div><img src="/content/sunin/3.png" alt=""
                                                   className="w-full h-full object-cover"/></div>
                                     </Slider>
                                 </div>
                             </div>
                             <div className="p-8 lg:p-8 flex flex-col justify-center">
                             <div
-                                    className="inline-block px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-semibold mb-8">Foundation
+                                    className="inline-block px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-semibold mb-8">{t('Foundation')}
                                 </div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">선인재단</h3>
+                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('선인재단')}</h3>
                                 <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                     <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">URL</span>
+                                        <span className="text-indigo-500 font-bold min-w-[100px]">{t('URL')}</span>
                                         <a href="https://sib.kr" target="_blank" rel="noopener noreferrer"
-                                           className="text-indigo-500 hover:text-indigo-700 hover:underline transition-colors">sib.kr</a>
+                                           className="text-indigo-500 hover:text-indigo-700 hover:underline transition-colors">{t('sib.kr')}</a>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">작업범위</span>
-                                        <span>유지보수 및 추가개발, 서버관리</span>
+                                        <span className="text-indigo-500 font-bold min-w-[100px]">{t('작업범위')}</span>
+                                        <span>{t('유지보수 및 추가개발, 서버관리')}</span>
                                     </div>
                                     <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-indigo-500 font-bold min-w-[100px] py-2">개발환경</span>
+                                        <span className="text-indigo-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
                                         <table
                                             className="table-auto border-collapse w-full max-w-md">
                                             <tbody>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Infra</td>
-                                                <td className="py-2">Cafe24 Virtual Hosting</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
+                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">Backend</td>
-                                                <td className="py-2">PHP 7.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
+                                                <td className="py-2">{t('PHP 7.x')}</td>
                                             </tr>
                                             <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">FrameWork</td>
-                                                <td className="py-2">Codeigniter 4.x</td>
+                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
+                                                <td className="py-2">{t('odeigniter 4.x')}</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">설명</span>
+                                        <span className="text-indigo-500 font-bold min-w-[100px]">{t('설명')}</span>
                                         <div>
-                                            <div>선인 재단에서 관리하는</div>
-                                            <div>식료품을 구매 할 수 잇는 사이트 입니다.</div>
+                                            <div>{t('선인 재단에서 관리하는')}</div>
+                                            <div>{t('식료품을 구매 할 수 잇는 사이트 입니다.')}</div>
                                         </div>
 
                                     </div>

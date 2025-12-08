@@ -1,13 +1,88 @@
 {
-  "main" : {
-    "Portfolio": "GOD TECH Co.,Ltd.",
+  "main": {
+    "Portfolio": "Portfolio",
     "The Most Innovative Green Tech_ & Engineering Company in the World": "The Most Innovative Green Tech. & Engineering Company in the World",
     "오직 Portfolio에서 제공하는": "Only provided by Portfolio",
-    "세계적 고성능 합금 소재 분말을 Portfolio를 통해서 만나보세요": "Discover world-class high-performance alloy powders through Gottech.",
+    "세계적 고성능 합금 소재 분말을 Portfolio를 통해서 만나보세요": "Discover world-class high-performance alloy powders through Portfolio.",
     "진행중인 과정": "Ongoing process",
     "고객 니즈가 반영된 성공적인 사례들을 소개합니다_": "We present successful cases that reflect customer needs.",
     "제작": "Manufacture",
     "보수": "Repair",
-    "금속 분말": "Metal Powder"
+    "금속 분말": "Metal Powder",
+
+    "해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.": "This page was built using Cafe24 Virtual Hosting (Rocky OS), Docker Compose, and Next.js + Kotlin Spring Boot configuration.",
+
+    "개인정보": "Personal Information",
+    "이름": "Name",
+    "생년월일": "Birth",
+    "주소": "Address",
+    "이메일": "Email",
+    "전화번호": "Phone",
+    "부산시 북구 화명 양달로 80-11 102동 1401호": "80-11 Yangdal-ro, Hwamyeong, Buk-gu, Busan, Building 102, Unit 1401",
+
+    "기술 스택": "Skills & Tools",
+    "백엔드": "Backend",
+    "자격증": "Certification",
+    "정보처리기사": "Engineer Information Processing",
+    "버전 관리": "Version Control",
+    "개발 도구": "IDE Tool",
+    "플랫폼": "Platform",
+    "프레임워크": "Framework",
+
+    "포트폴리오 목록": "Portfolio List",
+
+    "매치업 랜딩페이지": "Match-Up Landing Page",
+    "웹 플랫폼": "Web Platform",
+    "작업범위": "Work Scope",
+    "PHP 백엔드, 프론트엔드(jQuery)": "PHP Backend, Frontend (jQuery)",
+    "하이브리드앱 개발 및 배포(AOS, iOS)": "Hybrid App Development & Deployment (AOS, iOS)",
+    "개발환경": "Development Environment",
+    "인프라": "Infra",
+    "서버": "Server",
+    "프레임워크": "Framework",
+    "설명": "Description",
+    "강의영상과 시험문제를 온라인으로 학생들에게 제공하여": "Provides lecture videos and exam questions to students online",
+    "매치업 플랫폼을 홍보하는 랜딩 페이지를 작업했습니다_": "Created a landing page to promote the Match-Up platform.",
+
+    "가자": "Ga-Ja",
+    "모바일 앱": "Mobile App",
+    "스토어": "Store",
+    "게시 취소": "Delisted",
+    "플랫폼에 등록된 상점 방문 시": "When visiting stores registered on the platform",
+    "쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다_": "An app that provides coupons and stamps for users to redeem.",
+
+    "칸타수학": "Kanta Math",
+    "교육 플랫폼": "Education Platform",
+    "학습 효율을 높이는 교육 플랫폼입니다_": "An educational platform that enhances learning efficiency.",
+
+    "주차실태조사": "Parking Survey",
+    "조사 앱": "Survey App",
+    "Webview 컴포넌트 사용을 위한 모바일 웹 제작": "Mobile web development for Webview component integration",
+    "Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작": "iOS hybrid app development using Xcode and Swift",
+    "Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작": "AOS hybrid app development using Android Studio and Kotlin",
+    "하이브리드앱 패키징 및 배포(iOS, AOS)": "Hybrid app packaging and deployment (iOS, AOS)",
+    "서울시의 주차현황을 조사하는 플랫폼으로": "A platform for surveying parking conditions in Seoul",
+    "조사원들은 해당 플랫폼 앱을 설치하여": "Surveyors install this platform app",
+    "불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여": "To photograph license plates of illegally parked vehicles",
+    "해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의": "Enabling administrators to compile statistics on",
+    "위치를 통계 낼 수 있도록 하는 어플리케이션 입니다_": "the locations of illegally parked vehicles in Seoul.",
+
+    "롯데케미칼 Staron": "Lotte Chemical Staron",
+    "전자상거래": "E-Commerce",
+    "유지보수 및 추가개발": "Maintenance & Additional Development",
+    "인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은": "A site that sells interior materials such as",
+    "인테리어 소재를 판매하는 사이트입니다_": "artificial acrylic stone (solid surface) material brands.",
+
+    "영덕문화재단": "Yeongdeok Cultural Foundation",
+    "문화재단": "Culture Foundation",
+    "유지보수 및 추가개발, 서버관리": "Maintenance, Additional Development & Server Management",
+    "영덕문화 관광재단에서 제공하는": "Provided by Yeongdeok Culture & Tourism Foundation",
+    "영화, 문화, 강좌, 재단에 대해서 정보를 제공하고": "Provides information about movies, culture, courses, and the foundation",
+    "필요한 컨텐츠를 예약 할 수 있는 사이트 입니다_": "A site where users can book necessary content.",
+
+    "선인재단": "Sunin Foundation",
+    "재단": "Foundation",
+    "선인 재단에서 관리하는": "Managed by Sunin Foundation",
+    "식료품을 구매 할 수 있는 사이트 입니다_": "A site where users can purchase groceries."
   }
 }
