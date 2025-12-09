@@ -73,17 +73,17 @@ pipeline {
 
                         echo "▶ 새 컨테이너 임시 포트: \$NEW_PORT"
 
-                        export CONTAINER_NAME=Portfolio_new
+                        export CONTAINER_NAME=portfolio_new
                         echo "▶ 새 컨테이너: \$CONTAINER_NAME, 임시 포트: \$NEW_PORT"
 
                         # docker-compose로 새 컨테이너 빌드 및 실행
-                        NEW_PORT=\$NEW_PORT CONTAINER_NAME=\$CONTAINER_NAME docker compose up -d --build Portfolio_new
+                        NEW_PORT=\$NEW_PORT CONTAINER_NAME=\$CONTAINER_NAME docker compose up -d --build portfolio_new
 
                         # 2️⃣ Health check
                         sleep 20
                         if ! curl -f http://localhost:\$NEW_PORT; then
                             echo "❌ 새 컨테이너 정상 아님"
-                            docker logs Portfolio_new
+                            docker logs portfolio_new
                             docker stop \$CONTAINER_NAME && docker rm \$CONTAINER_NAME
                             exit 1
                         fi
