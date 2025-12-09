@@ -49,71 +49,58 @@ pipeline {
                                 exit 1
                             fi
 
-                            sudo chown -R ec2-user:ec2-user .next
+                            sudo chown -R root:root .next
                         '
                     """
 
                     // 2. 배포 작업
-                    if (env.CLOUD == "AWS") {
-                        echo "☁️ AWS 환경 → docker-compose 기반 배포 실행"
-                        sh """
-                        ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
-                            set -e
+                    echo "☁️ AWS 환경 → docker-compose 기반 배포 실행"
+                    sh """
+                    ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
+                        set -e
 
-                            cd ${env.DOCKER_COMPOSE_PATH}
+                        cd ${env.DOCKER_COMPOSE_PATH}
 
-                            # 5️⃣ 초기 도커 시스템 정리
-                            docker system prune -a --volumes --force
+                        # 5️⃣ 초기 도커 시스템 정리
+                        docker system prune -a --volumes --force
 
-                            # 기존 컨테이너가 3000 포트인지 확인
-                            if docker ps --format "{{.Names}}:{{.Ports}}" | grep -q "Portfolio.*0.0.0.0:3000"; then
-                                NEW_PORT=3001
-                            else
-                                NEW_PORT=3000
-                            fi
+                        # 기존 컨테이너가 3000 포트인지 확인
+                        if docker ps --format "{{.Names}}:{{.Ports}}" | grep -q "Portfolio.*0.0.0.0:3000"; then
+                            NEW_PORT=3001
+                        else
+                            NEW_PORT=3000
+                        fi
 
-                            echo "▶ 새 컨테이너 임시 포트: \$NEW_PORT"
+                        echo "▶ 새 컨테이너 임시 포트: \$NEW_PORT"
 
-                            export CONTAINER_NAME=Portfolio_new
-                            echo "▶ 새 컨테이너: \$CONTAINER_NAME, 임시 포트: \$NEW_PORT"
+                        export CONTAINER_NAME=Portfolio_new
+                        echo "▶ 새 컨테이너: \$CONTAINER_NAME, 임시 포트: \$NEW_PORT"
 
-                            # docker-compose로 새 컨테이너 빌드 및 실행
-                            NEW_PORT=\$NEW_PORT CONTAINER_NAME=\$CONTAINER_NAME docker compose up -d --build Portfolio_new
+                        # docker-compose로 새 컨테이너 빌드 및 실행
+                        NEW_PORT=\$NEW_PORT CONTAINER_NAME=\$CONTAINER_NAME docker compose up -d --build Portfolio_new
 
-                            # 2️⃣ Health check
-                            sleep 20
-                            if ! curl -f http://localhost:\$NEW_PORT; then
-                                echo "❌ 새 컨테이너 정상 아님"
-                                docker logs Portfolio_new
-                                docker stop \$CONTAINER_NAME && docker rm \$CONTAINER_NAME
-                                exit 1
-                            fi
+                        # 2️⃣ Health check
+                        sleep 20
+                        if ! curl -f http://localhost:\$NEW_PORT; then
+                            echo "❌ 새 컨테이너 정상 아님"
+                            docker logs Portfolio_new
+                            docker stop \$CONTAINER_NAME && docker rm \$CONTAINER_NAME
+                            exit 1
+                        fi
 
 
-                            # 3️⃣ 기존 컨테이너 중지/삭제
-                            if docker ps -a --format "{{.Names}}" | grep -q "^Portfolio\$"; then
-                                docker stop Portfolio
-                                docker rm Portfolio
-                            fi
+                        # 3️⃣ 기존 컨테이너 중지/삭제
+                        if docker ps -a --format "{{.Names}}" | grep -q "^Portfolio\$"; then
+                            docker stop Portfolio
+                            docker rm Portfolio
+                        fi
 
-                            docker rename \$CONTAINER_NAME Portfolio
+                        docker rename \$CONTAINER_NAME Portfolio
 
-                            # 5️⃣ 도커 시스템 정리
-                            docker system prune -a --volumes --force
-                        '
-                        """
-                    } else {
-                        echo "☁️ Cafe24 환경 → pm2 기반 배포 실행"
-                        // 1. 빌드 작업 (npm)
-                        sh """
-                            ssh -i '${env.SSH_KEY_PATH}' -o StrictHostKeyChecking=no ${env.REMOTE_USER}@${env.REMOTE_SERVER} '
-                                set -e
-                                cd ${env.PORTFOLIO_REMOTE_PATH}
-
-                                pm2 restart Portfolio
-                            '
-                        """
-                    }
+                        # 5️⃣ 도커 시스템 정리
+                        docker system prune -a --volumes --force
+                    '
+                    """
                 }
             }
         }
