@@ -238,7 +238,7 @@ export default function Introduction() {
             {/* 포트폴리오 리스트 */}
             <section className="w-full py-20 px-4 bg-gradient-to-b from-gray-100 to-white dark:from-neutral-800 dark:to-neutral-900">
                 <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Portfolio List
+
                 </h2>
 
                 {/* 매치업 랜딩페이지 */}
