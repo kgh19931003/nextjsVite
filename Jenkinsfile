@@ -65,7 +65,7 @@ pipeline {
                         docker system prune -a --volumes --force
 
                         # 기존 컨테이너가 3000 포트인지 확인
-                        if docker ps --format "{{.Names}}:{{.Ports}}" | grep -q "Portfolio.*0.0.0.0:3000"; then
+                        if docker ps --format "{{.Names}}:{{.Ports}}" | grep -q "portfolio.*0.0.0.0:3000"; then
                             NEW_PORT=3001
                         else
                             NEW_PORT=3000
@@ -90,12 +90,12 @@ pipeline {
 
 
                         # 3️⃣ 기존 컨테이너 중지/삭제
-                        if docker ps -a --format "{{.Names}}" | grep -q "^Portfolio\$"; then
-                            docker stop Portfolio
-                            docker rm Portfolio
+                        if docker ps -a --format "{{.Names}}" | grep -q "^portfolio\$"; then
+                            docker stop portfolio
+                            docker rm portfolio
                         fi
 
-                        docker rename \$CONTAINER_NAME Portfolio
+                        docker rename \$CONTAINER_NAME portfolio
 
                         # 5️⃣ 도커 시스템 정리
                         docker system prune -a --volumes --force
