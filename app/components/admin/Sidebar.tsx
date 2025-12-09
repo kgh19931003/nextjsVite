@@ -44,7 +44,12 @@ const sidebarItems: ({ path: string; subItems: any[]; icon: string; title: strin
         icon: '파일업로드',
         subItems: [],
     },
-    
+    {
+        title: '',
+        path: '/admin/post/list',
+        icon: '게시글',
+        subItems: [],
+    },
     /*
     {
         title: '',

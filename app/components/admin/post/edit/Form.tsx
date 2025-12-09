@@ -7,20 +7,19 @@ import {mutate} from "swr";
 import UploadImage from "@/lib/upload/Image";
 import Editor from "@/lib/tiptap/Editor";
 import { useUploadState } from '@/lib/upload/hook/useUploadState';
-import {PerformanceFormType, PerformanceResponse} from "@/lib/types/common";
+import {PostFormType, PostResponse} from "@/lib/types/common";
 
 
 
 const categoryList: Record<string, string[]> = {
     "ko": [
-        "Material",
-        "Repair",
-        "Manufacturing"
+        "자유글",
+        "일기장",
+
     ],
     "en": [
-        "Material",
-        "Repair",
-        "Manufacturing"
+        "Open Post",
+        "diary"
     ]
 }
 
@@ -53,7 +52,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
             if (!isEditMode) return;
 
             try {
-                const res = await swrFetcher<PerformanceResponse>(`/${currentLocale}/api/admin/performance/one/${idx}`);
+                const res = await swrFetcher<PostResponse>(`/${currentLocale}/api/admin/post/one/${idx}`);
 
                 setForm({
                     language: currentLocale || '',
@@ -80,7 +79,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                 });
 
             } catch (err) {
-                alert('수행내역 정보를 불러오는 데 실패했습니다.');
+                alert('게시글 정보를 불러오는 데 실패했습니다.');
             }
         };
 
@@ -96,15 +95,15 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
         setLoading(true);
 
         const url = isEditMode
-            ? `/${currentLocale}/api/admin/performance/update/${idx}`
-            : `/${currentLocale}/api/admin/performance/create`;
+            ? `/${currentLocale}/api/admin/post/update/${idx}`
+            : `/${currentLocale}/api/admin/post/create`;
 
         content = editorGetHTML();
         content = content.replace(/<p>\s*<\/p>/g, '<br/>');
 
         const method = 'POST';
         const formdata = new FormData();
-        const formJson: Partial<PerformanceFormType> = {};
+        const formJson: Partial<PostFormType> = {};
 
         formJson.language = currentLocale;
         if(form.category) formJson.category = form.category;
@@ -141,9 +140,9 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                 body: formdata
             });
 
-            alert(isEditMode ? '수행내역 수정 완료' : '수행내역 추가 완료');
-            await mutate(`/${currentLocale}/api/admin/performance/list?page=1`);
-            router.push(`/${currentLocale}/admin/performance/list`);
+            alert(isEditMode ? '게시글 수정 완료' : '게시글 추가 완료');
+            await mutate(`/${currentLocale}/api/admin/post/list?page=1`);
+            router.push(`/${currentLocale}/admin/post/list`);
         } catch {
             alert('저장 실패');
         } finally {
@@ -154,7 +153,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
     return (
         <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-md">
             <h1 className="text-xl font-bold mb-4">
-                {isEditMode ? '수행내역 수정' : '수행내역 추가'}
+                {isEditMode ? '게시글 수정' : '게시글 추가'}
             </h1>
 
             <div className="space-y-4">
@@ -197,9 +196,8 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                 </div>
 
                 <div className="flex-1">
-                    <label className="block mb-1 text-sm font-medium text-gray-700">수행내역 이미지 업로드</label>
                     <UploadImage
-                        title="수행내역 이미지"
+                        title="게시글 이미지"
                         uploadState={imageUpload}
                     />
                 </div>
@@ -209,7 +207,7 @@ const Form = ({ locale, idx }: { locale: string; idx?: string }) => {
                         idx={idx}
                         initialContent={form.content}
                         getEditorHTML={(fn) => (editorGetHTML = fn)}
-                        editorImageUploadUrl={`/${currentLocale}/api/admin/performance/imageUpload/${idx}`}
+                        editorImageUploadUrl={`/${currentLocale}/api/admin/post/imageUpload/${idx}`}
                     />
                 </div>
 

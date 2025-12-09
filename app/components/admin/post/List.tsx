@@ -56,7 +56,7 @@ const ListPage = () => {
     );
      */
     const fetcher = (url: string) => fetch(url).then(res => res.json());
-    const { data, error, isLoading } = useSWR<tableDataResponse>(`/${currentLocale}/api/admin/performance/list?${queryParams}`, fetcher);
+    const { data, error, isLoading } = useSWR<tableDataResponse>(`/${currentLocale}/api/admin/post/list?${queryParams}`, fetcher);
 
 
     const handleSearch = () => {
@@ -72,7 +72,7 @@ const ListPage = () => {
         const token = localStorage.getItem('token');
 
         try {
-            const res = await swrFetcher(`/${currentLocale}/api/admin/performance/delete/${id}`, {
+            const res = await swrFetcher(`/${currentLocale}/api/admin/post/delete/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ const ListPage = () => {
             alert('삭제되었습니다.');
 
             // ✅ SWR 데이터를 다시 가져오도록 강제 리렌더링
-            await mutate(`/${currentLocale}/api/admin/performance/list?${queryParams}`);
+            await mutate(`/${currentLocale}/api/admin/post/list?${queryParams}`);
         } catch (err) {
             console.error(err);
             alert('삭제 중 오류가 발생했습니다.');
@@ -92,7 +92,7 @@ const ListPage = () => {
 
     const handleBatchDelete = async (ids: string[]) => {
         if (ids.length === 0) {
-            alert('삭제할 수행내역을 선택해주세요.');
+            alert('삭제할 게시글 내역을 선택해주세요.');
             return;
         }
 
@@ -103,7 +103,7 @@ const ListPage = () => {
         try {
             await Promise.all(
                 ids.map(id =>
-                    fetch(`/${currentLocale}/api/admin/performance/delete/${id}`, {
+                    fetch(`/${currentLocale}/api/admin/post/delete/${id}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`,
                             'Content-Type': 'application/json',
@@ -115,10 +115,10 @@ const ListPage = () => {
                 )
             );
 
-            alert('선택한 수행내역이 삭제되었습니다.');
+            alert('선택한 게시글 내역이 삭제되었습니다.');
 
             // 삭제 후 데이터 다시 가져오기
-            await mutate(`/${currentLocale}/api/admin/performance/list?${queryParams}`);
+            await mutate(`/${currentLocale}/api/admin/post/list?${queryParams}`);
             // 체크박스 선택 해제
             setSelectedUsers([]);
         } catch (err) {
@@ -132,7 +132,7 @@ const ListPage = () => {
         try {
             const token = localStorage.getItem('token');
 
-            const res = await swrFetcher(`/${currentLocale}/api/admin/performance/excel?${queryParams}`, {
+            const res = await swrFetcher(`/${currentLocale}/api/admin/post/excel?${queryParams}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -205,8 +205,8 @@ const ListPage = () => {
 
             <Table
                 locale={currentLocale as string}
-                title="수행내역"
-                role="performance"
+                title="게시글 내역"
+                role="post"
                 totalCount={data?.total as number}
                 theaders={theaders}
                 contents={data?.contents}

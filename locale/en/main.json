@@ -10,8 +10,6 @@
     "보수": "Repair",
     "금속 분말": "Metal Powder",
 
-    "해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.": "This page was built using Cafe24 Virtual Hosting (Rocky OS), Docker Compose, and Next.js + Kotlin Spring Boot configuration.",
-
     "개인정보": "Personal Information",
     "이름": "Name",
     "생년월일": "Birth",

@@ -156,6 +156,11 @@ export default function Header() {
                     <ul className="hidden md:flex gap-30 relative">
                         <li
                             className="relative py-10 font-bold cursor-pointer hover:text-[#56BC6F]"
+                            onClick={() => location.href = `http://jenkins.kgh-portfolio.p-e.kr`}>
+                            {t('Jenkins')}
+                        </li>
+                        <li
+                            className="relative py-10 font-bold cursor-pointer hover:text-[#56BC6F]"
                             onClick={() => location.href = `/${currentLocale}/admin/fileUpload/edit`}>
                             {t('관리자')}
                         </li>
@@ -218,7 +223,6 @@ export default function Header() {
                             </div>
                         </li>
                     </ul>
-
 
 
                 </nav>

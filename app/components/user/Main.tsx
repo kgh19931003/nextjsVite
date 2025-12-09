@@ -51,7 +51,7 @@ export default function Introduction() {
         if (currentLocale === 'ko') {
             return '해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
         } else if (currentLocale === 'en') {
-            return '해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
+            return 'This page was created using Cafe24 virtual hosting (Rocky OS), Docker Compose, and Nextjs + Kotlin BootSpring.';
         } else {
             return '해당 페이지는 Cafe24 가상 호스팅 (Rocky Os), Docker Compose 와 Nextjs + kotlin BootSpring 구성으로 제작 되었습니다.';
         }
@@ -755,7 +755,7 @@ export default function Introduction() {
                                         <span className="text-indigo-500 font-bold min-w-[100px]">{t('설명')}</span>
                                         <div>
                                             <div>{t('선인 재단에서 관리하는')}</div>
-                                            <div>{t('식료품을 구매 할 수 잇는 사이트 입니다.')}</div>
+                                            <div>{t('식료품을 구매 할 수 있는 사이트 입니다.')}</div>
                                         </div>
 
                                     </div>

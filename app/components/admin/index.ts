@@ -12,10 +12,8 @@ import settings from './settings/Form';
 import BannerList from './banner/List';
 import PolicyList from './policy/List';
 import PolicyEdit from './policy/edit/Form';
-import PerformanceList from './performance/List';
-import PerformanceEdit from './performance/edit/Form';
-import AlloyList from './alloy/List';
-import AlloyEdit from './alloy/edit/Form';
+import PostList from './post/List';
+import PostEdit from './post/edit/Form';
 import FileUploadEdit from  './fileUpload/edit/Form'
 
 export {
@@ -33,9 +31,7 @@ export {
     BannerList,
     PolicyList,
     PolicyEdit,
-    PerformanceList,
-    PerformanceEdit,
-    AlloyList,
-    AlloyEdit,
+    PostList,
+    PostEdit,
     FileUploadEdit
 };
