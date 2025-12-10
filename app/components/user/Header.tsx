@@ -161,7 +161,7 @@ export default function Header() {
                         </li>
                         <li
                             className="relative py-10 font-bold cursor-pointer hover:text-[#56BC6F]"
-                            onClick={() => location.href = `/${currentLocale}/admin/fileUpload/edit`}>
+                            onClick={() => location.href = `/${currentLocale}/admin/users/list`}>
                             {t('관리자')}
                         </li>
                         <li className="relative py-10">

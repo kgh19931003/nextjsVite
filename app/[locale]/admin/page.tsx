@@ -8,5 +8,5 @@ export default function mainPage() {
     const pathname = usePathname()
     const segments = pathname.split('/').filter(Boolean);
     const locale = segments[0];
-    window.location.href = `/${locale}/admin/fileUpload/edit`;
+    window.location.href = `/${locale}/admin/users/List`;
 }
