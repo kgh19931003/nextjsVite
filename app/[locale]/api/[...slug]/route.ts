@@ -21,14 +21,47 @@ export async function GET(
 ) {
     const { slug } = await params;
     const queryString = req.nextUrl.searchParams.toString();
-
     const url = `${baseUrl}/${buildUrl(slug, queryString)}`;
 
     try {
+        // ⭐ 엑셀 다운로드 경로 감지
+        const isExcelDownload = slug.includes('excel');
+
+        if (isExcelDownload) {
+            // 바이너리 응답 처리
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            // 응답을 ArrayBuffer로 읽기
+            const arrayBuffer = await response.arrayBuffer();
+
+            // Content-Disposition 헤더 추출
+            const contentDisposition = response.headers.get('Content-Disposition');
+
+            // NextResponse로 바이너리 데이터 반환
+            return new NextResponse(arrayBuffer, {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'Content-Disposition': contentDisposition || 'attachment; filename="download.xlsx"',
+                    'Access-Control-Expose-Headers': 'Content-Disposition'
+                }
+            });
+        }
+
+        // 일반 JSON 응답
         const res = await swrFetcher(url, { method: "GET" });
         return NextResponse.json(res);
     } catch (error: any) {
-        return NextResponse.json({ message: error.message });
+        return NextResponse.json({ message: error.message }, { status: 500 });
     }
 }
 

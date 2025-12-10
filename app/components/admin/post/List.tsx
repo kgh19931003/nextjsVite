@@ -132,44 +132,59 @@ const ListPage = () => {
         try {
             const token = localStorage.getItem('token');
 
-            const res = await swrFetcher(`/${currentLocale}/api/admin/post/excel?${queryParams}`, {
+            // ⭐ 백엔드에서 바이너리 응답을 받아야 하므로 fetch 직접 사용
+            const response = await fetch(`/${currentLocale}/api/admin/post/excel?${queryParams}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                 },
             });
 
-            if (res instanceof Response) {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-                const blob = await res.blob();
+            // ⭐ Blob으로 변환
+            const blob = await response.blob();
 
-                // 👉 Content-Disposition 헤더에서 파일명 추출
-                const disposition = res.headers.get('Content-Disposition');
+            // ⭐ Content-Disposition 헤더에서 파일명 추출
+            const contentDisposition = response.headers.get('Content-Disposition');
+            let filename = 'post_list.xlsx'; // 기본값
 
-                let filename = 'excel.xlsx'; // 기본값
-
-                if (disposition) {
-                    const match = disposition.match(/filename\*=UTF-8''(.+)/);
-                    if (match && match[1]) {
-                        filename = decodeURIComponent(match[1]);
+            if (contentDisposition) {
+                // filename*=UTF-8''encoded-name.xlsx 형식 파싱
+                const utf8Match = contentDisposition.match(/filename\*=UTF-8''([^;\r\n]+)/i);
+                if (utf8Match?.[1]) {
+                    if (utf8Match) {
+                        filename = decodeURIComponent(utf8Match[1]);
+                    }
+                } else {
+                    // filename="name.xlsx" 또는 filename=name.xlsx 형식 파싱
+                    const simpleMatch = contentDisposition.match(/filename[^;=\n]*=["']?([^"';\r\n]+)/i);
+                    if (simpleMatch?.[1]) {
+                        if (simpleMatch) {
+                            filename = simpleMatch[1].trim();
+                        }
                     }
                 }
-
-
-                const url = URL.createObjectURL(blob);
-
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-
-                URL.revokeObjectURL(url);
-
             }
+
+            // ⭐ 파일 다운로드
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+
+            // ⭐ 정리
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            console.log('✅ 엑셀 다운로드 완료:', filename);
         } catch (error) {
-            console.error(error);
+            console.error('❌ 엑셀 다운로드 실패:', error);
             alert('엑셀 다운로드 중 오류가 발생했습니다.');
         }
     };

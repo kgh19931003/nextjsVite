@@ -98,7 +98,7 @@ export interface productFormType {
 }
 
 
-export interface PerformanceResponse {
+export interface PostResponse {
     language: string;
     category: string;
     title: string | number;
@@ -136,7 +136,7 @@ export interface PerformanceResponse {
     videoOrder?: number[];
 }
 
-export interface PerformanceFormType {
+export interface PostFormType {
     language: string;
     category: string;
     title: string | number;
