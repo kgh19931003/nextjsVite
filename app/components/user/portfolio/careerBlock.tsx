@@ -20,7 +20,7 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
 
                 // 🔥 Custom Slider Wrapper
                 const SliderSection = () => (
-                    <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
+                    <div className="w-full bg-gray-100 dark:bg-neutral-900">
                         <div className="rounded-2xl overflow-hidden shadow-lg">
                             <ImageSlider images={item.images} />
                         </div>

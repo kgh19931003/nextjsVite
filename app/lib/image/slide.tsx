@@ -76,7 +76,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
         >
             {/* 슬라이드 이미지 */}
             <div
-                className="flex h-full transition-transform duration-300 ease-out"
+                className="flex min-w-full h-full transition-transform duration-300 ease-out"
                 style={{
                     transform: `translateX(calc(-${currentSlide * 100}% + ${translateX}px))`,
                     transition: isDragging ? 'none' : 'transform 0.3s ease-out'

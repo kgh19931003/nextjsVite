@@ -161,9 +161,13 @@ export default function Introduction() {
                                                     style={{ width: `${item.size[i]}px`, height: 'auto' }}
                                                     className="object-contain"
                                                 />
-                                                <div className='text-center pt-2'>
-                                                    {item.text[i]}
-                                                </div>
+
+                                                {item.text[i] && (
+                                                    <div className="text-center pt-2">
+                                                        {item.text[i]}
+                                                    </div>
+                                                )}
+
                                             </div>
                                         ))}
                                     </div>
