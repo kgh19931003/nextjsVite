@@ -12,6 +12,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { swrFetcher } from '@/lib/function';
 import { useSafeTranslations } from "@/lib/intl/useSafeTranslations";
 import {PortfolioItemComponent} from "@/components/user/portfolio/careerBlock";
+import {privacyData, stackData} from "@/data/portfolioData";
 
 
 export default function Introduction() {
@@ -31,23 +32,7 @@ export default function Introduction() {
         }
     }, [currentLocale]);
 
-    const privacyData = [
-        { id: 1, name: 'Name', value: '김근호', icon: '👤' },
-        { id: 2, name: 'Birth', value: '1993. 10. 03', icon: '🎂' },
-        { id: 3, name: 'Address', value: '부산시 북구 화명 양달로 80-11 102동 1401호', icon: '📍' },
-        { id: 4, name: 'E-mail', value: 'sasaa3865@naver.com', icon: '📧' },
-        { id: 5, name: 'Phone', value: '010 - 7615 - 3865', icon: '📱' },
-    ];
 
-    const stackData = [
-        { id: 1, name: 'Backend', value: ['php.png', 'kotlin.png'], size: ['100', '85'], text: ['', ''] },
-        { id: 2, name: '자격증', value: ['certifi.png'], size: ['100'], text: ['정보처리기사'] },
-        { id: 3, name: 'Version Control', value: ['github.png', 'jenkins.png'], size: ['120', '140'], text: ['', ''] },
-        { id: 4, name: 'IDE Tool', value: ['phpstorm.png', 'intellij.png'], size: ['80', '100'], text: ['', ''] },
-        { id: 5, name: 'Platform', value: ['docker.png'], size: ['100'], text: [''] },
-        { id: 6, name: 'Framework', value: ['ci4.png', 'boot_spring.png'], size: ['80', '150'], text: ['', ''] },
-        { id: 7, name: 'Amazon Cloud', value: ['aws/ec2.png', 'aws/ecr.png', 'aws/ecs.png', 'aws/iam.png', 'aws/load_balancer.png', 'aws/rds.png', 'aws/s3.png'], size: ['90', '90', '90', '60', '120', '75', '75'], text: ['', '', '', '', '', '', ''] },
-    ];
 
 
     const settings = {

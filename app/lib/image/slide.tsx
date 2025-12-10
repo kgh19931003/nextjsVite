@@ -108,8 +108,8 @@ export function ImageSlider({ images }: ImageSliderProps) {
                             onClick={() => setCurrentSlide(idx)}
                             className={`w-2 h-2 rounded-full transition-all duration-300 ${
                                 idx === currentSlide
-                                    ? 'bg-white h-6'
-                                    : 'bg-white/50 hover:bg-white/80'
+                                    ? 'bg-black h-6'
+                                    : 'bg-black/50 hover:bg-white/80'
                             }`}
                         />
                     ))}
