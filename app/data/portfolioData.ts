@@ -1,0 +1,229 @@
+// 컬러 매핑
+export const colorMap = {
+    blue: {
+        badge: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400',
+        text: 'text-blue-500'
+    },
+    purple: {
+        badge: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400',
+        text: 'text-purple-500'
+    },
+    green: {
+        badge: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400',
+        text: 'text-green-500'
+    },
+    orange: {
+        badge: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400',
+        text: 'text-orange-500'
+    },
+    red: {
+        badge: 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400',
+        text: 'text-red-500'
+    },
+    teal: {
+        badge: 'bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400',
+        text: 'text-teal-500'
+    },
+    indigo: {
+        badge: 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400',
+        text: 'text-indigo-500'
+    }
+};
+
+// 포트폴리오 데이터
+export const portfolioData: PortfolioItem[] = [
+    {
+        id: 'matchup',
+        category: 'vertical',
+        categoryColor: 'blue',
+        title: '매치업 랜딩페이지',
+        url: 'https://www.match-up.co.kr/',
+        urlText: 'match-up.co.kr',
+        workScope: [
+            'PHP 백엔드, 프론트엔드(jQuery)',
+            '하이브리드앱 개발 및 배포(AOS, iOS)'
+        ],
+        environment: [
+            { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
+            { label: 'Backend', value: 'PHP 7.x' },
+            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+        ],
+        description: [
+            '강의영상과 시험문제를 온라인으로 학생들에게 제공하여',
+            '매치업 플랫폼을 홍보하는 랜딩 페이지를 작업했습니다.'
+        ],
+        images: [
+            '/content/matchup/1.png',
+            '/content/matchup/2.png',
+            '/content/matchup/3.png'
+        ]
+    },
+    {
+        id: 'gaja',
+        category: 'vertical',
+        categoryColor: 'purple',
+        title: '가자',
+        storeLinks: [
+            { label: '게시 취소', url: undefined }
+        ],
+        workScope: [
+            'PHP 백엔드, 프론트엔드(jQuery)',
+            '하이브리드앱 개발 및 배포(AOS, iOS)'
+        ],
+        environment: [
+            { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
+            { label: 'Backend', value: 'PHP 7.x' },
+            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+        ],
+        description: [
+            '플랫폼에 등록된 상점 방문 시',
+            '쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다.'
+        ],
+        images: [
+            '/content/go/1.png',
+            '/content/go/2.png',
+            '/content/go/3.png'
+        ],
+        reversed: true
+    },
+    {
+        id: 'kanta',
+        category: 'horizontal',
+        categoryColor: 'green',
+        title: '칸타수학',
+        urlText: '게시 취소',
+        workScope: [
+            'PHP 백엔드, 프론트엔드(jQuery)',
+            '하이브리드앱 개발 및 배포(AOS, iOS)'
+        ],
+        environment: [
+            { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
+            { label: 'Backend', value: 'PHP 7.x' },
+            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+        ],
+        description: [
+            '강의영상과 시험문제를 온라인으로 학생들에게 제공하여',
+            '학습 효율을 높이는 교육 플랫폼입니다.'
+        ],
+        images: [
+            '/content/kanta/1.png',
+            '/content/kanta/2.png',
+            '/content/kanta/3.png',
+            '/content/kanta/4.png',
+            '/content/kanta/5.png'
+        ]
+    },
+    {
+        id: 'parking',
+        category: 'vertical',
+        categoryColor: 'indigo',
+        title: '주차실태조사',
+        storeLinks: [
+            {
+                label: 'App Store',
+                url: 'https://apps.apple.com/us/app/%EC%A3%BC%EC%B0%A8%EC%8B%A4%ED%83%9C%EC%A1%B0%EC%82%AC/id1582133805'
+            }
+        ],
+        workScope: [
+            'Webview 컴포넌트 사용을 위한 모바일 웹 제작',
+            'Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작',
+            'Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작',
+            '하이브리드앱 패키징 및 배포(iOS, AOS)'
+        ],
+        environment: [
+            { label: 'Infra', value: 'Aws S3, RDS' },
+            { label: 'Server', value: 'Cafe24 Virtual Hosting' },
+            { label: 'Backend', value: 'PHP 7.4' },
+            { label: 'AOS', value: 'Kotlin' },
+            { label: 'iOS', value: 'Swift' }
+        ],
+        description: [
+            '서울시의 주차현황을 조사하는 플랫폼으로',
+            '조사원들은 해당 플랫폼 앱을 설치하여',
+            '불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여',
+            '해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의',
+            '위치를 통계 낼 수 있도록 하는 어플리케이션 입니다.'
+        ],
+        images: [
+            '/content/park/1.png',
+            '/content/park/2.png',
+            '/content/park/3.png',
+            '/content/park/4.png',
+            '/content/park/5.png'
+        ],
+        reversed: true
+    },
+    {
+        id: 'lotte',
+        category: 'horizontal',
+        categoryColor: 'red',
+        title: '롯데케미칼 Staron',
+        url: 'https://www.staron.com',
+        urlText: 'staron.com',
+        workScope: ['유지보수 및 추가개발'],
+        environment: [
+            { label: 'Infra', value: 'Aws EC2, S3, RDS' },
+            { label: 'Server', value: 'Amazon Linux 3' },
+            { label: 'Backend', value: 'PHP 7.x' },
+            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+        ],
+        description: [
+            '인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은',
+            '인테리어 소재를 판매하는 사이트입니다.'
+        ],
+        images: [
+            '/content/lotte/1.png',
+            '/content/lotte/2.png',
+            '/content/lotte/3.png'
+        ]
+    },
+    {
+        id: 'ydct',
+        category: 'horizontal',
+        categoryColor: 'teal',
+        title: '영덕문화재단',
+        url: 'https://ydct.org',
+        urlText: 'ydct.org',
+        workScope: ['유지보수 및 추가개발, 서버관리'],
+        environment: [
+            { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
+            { label: 'Backend', value: 'PHP 7.x' },
+            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+        ],
+        description: [
+            '영덕문화 관광재단에서 제공하는',
+            '영화, 문화, 강좌, 재단에 대해서 정보를 제공하고',
+            '필요한 컨텐츠를 예약 할 수 있는 사이트 입니다.'
+        ],
+        images: [
+            '/content/ydct/1.png',
+            '/content/ydct/2.png',
+            '/content/ydct/3.png',
+            '/content/ydct/4.png'
+        ],
+        reversed: true
+    },
+    {
+        id: 'sunin',
+        category: 'horizontal',
+        categoryColor: 'indigo',
+        title: '선인재단',
+        url: 'https://sib.kr',
+        urlText: 'sib.kr',
+        workScope: ['유지보수 및 추가개발, 서버관리'],
+        environment: [
+            { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
+            { label: 'Backend', value: 'PHP 7.x' },
+            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+        ],
+        description: [
+            '선인 재단에서 관리하는',
+            '식료품을 구매 할 수 있는 사이트 입니다.'
+        ],
+        images: [
+            '/content/sunin/1.png',
+            '/content/sunin/2.png',
+            '/content/sunin/3.png'
+        ]
+    }
+];

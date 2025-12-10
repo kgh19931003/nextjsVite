@@ -3,42 +3,16 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import Marquee from 'react-fast-marquee';
-import Slider from 'react-slick';
-
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-import Bgimg from '@/components/user/common/Bgimg';
-import Bgimg2 from '@/components/user/common/Bgimg2';
 import { swrFetcher } from '@/lib/function';
-
 import { useSafeTranslations } from "@/lib/intl/useSafeTranslations";
+import {PortfolioItemComponent} from "@/components/user/portfolio/careerBlock";
 
-interface blogForm {
-    idx: number;
-    title: string;
-    subtitle: string;
-    thumbnail: string;
-    content: string;
-    category: string;
-    regDate: string;
-}
-
-interface performanceForm {
-    idx: number;
-    title: string;
-    subtitle: string;
-    thumbnail: string;
-    content: string;
-    category: string;
-    regDate: string;
-    firstSrc: string;
-}
 
 export default function Introduction() {
     const t = useSafeTranslations("main");
@@ -57,13 +31,10 @@ export default function Introduction() {
         }
     }, [currentLocale]);
 
-    const [blogs, setBlogs] = useState<blogForm[]>([]);
-    const [performances, setPerformances] = useState<performanceForm[]>([]);
-
     const privacyData = [
         { id: 1, name: 'Name', value: '김근호', icon: '👤' },
         { id: 2, name: 'Birth', value: '1993. 10. 03', icon: '🎂' },
-        { id: 3, name: 'Addr', value: '부산시 북구 화명 양달로 80-11 102동 1401호', icon: '📍' },
+        { id: 3, name: 'Address', value: '부산시 북구 화명 양달로 80-11 102동 1401호', icon: '📍' },
         { id: 4, name: 'E-mail', value: 'sasaa3865@naver.com', icon: '📧' },
         { id: 5, name: 'Phone', value: '010 - 7615 - 3865', icon: '📱' },
     ];
@@ -75,8 +46,9 @@ export default function Introduction() {
         { id: 4, name: 'IDE Tool', value: ['phpstorm.png', 'intellij.png'], size: ['80', '100'], text: ['', ''] },
         { id: 5, name: 'Platform', value: ['docker.png'], size: ['100'], text: [''] },
         { id: 6, name: 'Framework', value: ['ci4.png', 'boot_spring.png'], size: ['80', '150'], text: ['', ''] },
-        { id: 7, name: 'AWS', value: ['aws.png'], size: ['200'], text: ['EC2, ECS, ECR, RDS, S3, IAM'] },
+        { id: 7, name: 'Amazon Cloud', value: ['aws/ec2.png', 'aws/ecr.png', 'aws/ecs.png', 'aws/iam.png', 'aws/load_balancer.png', 'aws/rds.png', 'aws/s3.png'], size: ['90', '90', '90', '60', '120', '75', '75'], text: ['', '', '', '', '', '', ''] },
     ];
+
 
     const settings = {
         dots: true,
@@ -104,21 +76,6 @@ export default function Introduction() {
 
         return () => clearInterval(timer);
     }, [fullText]);
-
-    useEffect(() => {
-        if (!currentLocale) return;
-        async function fetchData() {
-            try {
-                const blog_res = await swrFetcher(`/${currentLocale}/api/blog/list?size=300&language=${currentLocale}`);
-                const performance_res = await swrFetcher(`/${currentLocale}/api/performance/list?size=300&language=${currentLocale}`);
-                setBlogs(blog_res.contents);
-                setPerformances(performance_res.contents);
-            } catch (err) {
-                console.error(err);
-            }
-        }
-        fetchData();
-    }, [currentLocale]);
 
     return (
         <main className="bg-gradient-to-b from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800 text-gray-900 dark:text-gray-100">
@@ -163,7 +120,6 @@ export default function Introduction() {
                     viewport={{ once: true }}
                     className="max-w-5xl mx-auto"
                 >
-
                     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100 dark:border-neutral-700">
                         <div className="grid gap-6">
                             {privacyData.map((item, idx) => (
@@ -186,8 +142,6 @@ export default function Introduction() {
                     </div>
                 </motion.div>
             </section>
-
-
 
             {/* 스택 섹션 */}
             <section className="w-full py-20 px-4">
@@ -213,7 +167,7 @@ export default function Introduction() {
                                     className="flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-r from-gray-50 to-transparent dark:from-neutral-700/50 dark:to-transparent hover:shadow-lg transition-all duration-300"
                                 >
                                     <div className="font-bold text-lg min-w-[140px] text-gray-700 dark:text-gray-300">{t(item.name)}</div>
-                                    <div className="flex-1 flex items-center gap-6">
+                                    <div className="flex-1 flex flex-wrap items-center gap-6">
                                         {item.value.map((img, i) => (
                                             <div key={i} className="bg-white dark:bg-neutral-600 p-3 rounded-xl shadow-md hover:scale-110 transition-transform duration-300">
                                                 <img
@@ -238,532 +192,12 @@ export default function Introduction() {
             {/* 포트폴리오 리스트 */}
             <section className="w-full py-20 px-4 bg-gradient-to-b from-gray-100 to-white dark:from-neutral-800 dark:to-neutral-900">
                 <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-
+                    Portfolio
                 </h2>
-
-                {/* 매치업 랜딩페이지 */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="max-w-7xl mx-auto mb-20"
-                >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-2 gap-0">
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/matchup/1.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/matchup/2.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/matchup/3.png" alt="" className="w-full h-full object-cover" /></div>
-                                    </Slider>
-                                </div>
-                            </div>
-                            <div className="p-8 lg:p-8 flex flex-col justify-start">
-                                <div className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-8">Web Platform</div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('매치업 랜딩페이지')}</h3>
-                                <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[100px]">URL</span>
-                                        <a href="https://www.match-up.co.kr/" target="_blank" rel="noopener noreferrer"
-                                           className="text-purple-500 hover:text-green-700 hover:underline transition-colors">match-up.co.kr</a>
-                                    </div>
-
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[100px]">{t('작업범위')}</span>
-                                        <div>
-                                        <div>{t('PHP 백엔드, 프론트엔드(jQuery)')}</div>
-                                            <div>{t('하이브리드앱 개발 및 배포(AOS, iOS)')}</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-blue-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
-                                        <table
-                                            className="table-auto border-collapse w-full max-w-md">
-                                            <tbody>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
-                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
-                                                <td className="py-2">{t('PHP 7.x')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
-                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-blue-500 font-bold min-w-[100px]">{t('설명')}</span>
-                                        <div>
-                                            <div>{t('강의영상과 시험문제를 온라인으로 학생들에게 제공하여')}</div>
-                                            <div>{t('매치업 플랫폼을 홍보하는 랜딩 페이지를 작업했습니다.')}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* 가자 */}
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6}}
-                    viewport={{once: true}}
-                    className="max-w-7xl mx-auto mb-20"
-                >
-                    <div
-                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-2 gap-0">
-                            <div className="w-full p-8 lg:p-8 flex flex-col justify-start order-2 lg:order-1">
-                                <div className="inline-block px-4 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-sm font-semibold mb-8 w-fit">{t('Mobile App')}</div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('가자')}</h3>
-                                <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-purple-500 font-bold min-w-[100px]">{t('스토어')}</span>
-                                        <a target="_blank" rel="noopener noreferrer"
-                                           className="text-purple-500 hover:text-green-700 hover:underline transition-colors">{t('게시 취소')}</a>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-purple-500 font-bold min-w-[100px]">{t('작업범위')}</span>
-                                        <div>
-                                            <div>{t('PHP 백엔드, 프론트엔드(jQuery)')}</div>
-                                            <div>{t('하이브리드앱 개발 및 배포(AOS, iOS)')}</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-purple-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
-                                        <table
-                                            className="table-auto border-collapse w-full max-w-md">
-                                            <tbody>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
-                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
-                                                <td className="py-2">{t('PHP 7.x')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
-                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-purple-500 font-bold min-w-[100px]">{t('설명')}</span>
-                                        <div>
-                                            <div>{t('플랫폼에 등록된 상점 방문 시')}</div>
-                                            <div>{t('쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다.')}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/go/1.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/go/2.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/go/3.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                    </Slider>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* 칸타수학 */}
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6}}
-                    viewport={{once: true}}
-                    className="max-w-7xl mx-auto mb-20"
-                >
-                    <div
-                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-1 gap-0">
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/kanta/1.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/kanta/2.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/kanta/3.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/kanta/4.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/kanta/5.png" alt="" className="w-full h-full object-cover" /></div>
-                                    </Slider>
-                                </div>
-                            </div>
-                            <div className="p-8 lg:p-8 flex flex-col justify-center">
-                                <div className="inline-block px-4 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-semibold mb-8">Education Platform</div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('칸타수학')}</h3>
-                                <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-green-500 font-bold min-w-[100px]">{t('URL')}</span>
-                                        <a  target="_blank" rel="noopener noreferrer"
-                                           className="text-green-500 hover:text-green-700 hover:underline transition-colors">{t('게시 취소')}</a>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-green-500 font-bold min-w-[100px]">{t('작업범위')}</span>
-                                        <div>
-                                            <div>{t('PHP 백엔드, 프론트엔드(jQuery)')}</div>
-                                            <div>{t('하이브리드앱 개발 및 배포(AOS, iOS)')}</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-green-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
-                                        <table
-                                            className="table-auto border-collapse w-full max-w-md">
-                                            <tbody>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
-                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
-                                                <td className="py-2">{t('PHP 7.x')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
-                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-green-500 font-bold min-w-[100px]">{t('설명')}</span>
-                                        <div>
-                                            <div>{t('강의영상과 시험문제를 온라인으로 학생들에게 제공하여')}</div>
-                                            <div>{t('학습 효율을 높이는 교육 플랫폼입니다.')}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* 주차실태조사 */}
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6}}
-                    viewport={{once: true}}
-                    className="max-w-7xl mx-auto mb-20"
-                >
-                    <div
-                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-2 gap-0">
-                            <div className="w-full p-8 lg:p-12 flex flex-col justify-start order-2 lg:order-1">
-                                <div
-                                    className="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-8 w-fit">{t('Survey App')}
-                                </div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('주차실태조사')}</h3>
-                                <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-orange-500 font-bold min-w-[100px]">{t('스토어')}</span>
-                                        <div className="flex flex-col gap-2">
-                                            <a href="https://play.google.com/store/apps/details?id=com.wizmade.parkingsys"
-                                               target="_blank" rel="noopener noreferrer"
-                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">Google Play ( {t('게시 취소')} )</a>
-                                            <a href="https://apps.apple.com/us/app/%EC%A3%BC%EC%B0%A8%EC%8B%A4%ED%83%9C%EC%A1%B0%EC%82%AC/id1582133805"
-                                               target="_blank" rel="noopener noreferrer"
-                                               className="text-orange-500 hover:text-orange-700 hover:underline transition-colors">{t('App Store')}</a>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-10">
-                                    <div className="text-orange-500 font-bold min-w-[100px]">{t('작업범위')}</div>
-                                        <div>
-                                            <div>{t('Webview 컴포넌트 사용을 위한 모바일 웹 제작')}</div>
-                                            <div>{t('Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작')}</div>
-                                            <div>{t('Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작')}</div>
-                                            <div>{t('하이브리드앱 패키징 및 배포(iOS, AOS)')}</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-10">
-                                        <span className="text-orange-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
-                                        <table
-                                            className="table-auto border-collapse w-full max-w-md">
-                                            <tbody>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
-                                                <td className="py-2">{t('Aws S3, RDS')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Server')}</td>
-                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
-                                                <td className="py-2">{t('PHP 7.4')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('AOS')}</td>
-                                                <td className="py-2">{t('Kotlin')}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="py-2 font-semibold text-slate-700">{t('iOS')}</td>
-                                                <td className="py-2">{t('Swift')}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-10">
-                                        <div className="text-orange-500 font-bold min-w-[100px]">{t('설명')}</div>
-
-                                        <div>
-                                            <div>{t('서울시의 주차현황을 조사하는 플랫폼으로')}</div>
-                                            <div>{t('조사원들은 해당 플랫폼 앱을 설치하여')}</div>
-                                            <div>{t('불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여')}</div>
-                                            <div>{t('해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의')}</div>
-                                            <div>{t('위치를 통계 낼 수 있도록 하는 어플리케이션 입니다.')}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/park/1.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/2.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/3.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/4.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/park/5.png" alt="" className="w-full h-full object-cover" /></div>
-                                    </Slider>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* 롯데케미칼 */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="max-w-7xl mx-auto mb-20"
-                >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-1 gap-0">
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/lotte/1.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/lotte/2.png" alt="" className="w-full h-full object-cover" /></div>
-                                        <div><img src="/content/lotte/3.png" alt="" className="w-full h-full object-cover" /></div>
-                                    </Slider>
-                                </div>
-                            </div>
-                            <div className="p-8 lg:p-8 flex flex-col justify-center">
-                                <div className="inline-block px-4 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full text-sm font-semibold mb-8">{t('E-Commerce')}</div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('롯데케미칼 Staron')}</h3>
-                                <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-red-500 font-bold min-w-[100px]">{t('URL')}</span>
-                                        <a href="https://www.staron.com" target="_blank" rel="noopener noreferrer"
-                                           className="text-red-500 hover:text-red-700 hover:underline transition-colors">{t('staron.com')}</a>
-                                    </div>
-
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-red-500 font-bold min-w-[100px]">{t('작업범위')}</span>
-                                        <span>{t('유지보수 및 추가개발')}</span>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-red-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
-                                        <table
-                                            className="table-auto border-collapse w-full max-w-md">
-                                            <tbody>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
-                                                <td className="py-2">{t('Aws EC2, S3, RDS')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Server')}</td>
-                                                <td className="py-2">{t('Amazon Linux 3')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
-                                                <td className="py-2">{t('PHP 7.x')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
-                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-red-500 font-bold min-w-[100px]">{t('설명')}</span>
-                                        <div>
-                                            <div>{t('인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은')}</div>
-                                            <div>{t('인테리어 소재를 판매하는 사이트입니다.')}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* 영덕문화재단 */}
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6}}
-                    viewport={{once: true}}
-                    className="max-w-7xl mx-auto mb-20"
-                >
-                    <div
-                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-1 gap-0">
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4 order-1 lg:order-2">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/ydct/1.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/ydct/2.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/ydct/3.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/ydct/4.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                    </Slider>
-                                </div>
-                            </div>
-                            <div className="w-full p-8 lg:p-8 flex flex-col justify-center order-2 lg:order-1">
-                                <div
-                                    className="inline-block px-4 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full text-sm font-semibold mb-8 w-fit">{t('Culture Foundation')}
-                                </div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('영덕문화재단')}</h3>
-                                <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-teal-500 font-bold min-w-[100px]">{t('URL')}</span>
-                                        <a href="https://ydct.org" target="_blank" rel="noopener noreferrer"
-                                           className="text-teal-500 hover:text-teal-700 hover:underline transition-colors">{t('ydct.org')}</a>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-teal-500 font-bold min-w-[100px]">{t('작업범위')}</span>
-                                        <span>{t('유지보수 및 추가개발, 서버관리')}</span>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-teal-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
-                                        <table
-                                            className="table-auto border-collapse w-full max-w-md">
-                                            <tbody>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
-                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
-                                                <td className="py-2">{t('PHP 7.x')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
-                                                <td className="py-2">{t('Codeigniter 4.x')}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-teal-500 font-bold min-w-[100px]">{t('설명')}</span>
-                                        <div>
-                                            <div>{t('영덕문화 관광재단에서 제공하는')}</div>
-                                            <div>{t('영화, 문화, 강좌, 재단에 대해서 정보를 제공하고')}</div>
-                                            <div>{t('필요한 컨텐츠를 예약 할 수 있는 사이트 입니다.')}</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* 선인 */}
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6}}
-                    viewport={{once: true}}
-                    className="max-w-7xl mx-auto mb-20"
-                >
-                    <div
-                        className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700 hover:shadow-3xl transition-all duration-500">
-                        <div className="grid lg:grid-cols-1 gap-0">
-                            <div className="w-full bg-gray-100 dark:bg-neutral-900 p-4">
-                                <div className="rounded-2xl overflow-hidden shadow-lg">
-                                    <Slider {...settings}>
-                                        <div><img src="/content/sunin/1.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/sunin/2.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                        <div><img src="/content/sunin/3.png" alt=""
-                                                  className="w-full h-full object-cover"/></div>
-                                    </Slider>
-                                </div>
-                            </div>
-                            <div className="p-8 lg:p-8 flex flex-col justify-center">
-                            <div
-                                    className="inline-block px-4 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-semibold mb-8">{t('Foundation')}
-                                </div>
-                                <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">{t('선인재단')}</h3>
-                                <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">{t('URL')}</span>
-                                        <a href="https://sib.kr" target="_blank" rel="noopener noreferrer"
-                                           className="text-indigo-500 hover:text-indigo-700 hover:underline transition-colors">{t('sib.kr')}</a>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">{t('작업범위')}</span>
-                                        <span>{t('유지보수 및 추가개발, 서버관리')}</span>
-                                    </div>
-                                    <div className="flex items-start gap-3 mt-0">
-                                        <span className="text-indigo-500 font-bold min-w-[100px] py-2">{t('개발환경')}</span>
-                                        <table
-                                            className="table-auto border-collapse w-full max-w-md">
-                                            <tbody>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Infra')}</td>
-                                                <td className="py-2">{t('Cafe24 Virtual Hosting')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('Backend')}</td>
-                                                <td className="py-2">{t('PHP 7.x')}</td>
-                                            </tr>
-                                            <tr className="">
-                                                <td className="py-2 font-semibold text-slate-700">{t('FrameWork')}</td>
-                                                <td className="py-2">{t('odeigniter 4.x')}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-indigo-500 font-bold min-w-[100px]">{t('설명')}</span>
-                                        <div>
-                                            <div>{t('선인 재단에서 관리하는')}</div>
-                                            <div>{t('식료품을 구매 할 수 있는 사이트 입니다.')}</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
+                <PortfolioItemComponent
+                    settings={settings}
+                    t={t}
+                />
             </section>
         </main>
     );

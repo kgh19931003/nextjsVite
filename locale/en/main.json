@@ -12,6 +12,7 @@
 
     "개인정보": "Personal Information",
     "이름": "Name",
+    "김근호": "geun-ho kim",
     "생년월일": "Birth",
     "주소": "Address",
     "이메일": "Email",
@@ -25,7 +26,6 @@
     "버전 관리": "Version Control",
     "개발 도구": "IDE Tool",
     "플랫폼": "Platform",
-    "프레임워크": "Framework",
 
     "포트폴리오 목록": "Portfolio List",
 
