@@ -21,7 +21,7 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                 // 🔥 Custom Slider Wrapper
                 const SliderSection = () => (
                     <div className="w-full bg-gray-100 dark:bg-neutral-900">
-                        <div className="rounded-2xl overflow-hidden shadow-lg">
+                        <div className=" overflow-hidden shadow-lg">
                             <ImageSlider images={item.images} />
                         </div>
                     </div>
@@ -32,12 +32,6 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                     if (category === "horizontal") {
                         return (
                             <div className="p-8 lg:p-8 flex flex-col justify-center">
-                                <div
-                                    className={`inline-block px-4 py-1 ${colors.badge} rounded-full text-sm font-semibold mb-8`}
-                                >
-                                    {t(item.category)}
-                                </div>
-
                                 <h3 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
                                     {t(item.title)}
                                 </h3>
@@ -127,11 +121,6 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                     // 🔥 vertical layout 그대로
                     return (
                         <div className="p-8 lg:p-8 flex flex-col justify-start">
-                            <div
-                                className={`inline-block px-4 py-1 ${colors.badge} rounded-full text-sm font-semibold mb-6 w-fit`}
-                            >
-                                {t(item.category)}
-                            </div>
 
                             <h3 className="text-3xl font-bold mb-10 text-gray-800 dark:text-white">
                                 {t(item.title)}
@@ -215,8 +204,8 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
 
                 // 🔥 Wrapper
                 const Wrapper = ({ children }: { children: React.ReactNode }) => (
-                    <div className="max-w-4xl mx-auto mb-20">
-                        <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700">
+                    <div className="max-w-4xl mx-auto mb-20 ">
+                        <div className="bg-white dark:bg-neutral-800 h-[880px] rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700">
                             {children}
                         </div>
                     </div>
@@ -235,13 +224,13 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                 if (category === "vertical") {
                     return (
                         <Wrapper key={item.id}>
-                            <div className="grid lg:grid-cols-2 gap-0">
+                            <div className="h-full grid lg:grid-cols-2 gap-0">
                                 {item.reversed ? (
                                     <>
-                                        <div className="order-2 lg:order-1">
+                                        <div className="order-2 lg:order-1 h-[880px]">
                                             <DetailInfo />
                                         </div>
-                                        <div className="order-1 lg:order-2">
+                                        <div className="order-1 lg:order-2 h-[880px]">
                                             <SliderSection />
                                         </div>
                                     </>

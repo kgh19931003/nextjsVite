@@ -44,7 +44,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
     return (
         <div
             ref={sliderRef}
-            className="relative w-full overflow-hidden rounded-xl cursor-grab active:cursor-grabbing"
+            className="relative w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
             onMouseDown={(e) => {
                 e.stopPropagation();
                 handleDragStart(e);
@@ -87,7 +87,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
                         <img
                             src={src}
                             alt={`Slide ${index + 1}`}
-                            className="max-w-full max-h-full object-cover pointer-events-none select-none"
+                            className="w-full h-full max-w-full max-h-full object-contain h-auto pointer-events-none select-none"
                             draggable={false}
                             onError={(e) => {
                                 (e.target as HTMLImageElement).src =
