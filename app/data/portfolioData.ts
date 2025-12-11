@@ -377,9 +377,9 @@ export const portfolioData: PortfolioItem[] = [
             { label: 'FrameWork', value: 'BootSpring 3.x, NextJs 15.x' }
         ],
         description: [
-            '(주)갓테크에서 사용중인 대표 홈페이지 입니다.',
-            '3D 금속, 플라스틱 분말제작 프린팅 위주의 내용으로 구성 되어 있으며',
-            '다국어 전환이 가능하여 여러 국가에서 사용 가능 하도록 제작되어 있습니다.',
+            '(주)갓테크에서 국책과제로 외주의뢰를 통하여 만들어진',
+            '폐금속 소재의 재활용·재사용을 통해 자원 순환을 촉진하고',
+            '국내 소재·부품 산업의 국산화를 지원하도록 만들어진 플랫폼 입니다.',
         ],
         images: [
             '/content/refit/1.png',
