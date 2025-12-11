@@ -97,32 +97,84 @@ export default function Introduction() {
             </section>
 
             {/* 개인정보 섹션 */}
-            <section className="w-full py-20 px-4">
+            <section className="w-full py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="max-w-5xl mx-auto"
+                    className="max-w-6xl mx-auto"
                 >
-                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100 dark:border-neutral-700">
-                        <div className="grid gap-6">
-                            {privacyData.map((item, idx) => (
-                                <motion.div
-                                    key={item.id}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.4, delay: idx * 0.1 }}
-                                    viewport={{ once: true }}
-                                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-neutral-700/50 transition-all duration-300 group"
+
+                    {/* 메인 카드 */}
+                    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700">
+                        {/* 그라데이션 헤더 */}
+                        <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-8 md:p-12">
+                            <div className="flex flex-col md:flex-row items-center gap-6">
+                                <div className="w-24 h-24 bg-white dark:bg-neutral-800 rounded-full flex items-center justify-center text-5xl shadow-lg">
+                                    👨‍💻
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <p className="text-xl text-white/90">FullStack Developer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 정보 그리드 */}
+                        <div className="p-8 md:p-12">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                {privacyData.map((item, idx) => (
+                                    <motion.div
+                                        key={item.id}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.4, delay: idx * 0.1 }}
+                                        viewport={{ once: true }}
+                                        className="relative group"
+                                    >
+                                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
+                                        <div className="relative bg-gradient-to-br from-gray-50 to-white dark:from-neutral-700 dark:to-neutral-800 rounded-2xl p-6 border border-gray-200 dark:border-neutral-600 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                            <div className="flex items-start gap-4">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                    {item.icon}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">
+                                                        {t(item.label)}
+                                                    </div>
+                                                    <div className="text-lg font-bold text-gray-900 dark:text-white break-words">
+                                                        {t(item.value)}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* CTA 버튼들 */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.6 }}
+                                viewport={{ once: true }}
+                                className="mt-12 flex flex-wrap justify-center gap-4"
+                            >
+                                <a
+                                    href="mailto:sasaa3865@naver.com"
+                                    className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
                                 >
-                                    <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
-                                    <div className="flex-1 flex items-center">
-                                        <div className="font-bold text-lg w-32 text-gray-700 dark:text-gray-300">{t(item.name)}</div>
-                                        <div className="flex-1 text-gray-600 dark:text-gray-400">{t(item.value)}</div>
-                                    </div>
-                                </motion.div>
-                            ))}
+                                    <span>📧</span>
+                                    {t('이메일 보내기')}
+                                </a>
+                                <a
+                                    href="tel:010-7615-3865"
+                                    className="px-8 py-4 bg-white dark:bg-neutral-700 text-gray-900 dark:text-white font-bold rounded-full border-2 border-gray-300 dark:border-neutral-600 hover:border-blue-500 hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                                >
+                                    <span>📱</span>
+                                    {t('전화하기')}
+                                </a>
+                            </motion.div>
                         </div>
                     </div>
                 </motion.div>

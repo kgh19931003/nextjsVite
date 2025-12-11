@@ -1,9 +1,9 @@
 export const privacyData = [
-    { id: 1, name: 'Name', value: '김근호', icon: '👤' },
-    { id: 2, name: 'Birth', value: '1993. 10. 03', icon: '🎂' },
-    { id: 3, name: 'Address', value: '부산시 북구 화명 양달로 80-11 102동 1401호', icon: '📍' },
-    { id: 4, name: 'E-mail', value: 'sasaa3865@naver.com', icon: '📧' },
-    { id: 5, name: 'Phone', value: '010 - 7615 - 3865', icon: '📱' },
+    { id: 1, label: 'Name', value: '김근호', icon: '👤' },
+    { id: 2, label: 'Birth', value: '1993. 10. 03', icon: '🎂' },
+    { id: 3, label: 'Address', value: '부산시 북구 화명 양달로 80-11 102동 1401호', icon: '📍' },
+    { id: 4, label: 'E-mail', value: 'sasaa3865@naver.com', icon: '📧' },
+    { id: 5, label: 'Phone', value: '010 - 7615 - 3865', icon: '📱' },
 ];
 
 export const stackData = [
