@@ -17,6 +17,49 @@ export const stackData = [
 ];
 
 
+export const careerData = [
+    {
+        id: 1,
+        company: '갓테크',
+        position: '매니저',
+        department: '웹개발',
+        period: '2025.05 - 재직중',
+        duration: '재직중',
+        description: '회사 홈페이지 관리 및 솔루션 플랫폼 제작',
+        icon: '💼'
+    },
+    {
+        id: 2,
+        company: '㈜ 위브릭스',
+        position: '대리',
+        department: '개발팀',
+        period: '2022.12 - 2025.01',
+        duration: '2년 2개월',
+        description: 'PHP 서버 사이드 개발과 CodeIgniter 4 프레임워크를 활용한 웹 서비스 개발 및 유지보수',
+        icon: '🚀'
+    },
+    {
+        id: 3,
+        company: '위즈메이드㈜',
+        position: '사원',
+        department: '개발팀',
+        period: '2020.12 - 2022.08',
+        duration: '1년 9개월',
+        description: 'PHP, 그누보드, 영카트 솔루션을 활용한 외주 웹사이트 개발 및 Android/iOS 앱 제작',
+        icon: '📱'
+    },
+    {
+        id: 4,
+        company: 'O2media(개인) & ㈜ 슈퍼셀(법인전환)',
+        position: '사원',
+        department: '개발팀',
+        period: '2018.06 - 2019.08',
+        duration: '1년 4개월',
+        description: 'Python 데이터 크롤링 자동화, PHP 기반 쇼핑몰 개발, 기업 홈페이지 구축',
+        icon: '🐍'
+    }
+];
+
 
 // 컬러 매핑
 export const colorMap = {

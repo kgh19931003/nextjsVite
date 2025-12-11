@@ -12,7 +12,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { swrFetcher } from '@/lib/function';
 import { useSafeTranslations } from "@/lib/intl/useSafeTranslations";
 import {PortfolioItemComponent} from "@/components/user/portfolio/careerBlock";
-import {privacyData, stackData} from "@/data/portfolioData";
+import {careerData, privacyData, stackData} from "@/data/portfolioData";
 
 
 export default function Introduction() {
@@ -125,6 +125,83 @@ export default function Introduction() {
                             ))}
                         </div>
                     </div>
+                </motion.div>
+            </section>
+
+
+            {/* 경력 섹션 추가 */}
+            <section className="w-full py-20 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-neutral-900 dark:to-neutral-800">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="max-w-5xl mx-auto"
+                >
+                    <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        {t('경력사항')}
+                    </h2>
+                    <div className="space-y-6">
+                        {careerData.map((career, idx) => (
+                            <motion.div
+                                key={career.id}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                viewport={{ once: true }}
+                                className="bg-white dark:bg-neutral-800 rounded-2xl shadow-xl p-6 md:p-8 border border-gray-100 dark:border-neutral-700 hover:shadow-2xl transition-all duration-300"
+                            >
+                                <div className="flex items-start gap-6">
+                                    <div className="text-5xl flex-shrink-0">{career.icon}</div>
+                                    <div className="flex-1">
+                                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                                            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                                                {career.company}
+                                            </h3>
+                                            <span className="text-sm text-blue-600 dark:text-blue-400 font-semibold mt-2 md:mt-0">
+                                                {career.duration}
+                                            </span>
+                                        </div>
+                                        <div className="flex flex-wrap gap-3 mb-4">
+                                            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                                                {career.position}
+                                            </span>
+                                            <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
+                                                {career.department}
+                                            </span>
+                                            <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+                                                📅 {career.period}
+                                            </span>
+                                        </div>
+                                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                            {career.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* 총 경력 요약 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-6 border-2 border-blue-200 dark:border-blue-700"
+                    >
+                        <div className="text-center">
+                            <span className="text-lg text-gray-700 dark:text-gray-300 font-medium">
+                                총 경력
+                            </span>
+                            <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-2">
+                                5년 11개월
+                            </div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
+                                백엔드/서버개발 · 웹개발 전문
+                            </p>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </section>
 
