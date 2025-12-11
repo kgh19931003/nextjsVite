@@ -156,25 +156,25 @@ export default function Introduction() {
                                     <div className="flex-1">
                                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                                             <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                                                {career.company}
+                                                {t(career.company)}
                                             </h3>
                                             <span className="text-sm text-blue-600 dark:text-blue-400 font-semibold mt-2 md:mt-0">
-                                                {career.duration}
+                                                {t(career.duration)}
                                             </span>
                                         </div>
                                         <div className="flex flex-wrap gap-3 mb-4">
                                             <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
-                                                {career.position}
+                                                {t(career.position)}
                                             </span>
                                             <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
-                                                {career.department}
+                                                {t(career.department)}
                                             </span>
                                             <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                                                📅 {career.period}
+                                                📅 {t(career.period)}
                                             </span>
                                         </div>
                                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                            {career.description}
+                                            {t(career.description)}
                                         </p>
                                     </div>
                                 </div>
@@ -192,13 +192,13 @@ export default function Introduction() {
                     >
                         <div className="text-center">
                             <span className="text-lg text-gray-700 dark:text-gray-300 font-medium">
-                                총 경력
+                                {t('총 경력')}
                             </span>
                             <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-2">
-                                5년 11개월
+                                {t('5년 11개월')}
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
-                                백엔드/서버개발 · 웹개발 전문
+                                {t('백엔드, 서버개발 · 웹개발 전문')}
                             </p>
                         </div>
                     </motion.div>

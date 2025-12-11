@@ -1,5 +1,6 @@
 interface PortfolioItem {
     id: string;
+    company: string;
     category: string;
     categoryColor: 'blue' | 'purple' | 'green' | 'orange' | 'red' | 'teal' | 'indigo';
     title: string;

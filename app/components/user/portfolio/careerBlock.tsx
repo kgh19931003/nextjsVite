@@ -53,6 +53,15 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                                         </div>
                                     )}
 
+                                    <div className="flex items-start gap-3">
+                                        <span className={`${colors.text} font-bold min-w-[100px]`}>
+                                            {t("수행사")}
+                                        </span>
+                                        <div>
+                                            {t(item.company)}
+                                        </div>
+                                    </div>
+
                                     {item.storeLinks && (
                                         <div className="flex items-start gap-3">
                                             <span className={`${colors.text} font-bold min-w-[100px]`}>
@@ -165,6 +174,13 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                                 )}
 
                                 <div className="flex flex-col gap-1">
+                                    <span className={`${colors.text} font-bold`}>{t("수행사")}</span>
+                                    <div>
+                                        {t(item.company)}
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col gap-1">
                                     <span className={`${colors.text} font-bold`}>{t("작업범위")}</span>
                                     <div>
                                         {item.workScope.map((scope, idx) => (
@@ -203,9 +219,10 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                 };
 
                 // 🔥 Wrapper
-                const Wrapper = ({ children }: { children: React.ReactNode }) => (
+                const Wrapper = ({children}: { children: React.ReactNode }) => (
                     <div className="max-w-4xl mx-auto mb-20 ">
-                        <div className="bg-white dark:bg-neutral-800 h-[880px] rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700">
+                        <div
+                            className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700">
                             {children}
                         </div>
                     </div>
@@ -224,20 +241,24 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                 if (category === "vertical") {
                     return (
                         <Wrapper key={item.id}>
-                            <div className="h-full grid lg:grid-cols-2 gap-0">
+                            <div className="h-full grid lg:grid-cols-2 gap-20">
                                 {item.reversed ? (
                                     <>
-                                        <div className="order-2 lg:order-1 h-[880px]">
+                                        <div className="order-2 lg:order-1 w-[500px] h-[840px]">
                                             <DetailInfo />
                                         </div>
-                                        <div className="order-1 lg:order-2 h-[880px]">
+                                        <div className="order-1 lg:order-2 h-[840px]">
                                             <SliderSection />
                                         </div>
                                     </>
                                 ) : (
                                     <>
-                                        <SliderSection />
-                                        <DetailInfo />
+                                        <div className="order-1 lg:order-2 h-[840px]">
+                                            <SliderSection/>
+                                        </div>
+                                        <div className="order-2 lg:order-1 w-[500px] h-[840px]">
+                                            <DetailInfo/>
+                                        </div>
                                     </>
                                 )}
                             </div>

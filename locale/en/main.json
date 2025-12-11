@@ -1,7 +1,7 @@
 {
   "main": {
     "Portfolio": "Portfolio",
-    "경력 사항": "Career Experience",
+    "경력사항": "Career Experience",
 
     "개인정보": "Personal Information",
     "이름": "Name",
@@ -11,6 +11,34 @@
     "이메일": "Email",
     "전화번호": "Phone",
     "부산시 북구 화명 양달로 80-11 102동 1401호": "80-11 Yangdal-ro, Hwamyeong, Buk-gu, Busan, Building 102, Unit 1401",
+
+    "총 경력": "total experience",
+    "5년 11개월": "5 years 11 months",
+    "백엔드, 서버개발 · 웹개발 전문": "Specializing in backend, server development, and web development",
+
+    "㈜ 갓테크": "GODTECH Co., Ltd.",
+    "매니저": "Manager",
+    "웹개발": "Web Development",
+    "2025_05 - 재직중": "2025.05 - Present",
+    "재직중": "Currently Employed",
+    "회사 홈페이지 관리 및 솔루션 플랫폼 제작": "Managing the company website and developing a solution platform.",
+
+    "㈜ 위브릭스": "WeBrix Co., Ltd.",
+    "대리": "Assistant Manager",
+    "개발팀": "Development Team",
+    "2년 2개월": "2 years 2 months",
+    "PHP 서버 사이드 개발과 CodeIgniter 4 프레임워크를 활용한 웹 서비스 개발 및 유지보수": "PHP server-side development and web service maintenance using CodeIgniter 4.",
+
+    "주식회사 위즈메이드": "WizMade Co., Ltd.",
+    "위즈메이드㈜": "WizMade Co., Ltd.",
+    "사원": "Staff",
+    "1년 9개월": "1 year 9 months",
+    "PHP, 그누보드, 영카트 솔루션을 활용한 외주 웹사이트 개발 및 Android/iOS 앱 제작": "Developed outsourced websites using PHP, GNUboard, and YoungCart, and created Android/iOS applications.",
+
+    "O2media(개인) & ㈜ 슈퍼셀(법인전환)": "O2media (Individual) & Supercell Co., Ltd. (Corporate Transition)",
+    "1년 4개월": "1 year 4 months",
+    "Python 데이터 크롤링 자동화, PHP 기반 쇼핑몰 개발, 기업 홈페이지 구축": "Automated Python data crawling, developed PHP-based shopping malls, and built corporate websites.",
+
 
     "기술 스택": "Skills & Tools",
     "백엔드": "Backend",
@@ -58,11 +86,22 @@
     "해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의": "Enabling administrators to compile statistics on",
     "위치를 통계 낼 수 있도록 하는 어플리케이션 입니다_": "the locations of illegally parked vehicles in Seoul.",
 
+
+    "주식회사 위브릭스": "WeBrix Co., Ltd.",
+    "코스닥협회": "KOSDAQ Association",
+    "유지보수 및 추가개발": "Maintenance and additional development",
+
+    "시장 제도 운영 · 지원 · 감시 · 홍보 · 투자자 보호 등을 하는 협회 조직으로": "An association responsible for market system operation, support, monitoring, promotion, and investor protection.",
+    "해당 사이트의 추가 개발이나 디자인 깨짐, 서버에러 등의 유지보수 업무를 담당하였습니다_": "Handled additional development and maintenance tasks such as design issues and server errors for this website.",
+
     "롯데케미칼 Staron": "Lotte Chemical Staron",
-    "전자상거래": "E-Commerce",
-    "유지보수 및 추가개발": "Maintenance & Additional Development",
-    "인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은": "A site that sells interior materials such as",
-    "인테리어 소재를 판매하는 사이트입니다_": "artificial acrylic stone (solid surface) material brands.",
+    "고급 인조대리석, 인공석 (solid surface) 브랜드로": "A premium artificial marble/solid surface brand.",
+    "주택·상업 공간·공공 공간 등의 인테리어 및 마감재를 위한": "Used for interior and finishing materials in residential, commercial, and public spaces.",
+    "소재를 공급하고 자연석 느낌 + 가공 유연성 + 위생성 + 미려한": "Provides materials with natural stone visuals, processing flexibility, hygiene, and aesthetic appeal.",
+    "디자인의 강점을 가진 사이트 입니다_": "This website highlights the strengths of the material's design.",
+
+
+
 
     "영덕문화재단": "Yeongdeok Cultural Foundation",
     "문화재단": "Culture Foundation",
@@ -74,6 +113,22 @@
     "선인재단": "Sunin Foundation",
     "재단": "Foundation",
     "선인 재단에서 관리하는": "Managed by Sunin Foundation",
-    "식료품을 구매 할 수 있는 사이트 입니다_": "A site where users can purchase groceries."
+    "식료품을 구매 할 수 있는 사이트 입니다_": "A site where users can purchase groceries.",
+
+
+    "(주)갓테크 홈페이지": "GODTECH Official Website",
+    "주식회사 갓테크": "GODTECH Co., Ltd.",
+
+    "아마존 클라우드 서버 인프라 구축": "Built Amazon cloud server infrastructure",
+    "프론트엔드 디자인 기획 및 제작": "Planned and developed frontend design",
+    "백엔드 DB 구조 및 데이터 출력 담당": "Responsible for backend DB structure and data output",
+
+    "(주)갓테크에서 사용중인 대표 홈페이지 입니다_": "This is the official website used by GODTECH.",
+    "3D 금속, 플라스틱 분말제작 프린팅 위주의 내용으로 구성 되어 있으며": "It focuses on 3D metal and plastic powder-based printing.",
+    "다국어 전환이 가능하여 여러 국가에서 사용 가능 하도록 제작되어 있습니다_": "It supports multiple languages for use in various countries.",
+
+    "선순환 금속 플랫폼 Re-Fit": "Circular Metal Platform Re-Fit",
+    "플랫폼 유지보수 담당": "Responsible for platform maintenance",
+    "DB 입출력 에러, Api 오류 처리": "Handling DB I/O errors and API issues"
   }
 }

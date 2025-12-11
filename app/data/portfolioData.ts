@@ -20,7 +20,7 @@ export const stackData = [
 export const careerData = [
     {
         id: 1,
-        company: '갓테크',
+        company: '㈜ 갓테크',
         position: '매니저',
         department: '웹개발',
         period: '2025.05 - 재직중',
@@ -97,6 +97,7 @@ export const colorMap = {
 export const portfolioData: PortfolioItem[] = [
     {
         id: 'matchup',
+        company: '주식회사 위즈메이드',
         category: 'vertical',
         categoryColor: 'blue',
         title: '매치업 랜딩페이지',
@@ -127,6 +128,7 @@ export const portfolioData: PortfolioItem[] = [
     },
     {
         id: 'gaja',
+        company: '주식회사 위즈메이드',
         category: 'vertical',
         categoryColor: 'purple',
         title: '가자',
@@ -155,6 +157,7 @@ export const portfolioData: PortfolioItem[] = [
     },
     {
         id: 'kanta',
+        company: '주식회사 위즈메이드',
         category: 'horizontal',
         categoryColor: 'green',
         title: '칸타수학',
@@ -182,6 +185,7 @@ export const portfolioData: PortfolioItem[] = [
     },
     {
         id: 'parking',
+        company: '주식회사 위즈메이드',
         category: 'vertical',
         categoryColor: 'indigo',
         title: '주차실태조사',
@@ -221,7 +225,33 @@ export const portfolioData: PortfolioItem[] = [
         reversed: true
     },
     {
+        id: 'kosdaq',
+        company: '주식회사 위브릭스',
+        category: 'horizontal',
+        categoryColor: 'orange',
+        title: '코스닥협회',
+        url: 'https://www.kosdaqca.or.kr',
+        urlText: 'kosdaqca.or.kr',
+        workScope: ['유지보수 및 추가개발'],
+        environment: [
+            { label: 'Server', value: 'Cafe24 Virtual Hosting' },
+            { label: 'Backend', value: 'PHP 7.4' },
+            { label: 'Solution', value: 'Gnuboard 5.x' },
+        ],
+        description: [
+            '시장 제도 운영 · 지원 · 감시 · 홍보 · 투자자 보호 등을 하는 협회 조직으로',
+            '해당 사이트의 추가 개발이나 디자인 깨짐, 서버에러 등의 유지보수 업무를 담당하였습니다.'
+        ],
+        images: [
+            '/content/kosdaq/1.png',
+            '/content/kosdaq/2.png',
+            '/content/kosdaq/3.png',
+            '/content/kosdaq/4.png'
+        ]
+    },
+    {
         id: 'lotte',
+        company: '주식회사 위브릭스',
         category: 'horizontal',
         categoryColor: 'red',
         title: '롯데케미칼 Staron',
@@ -235,8 +265,10 @@ export const portfolioData: PortfolioItem[] = [
             { label: 'FrameWork', value: 'Codeigniter 4.x' }
         ],
         description: [
-            '인공 아크릴 돌(솔리드 서피스) 재료 브랜드와 같은',
-            '인테리어 소재를 판매하는 사이트입니다.'
+            '고급 인조대리석, 인공석 (solid surface) 브랜드로',
+            '주택·상업 공간·공공 공간 등의 인테리어 및 마감재를 위한',
+            '소재를 공급하고 자연석 느낌 + 가공 유연성 + 위생성 + 미려한',
+            '디자인의 강점을 가진 사이트 입니다.'
         ],
         images: [
             '/content/lotte/1.png',
@@ -246,6 +278,7 @@ export const portfolioData: PortfolioItem[] = [
     },
     {
         id: 'ydct',
+        company: '주식회사 위브릭스',
         category: 'horizontal',
         categoryColor: 'teal',
         title: '영덕문화재단',
@@ -272,6 +305,7 @@ export const portfolioData: PortfolioItem[] = [
     },
     {
         id: 'sunin',
+        company: '주식회사 위브릭스',
         category: 'horizontal',
         categoryColor: 'indigo',
         title: '선인재단',
@@ -291,6 +325,67 @@ export const portfolioData: PortfolioItem[] = [
             '/content/sunin/1.png',
             '/content/sunin/2.png',
             '/content/sunin/3.png'
+        ]
+    },
+    {
+        id: 'godtech',
+        company: '주식회사 갓테크',
+        category: 'horizontal',
+        categoryColor: 'teal',
+        title: '(주)갓테크 홈페이지',
+        url: 'https://godtech.co.kr',
+        urlText: 'godtech.co.kr',
+        workScope: [
+            '아마존 클라우드 서버 인프라 구축',
+            '프론트엔드 디자인 기획 및 제작',
+            '백엔드 DB 구조 및 데이터 출력 담당'
+        ],
+        environment: [
+            { label: 'Infra', value: 'AWS EC2, RDS, S3, Route 53, CloudFront, Docker Compose' },
+            { label: 'Backend', value: 'Kotlin' },
+            { label: 'Frontend', value: 'typescript' },
+            { label: 'FrameWork', value: 'BootSpring 3.x, NextJs 15.x' }
+        ],
+        description: [
+            '(주)갓테크에서 사용중인 대표 홈페이지 입니다.',
+            '3D 금속, 플라스틱 분말제작 프린팅 위주의 내용으로 구성 되어 있으며',
+            '다국어 전환이 가능하여 여러 국가에서 사용 가능 하도록 제작되어 있습니다.',
+        ],
+        images: [
+            '/content/godtech/1.png',
+            '/content/godtech/2.png',
+            '/content/godtech/3.png',
+            '/content/godtech/4.png'
+        ]
+    },
+    {
+        id: 'refit',
+        company: '주식회사 갓테크',
+        category: 'horizontal',
+        categoryColor: 'indigo',
+        title: '선순환 금속 플랫폼 Re-Fit',
+        url: 'https://re-fit.co.kr',
+        urlText: 're-fit.co.kr',
+        workScope: [
+            '플랫폼 유지보수 담당',
+            'DB 입출력 에러, Api 오류 처리'
+        ],
+        environment: [
+            { label: 'Infra', value: 'AWS ECS, ECR, RDS, S3, CloudFront, CloudFormation' },
+            { label: 'Backend', value: 'Java' },
+            { label: 'Frontend', value: 'typescript' },
+            { label: 'FrameWork', value: 'BootSpring 3.x, NextJs 15.x' }
+        ],
+        description: [
+            '(주)갓테크에서 사용중인 대표 홈페이지 입니다.',
+            '3D 금속, 플라스틱 분말제작 프린팅 위주의 내용으로 구성 되어 있으며',
+            '다국어 전환이 가능하여 여러 국가에서 사용 가능 하도록 제작되어 있습니다.',
+        ],
+        images: [
+            '/content/refit/1.png',
+            '/content/refit/2.png',
+            '/content/refit/3.png',
+            '/content/refit/4.png'
         ]
     }
 ];
