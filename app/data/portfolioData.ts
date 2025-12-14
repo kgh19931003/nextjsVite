@@ -104,13 +104,16 @@ export const portfolioData: PortfolioItem[] = [
         url: 'https://www.match-up.co.kr/',
         urlText: 'match-up.co.kr',
         workScope: [
-            'PHP 백엔드, 프론트엔드(jQuery)',
+            'Webview 컴포넌트 사용을 위한 모바일 웹 제작',
+            'PHP 백엔드, 프론트엔드(jQuery) 담당',
             '하이브리드앱 개발 및 배포(AOS, iOS)'
         ],
         environment: [
             { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
             { label: 'Backend', value: 'PHP 7.x' },
-            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+            { label: 'FrameWork', value: 'Codeigniter 4.x' },
+            { label: 'Android', value: 'Kotlin + Android Studio' },
+            { label: 'Ios', value: 'Swift + Xcode' }
         ],
         description: [
             '축구/풋살 구장 예약 및 경기 매칭 + 팀/플레이어',
@@ -136,13 +139,16 @@ export const portfolioData: PortfolioItem[] = [
             { label: '게시 취소', url: undefined }
         ],
         workScope: [
-            'PHP 백엔드, 프론트엔드(jQuery)',
+            'Webview 컴포넌트 사용을 위한 모바일 웹 제작',
+            'PHP 백엔드, 프론트엔드(jQuery) 담당',
             '하이브리드앱 개발 및 배포(AOS, iOS)'
         ],
         environment: [
             { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
             { label: 'Backend', value: 'PHP 7.x' },
-            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+            { label: 'FrameWork', value: 'Codeigniter 4.x' },
+            { label: 'Android', value: 'Kotlin + Android Studio' },
+            { label: 'Ios', value: 'Swift + Xcode' }
         ],
         description: [
             '플랫폼에 등록된 상점 방문 시',
@@ -161,15 +167,24 @@ export const portfolioData: PortfolioItem[] = [
         category: 'horizontal',
         categoryColor: 'green',
         title: '칸타수학',
+        storeLinks: [
+            {
+                label: 'Android ( 게시 취소 )',
+                url: ''
+            }
+        ],
         urlText: '게시 취소',
         workScope: [
-            'PHP 백엔드, 프론트엔드(jQuery)',
+            'Webview 컴포넌트 사용을 위한 모바일 웹 제작',
+            'PHP 백엔드, 프론트엔드(jQuery) 담당',
             '하이브리드앱 개발 및 배포(AOS, iOS)'
         ],
         environment: [
             { label: 'Infra', value: 'Cafe24 Virtual Hosting' },
             { label: 'Backend', value: 'PHP 7.x' },
-            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+            { label: 'FrameWork', value: 'Codeigniter 4.x' },
+            { label: 'Android', value: 'Kotlin + Android Studio' },
+            { label: 'Ios', value: 'Swift + Xcode' }
         ],
         description: [
             '강의영상과 시험문제를 온라인으로 학생들에게 제공하여',
@@ -197,16 +212,15 @@ export const portfolioData: PortfolioItem[] = [
         ],
         workScope: [
             'Webview 컴포넌트 사용을 위한 모바일 웹 제작',
-            'Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작',
-            'Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작',
+            'PHP 백엔드, 프론트엔드(jQuery) 담당',
             '하이브리드앱 패키징 및 배포(iOS, AOS)'
         ],
         environment: [
             { label: 'Infra', value: 'Aws S3, RDS' },
             { label: 'Server', value: 'Cafe24 Virtual Hosting' },
             { label: 'Backend', value: 'PHP 7.4' },
-            { label: 'AOS', value: 'Kotlin' },
-            { label: 'iOS', value: 'Swift' }
+            { label: 'Android', value: 'Kotlin + Android Studio' },
+            { label: 'Ios', value: 'Swift + Xcode' }
         ],
         description: [
             '서울시의 주차현황을 조사하는 플랫폼으로',

@@ -98,14 +98,14 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                                         <span className={`${colors.text} font-bold min-w-[100px] py-2`}>
                                             {t("개발환경")}
                                         </span>
-                                        <table className="table-auto border-collapse w-full max-w-md">
+                                        <table className="table-auto border-collapse">
                                             <tbody>
                                             {item.environment.map((env, idx) => (
                                                 <tr key={idx}>
-                                                    <td className="py-2 font-semibold text-slate-700">
+                                                    <td className="py-1 font-semibold text-slate-700">
                                                         {t(env.label)}
                                                     </td>
-                                                    <td className="py-2">{t(env.value)}</td>
+                                                    <td className="py-1 pl-8">{t(env.value)}</td>
                                                 </tr>
                                             ))}
                                             </tbody>
@@ -191,14 +191,14 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
 
                                 <div className="flex flex-col gap-1">
                                     <span className={`${colors.text} font-bold`}>{t("개발환경")}</span>
-                                    <table className="table-auto border-collapse w-full max-w-md">
+                                    <table className="table-auto border-collaps">
                                         <tbody>
                                         {item.environment.map((env, idx) => (
                                             <tr key={idx}>
-                                                <td className="py-2 font-semibold text-slate-700">
+                                                <td className="py-1 font-semibold text-slate-700">
                                                     {t(env.label)}
                                                 </td>
-                                                <td className="py-2">{t(env.value)}</td>
+                                                <td className="py-1">{t(env.value)}</td>
                                             </tr>
                                         ))}
                                         </tbody>
