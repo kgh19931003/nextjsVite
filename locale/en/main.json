@@ -6,6 +6,8 @@
     "이메일 보내기": "Send email",
     "전화하기": "Call Now",
 
+    "SQL Injection, Xss Script 보안점검": "SQL Injection, Xss Script Security check",
+
     "개인정보": "Personal Information",
     "이름": "Name",
     "김근호": "geun-ho kim",
@@ -63,12 +65,7 @@
     "서버": "Server",
     "프레임워크": "Framework",
     "설명": "Description",
-    "축구/풋살 구장 예약 및 경기 매칭 + 팀/플레이어": "Soccer/Futsal field reservations and match-making with teams and players",
-    "관리 + 커뮤니티 기능”을 제공하는 스포츠 플랫폼 입니다_": "This is a sports platform that provides management and community features.",
-    "해당 플랫폼에서 앱 진입 시 노출되는 스플래시 작업과": "I worked on the splash screen displayed when entering the app on this platform,",
-    "네이버, 카카오 소셜 로그인 작업을 진행 하였으며": "and implemented Naver and Kakao social login features.",
-    "우측 슬라이드 이미지에서 볼 수 있는": "As shown in the slide image on the right,",
-    "랜딩 페이지를 제작 하였습니다_": "I created the landing page.",
+
 
     "가자": "Ga-Ja",
     "모바일 앱": "Mobile App",
@@ -87,11 +84,7 @@
     "Xcode, Swift 언어를 사용하여 Ios 하이브리드 앱 제작": "iOS hybrid app development using Xcode and Swift",
     "Android Studio, Kotlin 언어를 사용하여 Aos 하이브리드 앱 제작": "AOS hybrid app development using Android Studio and Kotlin",
     "하이브리드앱 패키징 및 배포(iOS, AOS)": "Hybrid app packaging and deployment (iOS, AOS)",
-    "서울시의 주차현황을 조사하는 플랫폼으로": "A platform for surveying parking conditions in Seoul",
-    "조사원들은 해당 플랫폼 앱을 설치하여": "Surveyors install this platform app",
-    "불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여": "To photograph license plates of illegally parked vehicles",
-    "해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의": "Enabling administrators to compile statistics on",
-    "위치를 통계 낼 수 있도록 하는 어플리케이션 입니다_": "the locations of illegally parked vehicles in Seoul.",
+
 
 
     "주식회사 위브릭스": "WeBrix Co., Ltd.",
@@ -102,10 +95,7 @@
     "해당 사이트의 추가 개발이나 디자인 깨짐, 서버에러 등의 유지보수 업무를 담당하였습니다_": "Handled additional development and maintenance tasks such as design issues and server errors for this website.",
 
     "롯데케미칼 Staron": "Lotte Chemical Staron",
-    "고급 인조대리석, 인공석 (solid surface) 브랜드로": "A premium artificial marble/solid surface brand.",
-    "주택·상업 공간·공공 공간 등의 인테리어 및 마감재를 위한": "Used for interior and finishing materials in residential, commercial, and public spaces.",
-    "소재를 공급하고 자연석 느낌 + 가공 유연성 + 위생성 + 미려한": "Provides materials with natural stone visuals, processing flexibility, hygiene, and aesthetic appeal.",
-    "디자인의 강점을 가진 사이트 입니다_": "This website highlights the strengths of the material's design.",
+
 
 
 
@@ -113,9 +103,7 @@
     "영덕문화재단": "Yeongdeok Cultural Foundation",
     "문화재단": "Culture Foundation",
     "유지보수 및 추가개발, 서버관리": "Maintenance, Additional Development & Server Management",
-    "영덕문화 관광재단에서 제공하는": "Provided by Yeongdeok Culture & Tourism Foundation",
-    "영화, 문화, 강좌, 재단에 대해서 정보를 제공하고": "Provides information about movies, culture, courses, and the foundation",
-    "필요한 컨텐츠를 예약 할 수 있는 사이트 입니다_": "A site where users can book necessary content.",
+
 
     "선인재단": "Sunin Foundation",
     "재단": "Foundation",
@@ -130,16 +118,129 @@
     "프론트엔드 디자인 기획 및 제작": "Planned and developed frontend design",
     "백엔드 DB 구조 및 데이터 출력 담당": "Responsible for backend DB structure and data output",
 
-    "(주)갓테크에서 사용중인 대표 홈페이지 입니다_": "This is the official website used by GODTECH.",
-    "3D 금속, 플라스틱 분말제작 프린팅 위주의 내용으로 구성 되어 있으며": "It focuses on 3D metal and plastic powder-based printing.",
-    "다국어 전환이 가능하여 여러 국가에서 사용 가능 하도록 제작되어 있습니다_": "It supports multiple languages for use in various countries.",
 
     "선순환 금속 플랫폼 Re-Fit": "Circular Metal Platform Re-Fit",
     "플랫폼 유지보수 담당": "Responsible for platform maintenance",
     "DB 입출력 에러, Api 오류 처리": "Handling DB I/O errors and API issues",
 
-    "(주)갓테크에서 국책과제로 외주의뢰를 통하여 만들어진": "Created by Godtech Co., Ltd. through outsourcing as a national project",
-    "폐금속 소재의 재활용·재사용을 통해 자원 순환을 촉진하고": "Promoting resource circulation through recycling and reuse of scrap metal materials",
-    "국내 소재·부품 산업의 국산화를 지원하도록 만들어진 플랫폼 입니다_": "This is a platform created to support the localization of domestic materials and parts industries."
+
+    "축구/풋살 구장 예약 및 경기 매칭 + 팀/플레이어": "Soccer/Futsal field reservation and match-making for teams and players",
+    "관리 + 커뮤니티 기능”을 제공하는 스포츠 플랫폼 입니다_": "It is a sports platform that provides management and community features.",
+    "해당 플랫폼에서 앱 진입 시 노출되는 스플래시 작업과": "It includes splash screen work displayed when entering the app on the platform,",
+    "웹뷰 소셜 로그인 네이티브 기능 Api 를 연동하여": "by integrating native social login APIs within a webview,",
+    "네이버, 카카오 소셜 로그인 작업을 진행 하였으며": "Naver and Kakao social login features were implemented.",
+    "우측 슬라이드 이미지에서 볼 수 있는": "As shown in the slide images on the right,",
+    "랜딩 페이지를 제작 하였습니다_": "a landing page was developed.",
+
+    "플랫폼에 등록된 상점 방문 시": "When visiting stores registered on the platform,",
+    "사용자는 해당 앱에 등록된 상점에 대한 정보를 얻고": "users can obtain information about the registered stores through the app,",
+    "방문 시 사용 할 수 있는": "and receive",
+    "쿠폰과 스탬프를 지급하여 사용할 수 있게 해주는 앱입니다_": "coupons and stamps that can be used during visits.",
+    "웹 제작, 앱 패키징, 배포까지 모두 담당하여 진행 하였지만": "Although web development, app packaging, and deployment were fully handled,",
+    "현재는 접속이 불가한 상태입니다_": "the service is currently inaccessible.",
+
+    "강의영상과 시험문제를 온라인으로 학생들에게 제공하여 학습 효율을 높이는 교육 플랫폼입니다_":
+    "It is an educational platform that improves learning efficiency by providing lecture videos and exam questions online.",
+    "정해진 시간에 따라 강의버튼을 활성, 비활성화 하여":
+    "Lecture buttons are enabled or disabled according to scheduled times,",
+    "학생들이 정해진 시간에만 학습 강의를 할 수 있도록 설계 되었고":
+    "allowing students to attend lectures only during designated periods.",
+    "html5 문법을 이용하여 video 태그를 직접 커스텀하여":
+    "Using HTML5 syntax, the video tag was directly customized to support",
+    "영상 새로고침, 10초 플레이백, 여러 영상을 연계하여 하나의 영상이 끝나면":
+    "video refresh, 10-second playback, and sequential playback of multiple videos,",
+    "그 다음 강의를 들을 수 있도록 하는 등의 작업을 하였습니다_":
+    "enabling the next lecture to play automatically after one ends.",
+    "해당 프로젝트는 구글 플레이 스토어에 배포 되었다가":
+    "This project was initially distributed through the Google Play Store,",
+    "학원 내부에서 앱 패키지 파일을 공유하여 사용 할 것이라는 클라이언트 요청으로 인해":
+    "but at the client’s request to share the app package internally within the academy,",
+    "스토어로 배포는 되어있지 않은 상태 입니다_":
+    "it is no longer distributed via the app store.",
+
+    "서울시의 주차현황을 조사하는 플랫폼으로":
+    "It is a platform designed to survey parking conditions in Seoul.",
+    "조사원들은 해당 플랫폼 앱을 설치하여":
+    "Surveyors install the platform app to",
+    "불법으로 주차되어 있는 차량의 번호판을 사진으로 촬영하여":
+    "photograph license plates of illegally parked vehicles,",
+    "해당 앱의 관리자가 서울 시에 불법으로 주차되어 있는 차량의":
+    "allowing administrators to analyze",
+    "위치별 차종과 대수를 통계 낼 수 있도록 하는 어플리케이션 입니다_":
+    "vehicle types and counts by location for the Seoul metropolitan area.",
+    "서버는 카페24 가상 호스팅으로 백엔드 및 프론트엔드는":
+    "The server is hosted on Cafe24 virtual hosting, with backend and frontend developed using",
+    "Php 언어와 Jquery 로 제작이 되었습니다_": "PHP and jQuery.",
+    "촬영한 사진의 저장소로는 S3 서비스를 사용하였으며":
+    "Amazon S3 was used as the storage for captured images,",
+    "웹 제작부터 앱 패키징, 배포 까지 모두 담당하여 진행하였습니다_":
+    "and all tasks from web development to app packaging and deployment were fully handled.",
+
+    "시장 제도 운영 · 지원 · 감시 · 홍보 · 투자자 보호 등을 하는 협회 조직으로":
+    "It is an association organization responsible for market system operation, support, monitoring, promotion, and investor protection.",
+    "해당 사이트의 유지보수, 추가 개발, 서버 에러 등의 문제가 있거나":
+    "Maintenance, additional development, and server error handling were performed for the site,",
+    "보안 점검이 필요 할 시, SQL Injection, Xss Script 과 같은 점검 테스트를 진행 하였습니다_":
+    "and security tests such as SQL Injection and XSS checks were conducted when required.",
+
+    "고급 인조대리석, 인공석 (solid surface) 브랜드로":
+    "It is a premium artificial marble and solid surface brand,",
+    "주택·상업 공간·공공 공간 등의 인테리어 및 마감재를 위한":
+    "supplying materials for residential, commercial, and public space interiors and finishes.",
+    "소재를 공급하고 자연석 느낌 + 가공 유연성 + 위생성 + 미려한":
+    "The site highlights advantages such as a natural stone feel, processing flexibility, hygiene, and elegant",
+    "디자인의 강점을 가진 사이트 입니다_":
+    "design aesthetics.",
+    "주로 웹 페이지 유지보수 및 추가개발 업무를 담당하고":
+    "Responsibilities mainly included webpage maintenance and additional development,",
+    "AWS EC2 서버 안정성 확인, 스냅샷 확인 등의 인프라 점검 업무도 진행 하였습니다_":
+    "as well as infrastructure checks such as AWS EC2 stability and snapshot verification.",
+
+    "영덕문화 관광재단에서 제공하는":
+    "Provided by the Yeongdeok Culture and Tourism Foundation,",
+    "영화, 문화, 강좌, 재단에 대해서 정보를 제공하고":
+    "the site offers information on movies, culture, lectures, and foundation activities,",
+    "필요한 컨텐츠를 예약 할 수 있는 사이트 입니다_":
+    "and allows users to reserve required content.",
+    "해당 프로젝트는 카드 결제가 필요하여 Van 서비스를 사용 하고 있으며":
+    "This project requires card payments and utilizes a VAN service,",
+    "주로 카드 결제 시 발생하는 에러를 픽스하는 업무를 진행 하였으며":
+    "primarily handling error fixes related to card payments.",
+    "리눅스 서버에서도 CronJob 세팅, 비밀번호 주기적 변경":
+    "Server management tasks such as CronJob configuration and periodic password changes",
+    "과 같은 서버관리를 병행하였습니다_":
+    "were also performed on Linux servers.",
+
+    "선인 재단에서 관리하는":
+    "Managed by the Sunin Foundation,",
+    "식료품을 검색 & 구매 할 수 있는 사이트 입니다_":
+    "this is a website where users can search for and purchase groceries.",
+    "전반적인 유지보수, 추가개발, 서버관리 업무를 담당하였습니다_":
+    "Overall maintenance, additional development, and server management were handled.",
+
+    "(주)갓테크에서 사용중인 대표 홈페이지 입니다_":
+    "This is the official main website currently used by Godtech Co., Ltd.",
+    "3D 금속, 플라스틱 분말제작 프린팅 위주의 내용으로 구성 되어 있으며":
+    "The content focuses on 3D metal and plastic powder printing,",
+    "다국어 전환이 가능하여 여러 국가에서 사용 가능 하도록 제작되어 있습니다_":
+    "and supports multilingual switching for global use.",
+    "AWS EC2 인스턴스와 Docker 를 이용하여 제작이 되었으며":
+    "It was built using AWS EC2 instances and Docker,",
+    "인프라 구축, DB 설계, 프론트, 백엔드 구축 일체를 담당하였습니다_":
+    "with full responsibility for infrastructure setup, database design, frontend, and backend development.",
+
+    "(주)갓테크에서 국책과제로 외주의뢰를 통하여 만들어진":
+    "This platform was created through an outsourced national project commissioned by Godtech Co., Ltd.",
+    "폐금속 소재의 재활용·재사용을 통해 자원 순환을 촉진하고":
+    "It promotes resource circulation through recycling and reuse of waste metal materials,",
+    "국내 소재·부품 산업의 국산화를 지원하도록 만들어진 플랫폼 입니다_":
+    "supporting the localization of domestic materials and components industries.",
+    "외주업체를 통하여 제작되었으며":
+    "The platform was developed by an external vendor,",
+    "플랫폼 유지보수를 위하여 백엔드, 프론트엔드에서 발생하는":
+    "and ongoing maintenance involved handling",
+    "전반적인 업무를 담당하였습니다_":
+    "overall backend and frontend operational tasks."
+
   }
 }
