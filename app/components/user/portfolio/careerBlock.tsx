@@ -244,7 +244,7 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                             <div className="h-full grid lg:grid-cols-2 gap-20">
                                 {item.reversed ? (
                                     <>
-                                        <div className="order-2 lg:order-1 w-[500px] h-[840px]">
+                                        <div className="order-2 lg:order-1 w-[500px] h-[840px] overflow-y-auto">
                                             <DetailInfo />
                                         </div>
                                         <div className="order-1 lg:order-2 h-[840px]">
@@ -256,7 +256,7 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                                         <div className="order-1 lg:order-2 h-[840px]">
                                             <SliderSection/>
                                         </div>
-                                        <div className="order-2 lg:order-1 w-[500px] h-[840px]">
+                                        <div className="order-2 lg:order-1 w-[500px] h-[840px] overflow-y-auto">
                                             <DetailInfo/>
                                         </div>
                                     </>
