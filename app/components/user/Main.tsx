@@ -109,7 +109,7 @@ export default function Introduction() {
                     {/* 메인 카드 */}
                     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700">
                         {/* 그라데이션 헤더 */}
-                        <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-8 md:p-12">
+                        <div className="bg-gradient-to-r from-blue-500  p-8 md:p-12">
                             <div className="flex flex-col md:flex-row items-center gap-6">
                                 <div className="w-24 h-24 bg-white dark:bg-neutral-800 rounded-full flex items-center justify-center text-5xl shadow-lg">
                                     👨‍💻
@@ -133,9 +133,9 @@ export default function Introduction() {
                                         className="relative group"
                                     >
                                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
-                                        <div className="relative bg-gradient-to-br from-gray-50 to-white dark:from-neutral-700 dark:to-neutral-800 rounded-2xl p-6 border border-gray-200 dark:border-neutral-600 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                        <div className="relative  dark:from-neutral-700 dark:to-neutral-800 rounded-2xl p-6 border border-gray-200 dark:border-neutral-600 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
                                             <div className="flex items-start gap-4">
-                                                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                                                     {item.icon}
                                                 </div>
                                                 <div className="flex-1 min-w-0">
@@ -152,29 +152,7 @@ export default function Introduction() {
                                 ))}
                             </div>
 
-                            {/* CTA 버튼들 */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.6 }}
-                                viewport={{ once: true }}
-                                className="mt-12 flex flex-wrap justify-center gap-4"
-                            >
-                                <a
-                                    href="mailto:sasaa3865@naver.com"
-                                    className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
-                                >
-                                    <span>📧</span>
-                                    {t('이메일 보내기')}
-                                </a>
-                                <a
-                                    href="tel:010-7615-3865"
-                                    className="px-8 py-4 bg-white dark:bg-neutral-700 text-gray-900 dark:text-white font-bold rounded-full border-2 border-gray-300 dark:border-neutral-600 hover:border-blue-500 hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
-                                >
-                                    <span>📱</span>
-                                    {t('전화하기')}
-                                </a>
-                            </motion.div>
+
                         </div>
                     </div>
                 </motion.div>
@@ -283,17 +261,17 @@ export default function Introduction() {
                                     <div className="font-bold text-lg min-w-[140px] text-gray-700 dark:text-gray-300">{t(item.name)}</div>
                                     <div className="flex-1 flex flex-wrap items-center gap-6">
                                         {item.value.map((img, i) => (
-                                            <div key={i} className="bg-white dark:bg-neutral-600 p-3 rounded-xl shadow-md hover:scale-110 transition-transform duration-300">
+                                            <div key={i} className="bg-white text-center dark:bg-neutral-600 p-3 rounded-xl shadow-md hover:scale-110 transition-transform duration-300">
                                                 <img
                                                     src={`/content/${img}`}
                                                     alt={img}
                                                     style={{ width: `${item.size[i]}px`, height: 'auto' }}
-                                                    className="object-contain"
+                                                    className="object-contain inline-block"
                                                 />
 
                                                 {item.text[i] && (
                                                     <div className="text-center pt-2">
-                                                        {item.text[i]}
+                                                        {t(item.text[i])}
                                                     </div>
                                                 )}
 

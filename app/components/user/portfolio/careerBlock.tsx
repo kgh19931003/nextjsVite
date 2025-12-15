@@ -21,7 +21,7 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                 // 🔥 Custom Slider Wrapper
                 const SliderSection = () => (
                     <div className="w-full bg-gray-100 dark:bg-neutral-900">
-                        <div className=" overflow-hidden shadow-lg">
+                        <div className=" overflow-hidden shadow-sm">
                             <ImageSlider images={item.images} />
                         </div>
                     </div>
@@ -220,7 +220,7 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
 
                 // 🔥 Wrapper
                 const Wrapper = ({children}: { children: React.ReactNode }) => (
-                    <div className="max-w-4xl mx-auto mb-20 ">
+                    <div className="w-[942px] mx-auto mb-20 ">
                         <div
                             className="bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-neutral-700">
                             {children}
@@ -241,13 +241,13 @@ export const PortfolioItemComponent = ({ settings, t }: Props) => {
                 if (category === "vertical") {
                     return (
                         <Wrapper key={item.id}>
-                            <div className="h-full grid lg:grid-cols-2 gap-20">
+                            <div className="h-full grid lg:grid-cols-2 gap-0">
                                 {item.reversed ? (
                                     <>
                                         <div className="order-2 lg:order-1 w-[500px] h-[840px] overflow-y-auto">
                                             <DetailInfo />
                                         </div>
-                                        <div className="order-1 lg:order-2 h-[840px]">
+                                        <div className="order-1 lg:order-2 w-[470px] h-[840px]">
                                             <SliderSection />
                                         </div>
                                     </>
