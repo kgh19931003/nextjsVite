@@ -84,7 +84,7 @@ export default function UploadImage({ title, uploadState }: UploadImageProps) {
                 return {
                     id: item,
                     file: item,
-                    preview: item.startsWith('http://localhost:9090/') ? item : `http://localhost:9090/${item}`
+                    preview: !item.startsWith('http://localhost:9090/') ? `http://localhost:9090/${item}` : item
                 };
             } else {
                 let url = objectUrlMap.current.get(item.name);
