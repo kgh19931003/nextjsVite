@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { swrFetcher } from "@/lib/function";
 
 const baseUrl =
-    process.env.PROFILE === "DOCKER" ? "http://Portfolio-api:9090" : "http://localhost:9090";
+    process.env.PROFILE === "DOCKER" ? "http://portfolio-api:9090" : "http://localhost:9090";
 
 interface Params {
     slug: string[];
