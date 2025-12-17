@@ -19,7 +19,7 @@ type UploadVideoItem = {
     file?: File | string;
     preview: string;
     thumbnail?: string;
-    fileOriginalName?: string[];
+    fileOriginalName?: string;
 };
 
 type UploadVideoProps = {

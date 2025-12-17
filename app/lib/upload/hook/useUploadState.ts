@@ -21,7 +21,7 @@ export type UploadStateActions = {
     setFileDeleteIndex: (index: number[]) => void;
     setFileMultipartFileOrder: (order: number[]) => void;
     setFileOrder: (order: number[]) => void;
-    setFileOriginalName: (name: String[]) => void;
+    setFileOriginalName: (name: string[]) => void;
     resetUploadState: () => void;
     initializeUploadState: (data: Partial<UploadStateType>) => void;
 };
