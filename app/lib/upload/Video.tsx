@@ -95,7 +95,7 @@ export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
                 return {
                     id: item,
                     file: item,
-                    preview: "/"+item
+                    preview: process.env.NEXT_PUBLIC_PROFILE == "local" ? `http://localhost:9090/${item}` : "/"+item
                 };
             } else {
                 let url = objectUrlMap.current.get(item.name);
