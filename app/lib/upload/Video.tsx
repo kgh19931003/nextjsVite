@@ -19,7 +19,7 @@ type UploadVideoItem = {
     file?: File | string;
     preview: string;
     thumbnail?: string;
-    fileOriginalName?: string;
+    fileOriginalName?: string[];
 };
 
 type UploadVideoProps = {
@@ -91,11 +91,14 @@ export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
     // 최초 fileData로 초기화
     useEffect(() => {
         const initial = uploadState.fileData.map((item, index) => {
+            const originalName = uploadState.fileOriginalName[index];
+
             if (typeof item === 'string') {
                 return {
                     id: item,
                     file: item,
-                    preview: process.env.NEXT_PUBLIC_PROFILE == "local" ? `http://localhost:9090/${item}` : "/"+item
+                    preview: process.env.NEXT_PUBLIC_PROFILE == "local" ? `http://localhost:9090/${item}` : "/"+item,
+                    fileOriginalName: originalName
                 };
             } else {
                 let url = objectUrlMap.current.get(item.name);
