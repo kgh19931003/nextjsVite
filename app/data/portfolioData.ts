@@ -11,7 +11,7 @@ export const stackData = [
     { id: 2, name: '자격증', value: ['certifi.png'], size: ['100'], text: ['정보처리기사'] },
     { id: 3, name: 'Version Control', value: ['github.png', 'jenkins.png'], size: ['120', '140'], text: ['', ''] },
     { id: 4, name: 'IDE Tool', value: ['phpstorm.png', 'intellij.png'], size: ['80', '80'], text: ['', ''] },
-    { id: 5, name: 'Platform', value: ['docker.png'], size: ['120'], text: [''] },
+    { id: 5, name: 'Platform', value: ['docker/docker.png', 'docker/docker-compose.png'], size: ['120', '180'], text: ['', ''] },
     { id: 6, name: 'Framework', value: ['ci4.png', 'boot_spring.png'], size: ['80', '150'], text: ['', ''] },
     { id: 7, name: 'Amazon Cloud', value: ['aws/ec2.png', 'aws/ecr.png', 'aws/ecs.png', 'aws/iam.png', 'aws/load_balancer.png', 'aws/rds.png', 'aws/s3.png'], size: ['90', '90', '90', '65', '120', '90', '90'], text: ['', '', '', '', '', '', ''] },
 ];

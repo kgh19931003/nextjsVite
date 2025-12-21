@@ -91,11 +91,14 @@ export default function UploadVideo({ title, uploadState }: UploadVideoProps) {
     // 최초 fileData로 초기화
     useEffect(() => {
         const initial = uploadState.fileData.map((item, index) => {
+            const originalName = uploadState.fileOriginalName[index];
+
             if (typeof item === 'string') {
                 return {
                     id: item,
                     file: item,
-                    preview: item.startsWith('http://localhost:9090/') ? item : `http://localhost:9090/${item}`
+                    preview: process.env.NEXT_PUBLIC_PROFILE == "local" ? `http://localhost:9090/${item}` : "/"+item,
+                    fileOriginalName: originalName
                 };
             } else {
                 let url = objectUrlMap.current.get(item.name);

@@ -21,6 +21,7 @@ export type UploadStateActions = {
     setFileDeleteIndex: (index: number[]) => void;
     setFileMultipartFileOrder: (order: number[]) => void;
     setFileOrder: (order: number[]) => void;
+    setFileOriginalName: (name: string[]) => void;
     resetUploadState: () => void;
     initializeUploadState: (data: Partial<UploadStateType>) => void;
 };
@@ -72,6 +73,10 @@ export function useUploadState(): UploadStateType & UploadStateActions {
         setState(prev => ({ ...prev, fileOrder: order }));
     }, []);
 
+    const setFileOriginalName = useCallback((name: string[]) => {
+        setState(prev => ({ ...prev, fileOriginalName: name }));
+    }, []);
+
     const resetUploadState = useCallback(() => {
         setState(initialState);
     }, []);
@@ -90,6 +95,7 @@ export function useUploadState(): UploadStateType & UploadStateActions {
         setFileDeleteIndex,
         setFileMultipartFileOrder,
         setFileOrder,
+        setFileOriginalName,
         resetUploadState,
         initializeUploadState,
     };
