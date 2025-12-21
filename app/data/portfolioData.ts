@@ -23,8 +23,8 @@ export const careerData = [
         company: '㈜ 갓테크',
         position: '매니저',
         department: '웹개발',
-        period: '2025.05 - 재직중',
-        duration: '재직중',
+        period: '2025.05 - 2025.12',
+        duration: '7개월',
         description: '회사 홈페이지 관리 및 솔루션 플랫폼 제작',
         icon: '💼'
     },
