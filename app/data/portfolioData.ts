@@ -20,6 +20,16 @@ export const stackData = [
 export const careerData = [
     {
         id: 1,
+        company: '㈜ 드림포원',
+        position: '전임',
+        department: '웹개발',
+        period: '2026.01 - 재직중',
+        duration: '재직중',
+        description: '외주 플랫폼 제작',
+        icon: '💼'
+    },
+    {
+        id: 2,
         company: '㈜ 갓테크',
         position: '매니저',
         department: '웹개발',
@@ -29,7 +39,7 @@ export const careerData = [
         icon: '💼'
     },
     {
-        id: 2,
+        id: 3,
         company: '㈜ 위브릭스',
         position: '대리',
         department: '개발팀',
@@ -39,7 +49,7 @@ export const careerData = [
         icon: '🚀'
     },
     {
-        id: 3,
+        id: 4,
         company: '위즈메이드㈜',
         position: '사원',
         department: '개발팀',
@@ -49,7 +59,7 @@ export const careerData = [
         icon: '📱'
     },
     {
-        id: 4,
+        id: 5,
         company: 'O2media(개인) & ㈜ 슈퍼셀(법인전환)',
         position: '사원',
         department: '개발팀',
@@ -446,6 +456,54 @@ export const portfolioData: PortfolioItem[] = [
             '/content/refit/2.png',
             '/content/refit/3.png',
             '/content/refit/4.png'
+        ]
+    },
+    {
+        id: 'ludol planc',
+        company: '주식회사 드림포원',
+        category: 'horizontal',
+        categoryColor: 'indigo',
+        title: '화장품 전문 쇼핑몰',
+        url: 'https://ludolplanc.com/',
+        urlText: 'ludolplanc.com',
+        workScope: [
+            '플랫폼 백엔드 전체 담당',
+            'DB 설계, 백엔드, 운영 기능까지 쇼핑몰 전체를 단독으로 구축한 프로젝트입니다.'
+        ],
+        environment: [
+            { label: 'Infra', value: 'Cafe24' },
+            { label: 'Backend', value: 'Php 8.4' },
+            { label: 'Frontend', value: 'html5 & javascript' },
+            { label: 'FrameWork', value: 'Codeigniter 4.x' }
+        ],
+        description: [
+            '화장품 판매를 주력으로 하는 D2C 기반 쇼핑몰입니다.',
+            'ㅤ',
+            '사용자 중심의 상품 탐색 경험을 고려하여',
+            '카테고리 / 검색 / 상세페이지 UI를 구성하였으며,',
+            '구매 전환율을 높이기 위한 UX 흐름 설계에 집중하였습니다.',
+            'ㅤ',
+            '장바구니 → 주문 → 결제까지 이어지는 구매 프로세스를 직접 구현하였고,',
+            '토스페이먼츠 연동을 통해 안정적인 결제 환경을 구축하였습니다.',
+            'ㅤ',
+            '비회원 / 회원 구매 로직을 분리 설계하여',
+            '간편 구매와 회원 관리 기능을 동시에 지원하도록 개발하였으며,',
+            '주문 내역 조회, 배송 상태 확인 기능을 포함하고 있습니다.',
+            'ㅤ',
+            '관리자 CMS에서는 상품 등록, 옵션 관리, 주문 관리, 회원 관리 등',
+            '쇼핑몰 운영에 필요한 전반적인 기능을 직접 설계 및 개발하였습니다.',
+            'ㅤ',
+            '또한 반복적인 운영 업무를 줄이기 위해',
+            '상품 상태 변경, 재고 관리, 주문 처리 프로세스를 효율적으로 개선하였습니다.'
+        ],
+        images: [
+            '/content/ludolplanc/1.png',
+            '/content/ludolplanc/2.png',
+            '/content/ludolplanc/3.png',
+            '/content/ludolplanc/4.png',
+            '/content/ludolplanc/5.png',
+            '/content/ludolplanc/6.png',
+            '/content/ludolplanc/7.png',
         ]
     }
 ];
